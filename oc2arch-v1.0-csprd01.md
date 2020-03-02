@@ -133,9 +133,27 @@ Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, 
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 
+## 1.5 Goal
+The goal of the OpenC2 Language Specification is to provide a model for interoperating between functional elements of cyber defense systems. This language used in conjunction with the OpenC2 Language SPecification, OpenC2 Actuator Profiles, and OpenC2 Transfer Specifications allows for vendor-agnostic cybertime response to attacks.
+
+The Integrated Adaptive Cyber Defense (IACD) framework defines a collection of activities, based on the traditional OODA (Observe–Orient–Decide–Act) Loop [[IACD]](#iacd):
+
+* Sensing:  gathering of data regarding system activities
+* Sense Making:  evaluating data using analytics to understand what's happening
+* Decision Making:  determining a course-of-action to respond to system events
+* Acting:  Executing the course-of-action
+
+The goal of OpenC2 is to enable coordinated defense in cyber-relevant time between decoupled blocks that perform cyber defense functions. OpenC2 focuses on the Acting portion of the IACD framework; the assumption that underlies the design of OpenC2 is that the sensing/analytics have been provisioned and the decision to act has been made. This goal and these assumptions guide the design of OpenC2:
+
+* **Technology Agnostic:**  The OpenC2 language defines a set of abstract atomic cyber defense actions in a platform and implementation agnostic manner
+* **Concise:**  A Command is intended to convey only the essential information required to describe the action required and can be represented in a very compact form for communications-constrained environments
+* **Abstract:**  Commands and Responses are defined abstractly and can be encoded and transferred via multiple schemes as dictated by the needs of different implementation environments
+* **Extensible:**  While OpenC2 defines a core set of Actions and Targets for cyber defense, the language is expected to evolve with cyber defense technologies, and permits extensions to accommodate new cyber defense technologies.
+
+
 -------
 
-# 2 Overview of OpenC2 
+# 2 Overview of OpenC2 Architecture
 
 OpenC2 is a suite of specifications for Producers and Consumers to command and execute cyber defense functions. These specifications include the OpenC2 Language Specification, Actuator Profiles, and Transfer Specifications. The OpenC2 Language Specification and Actuator Profile specifications focus on the language content and meaning at the Producer and Consumer of the Command and Response while the transfer specifications focus on the protocols for their exchange.
 
@@ -148,6 +166,14 @@ The language defines two payload structures:
 
 1. **Command**: An instruction from one system known as the Producer, to one or more systems, the Consumer(s), to act on the content of the Command.
 2. **Response**: Any information sent back to the Producer as a result of the Command.
+
+The Action and Target components are required. A particular Target may be further refined by the Target type. Procedures to extend the Targets are described in [Section 3.1.4](#314-extensions).
+
+Command Arguments, if present, influence the Command by providing information such as timing, periodicity, duration, or other details on what is to be executed. Command Arguments are defiend in the OpenC2 Language Specification.
+
+An Actuator is an implementation of a cyber defense function that executes the Command. An Actuator Profile is a specification that identifies the subset of Actions, Targets and other aspects of this language specification that are required or optional in the context of a particular Actuator. An Actuator Profile may extend the language by defining additional Targets, Arguments, and Actuator Specifiers that are meaningful and possibly unique to the Actuator.
+
+The Actuator may be omitted from a Command and typically will not be included in implementations where the identities of the endpoints are unambiguous or when a high-level effects-based Command is desired and the tactical decisions on how the effect is achieved is left to the recipient.
 
 ## 2.1 Terminology used in OpenC2 
 
@@ -164,6 +190,10 @@ The language defines two payload structures:
 ![OpenC2 Message Exchange](images/image_1.png)
 
 **Figure 2-1. OpenC2 Message Exchange**
+
+## 2.2 OpenC2 Response
+The Response is a Message sent from the recipient of a Command. Response messages provide acknowledgment, status, results from a query, or other information. At a minimum, a Response will contain a status code to indicate the result of performing the Command. Additional status text and response fields optionally provide more detailed information that is specific to or requested by the Command. [Section 3.3.2](#332-openc2-response) defines the syntax of an OpenC2 Response.
+
 
 ## 2.2 Implementations
 
