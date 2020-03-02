@@ -6,7 +6,7 @@
 
 ## Committee Specification Draft 01 /<br>Public Review Draft 01
 
-## 27 September 2019
+## 2 March 2020
 
 ### Technical Committee:
 [OASIS Open Command and Control (OpenC2) TC](https://www.oasis-open.org/committees/openc2/)
@@ -270,5 +270,5 @@ Darren | Anstee | Arbor Networks
 # Appendix B. Revision History
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| specname-v1.0-wd01 | yyyy-mm-dd | Editor Name | Initial working draft |
+| specname-v1.0-wd01 | 2020-03-02 | Toby Considine | Initial working draft |
 
