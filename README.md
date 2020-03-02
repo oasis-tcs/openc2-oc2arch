@@ -38,3 +38,14 @@ and freely available for all to use, subject to applicable OASIS policies, as pr
 Please send questions or comments about [OASIS TC GitHub repositories](https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work) to 
 the [OASIS TC Administrator](mailto:tc-admin@oasis-open.org).  For questions about content in this repository, please contact the TC Chair or 
 Co-Chairs as listed on the the OpenC2 TC's [home page](https://www.oasis-open.org/committees/openc2/).
+
+## Preparation Note
+
+Here is a customized command line which will generate HTML from this markdown file (named oc2arch-v1.0-csprd01.md):
+
+pandoc -f gfm -t html oc2arch-v1.0-csprd01.md -c styles/markdown-styles-v1.7.3.css --toc --toc-depth=5 -s -o oc2arch-v1.0-csprd01.html --metadata title="Open Command and Control (OpenC2) Architecture Specification Version 1.0"
+
+We are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
+
+This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3.css).
+
