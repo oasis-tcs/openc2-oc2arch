@@ -175,7 +175,7 @@ An Actuator is an implementation of a cyber defense function that executes the C
 
 The Actuator may be omitted from a Command and typically will not be included in implementations where the identities of the endpoints are unambiguous or when a high-level effects-based Command is desired and the tactical decisions on how the effect is achieved is left to the recipient.
 
-## 2.1 Terminology used in OpenC2 
+## 2.1 Terminology used in OpenC2
 
 * **Action**: The task or activity to be performed (e.g., 'deny').
 * **Actuator**: The function performed by the Consumer that executes the Command (e.g., 'Stateless Packet Filtering').
@@ -246,6 +246,109 @@ http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
 
 Remove this note before submitting for publication.)
 
+An OpenC2 Producer is defined per Section 2 of this document.
+
+An OpenC2 Consumer is defined per Section 2 of this document.
+
+The OpenC2 Transport Specification List
+is defined as:
+- oc2-https
+- oc2-http [Editor's note - remove if perchance arch goes for approval prior to http]
+- oc2-mqtt [Editor's note - remove if perchance arch goes for approval prior to mqtt]
+- oc2-odxl [Editor's note - remove if perchance arch goes for approval prior to odxl]
+
+The OpenC2 Actuator Profile Specification List
+is defined as:
+- slpf
+- sfpf [Editor's note - remove if not approved in time]
+- sbom [Editor's note - remove if not approved in time]
+- endp  [Editor's note - remove if not approved in time]
+- sdnc [Editor's note - remove if not approved in time]
+- emgw [Editor's note - remove if not approved in time]
+- ids  [Editor's note - remove if not approved in time]
+- ips  [Editor's note - remove if not approved in time]
+- dlp  [Editor's note - remove if not approved in time]
+- swg [Editor's note - remove if not approved in time]
+
+The Actuator Profile List
+is defined as the list of
+Actuator Profiles supported by the Consumer as supplied in
+the response to the
+{action:query, target:features, target-specifier:[profiles]} command per Section 4.1 of the Language Specification.
+
+A Consumer's Actuator Profile List
+is composed of two types on profiles -
+Standard Actuator Profiles (SAP) ie those on the OpenC2
+OpenC2 Actuator Profile Specification List;
+and Custom Actuator Profiles (CAP)
+ie those not on the
+OpenC2 Actuator Profile Specification List.
+
+CC 4.1 In order to conform to this specification,
+an OpenC2 Producer
+MUST only issue OpenC2 commands conforming to
+OpenC2 Language Specification Section 5.1
+Conformance Clause 1.
+
+CC 4.2 In order to conform to this specification,
+an OpenC2 Consumer
+MUST only accept OpenC2 commands conforming to
+OpenC2 Language Specification Section 5.1
+Conformance Clause 1.
+
+CC 4.3 In order to conform to this specification,
+an OpenC2 Consumer
+MUST only return responses conforming to
+OpenC2 Language Specification Section 5.2
+Conformance Clause 2.
+
+CC 4.4 In order to conform to this specification,
+an OpenC2 Producer
+MUST only accept responses conforming to
+ OpenC2 Language Specification Section 5.2
+Conformance Clause 2.
+
+CC 4.5 In order to conform to this specification,
+an OpenC2 Producer
+MUST be conformant to
+ OpenC2 Language Specification Section 5.3
+Conformance Clause 3.
+
+CC 4.6 In order to conform to this specification,
+an OpenC2 Consumer
+MUST be conformant to
+OpenC2 Language Specification Section 5.4
+Conformance Clause 4.
+
+CC 4.7 In order to conform to this specification,
+an OpenC2 Producer
+MUST be conformant with at least one transport in the
+OpenC2 Transport Specification List.
+
+CC 4.8 In order to conform to this specification,
+an OpenC2 Consumer
+MUST be conformant with at least one transport in the
+OpenC2 Transport Specification List.
+
+CC 4.9 In order to conform to this specification,
+an OpenC2 Consumer
+MUST have an OpenC2 Consumer Actuator Profile List
+with at least one entry.
+
+CC 4.10 In order to conform to this specification,
+all SAP entries on a Consumer's
+OpenC2 Consumer Actuator Profile List
+MUST conform to the appropriate OASIS OpenC2 Actuator Profiles
+Specification (e.g if slpf, Consumer must conform to OASIS blah blah SLPF Spec 1.0 or above)
+
+CC 4.11 In order to conform to this specification,
+all CAP entries MUST NOT be for functionality covered
+by a profile on the OpenC2 Actuator Profile Specification List
+[Editor's note - this needs work since not actually true. trying to say you can't do custom for standard functions but extenions mean you can you cap so need to word so it's for 'extra' not what's in spec]
+
+CC 4.12 In order to conform to this specification,
+all CAP entries MUST [Editor's note - need words on how to define doing extensions in standard way, probably referring to language spec section]
+
 
 -------
 
@@ -271,4 +374,3 @@ Darren | Anstee | Arbor Networks
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
 | specname-v1.0-wd01 | 2020-03-02 | Toby Considine | Initial working draft |
-
