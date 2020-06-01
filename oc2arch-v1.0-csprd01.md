@@ -177,11 +177,15 @@ The Actuator may be omitted from a Command and typically will not be included in
 
 ## 2.1 Terminology used in OpenC2
 
+EDITOR's NOTE - should this section be in section 1.2?
+
 * **Action**: The task or activity to be performed (e.g., 'deny').
 * **Actuator**: The function performed by the Consumer that executes the Command (e.g., 'Stateless Packet Filtering').
+* **Actuator Profile**: EDITOR's NOTE add definition
 * **Argument**: A property of a Command that provides additional information on how to perform the Command, such as date/time, periodicity, duration, etc.
 * **Command**: A Message defined by an Action-Target pair that is sent from a Producer and received by a Consumer.
 * **Consumer**: A managed device / application that receives Commands. Note that a single device / application can have both Consumer and Producer capabilities.
+* **Custom Actuator Profile (CAP)**: EDITOR's NOTE add definition
 * **Message**: A content- and transport-independent set of elements conveyed between Consumers and Producers.
 * **Producer**: A manager application that sends Commands.
 * **Response**: A Message from a Consumer to a Producer acknowledging a Command or returning the requested resources or status to a previously received Command.
