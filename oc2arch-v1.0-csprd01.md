@@ -342,13 +342,18 @@ with at least one entry.
 CC 4.10 In order to conform to this specification,
 all SAP entries on a Consumer's
 OpenC2 Consumer Actuator Profile List
-MUST conform to the appropriate OASIS OpenC2 Actuator Profiles
-Specification (e.g if slpf, Consumer must conform to OASIS blah blah SLPF Spec 1.0 or above)
+MUST conform to the appropriate OASIS OpenC2 Actuator Profiles.
 
 CC 4.11 In order to conform to this specification,
-all CAP entries MUST NOT be for functionality covered
-by a profile on the OpenC2 Actuator Profile Specification List
-[Editor's note - this needs work since not actually true. trying to say you can't do custom for standard functions but extenions mean you can you cap so need to word so it's for 'extra' not what's in spec]
+CAP MUST extend the functionality covered
+by a profile on the OpenC2 Actuator Profile Specification List,
+but MUST conform with the OpenC2 Actuator Profile Specification being extended.
+E.g if slpf, Consumer must conform to OASIS OpenC2 SLPF Actuator Profile Spec.
+Note if the actuator function is not an extension to an existing function,
+fails this conformance clause.
+E.g. a CAP fails this clause is it is for malware detection,
+and there is not a malare detection
+SAP.
 
 CC 4.12 In order to conform to this specification,
 all CAP entries MUST [Editor's note - need words on how to define doing extensions in standard way, probably referring to language spec section]
@@ -367,10 +372,8 @@ The following individuals have participated in the creation of this specificatio
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Philippe | Alcoy | Arbor Networks
-Alex | Amirnovin | Viasat
-Kris | Anderson | Trend Micro
-Darren | Anstee | Arbor Networks
+| Duncan | Sparrell | sFractal Consulting |
+| Toby
 
 -------
 
