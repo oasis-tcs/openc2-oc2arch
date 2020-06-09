@@ -222,7 +222,36 @@ The Response is a Message sent from the recipient of a Command. Response message
 
 ## 2.3 Producers, Consumers, and Devices
 
+Figure 2-X illustrates three representative
+configurations for an OpenC2 Consumer device:
 
+1. The Consumer implements a single Actuator Profile (AP).
+1. The Consumer implements multiple APs, which may be all
+   different, all the same, or a mixture.
+1. The Consumer is a manager for a collection of devices,
+   providing an indirect means for the Producer to use
+   OpenC2 Commands to influence the operations of those
+   devices. The managed devices in the collection may or may
+   not be identical.
+
+In configurations 1 and 2, the Producer has direct, explicit
+knowledge of the APs implemented by the Consumer.  OpenC2
+Commands issued by the Producer directly affect the
+operation of the Consumer device.  An example of multiple
+instances of the same AP in configuration 2 would be packet
+filtering functions on multiple, distinct network
+interfaces.
+
+In configuration 3, the Producer has knowledge of the
+capabilities supported by the Consumer manager, but only
+indirect affect the operation of the managed devices. In
+configuration 3 there is no assumption that the interface
+between the Consumer manager and the managed devices uses
+OpenC2 Commands and Responses.
+
+![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
+
+**Figure 2-X. Producer / Consumer / Device COnfigurations**
 
 ## 2.4 Implementations
 
