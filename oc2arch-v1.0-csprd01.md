@@ -169,7 +169,7 @@ The language defines two payload structures:
 
 The Action and Target components are required. A particular Target may be further refined by the Target type. Procedures to extend the Targets are described in [Section 3.1.4](#314-extensions).
 
-Command Arguments, if present, influence the Command by providing information such as timing, periodicity, duration, or other details on what is to be executed. Command Arguments are defiend in the OpenC2 Language Specification.
+Command Arguments, if present, influence the Command by providing information such as timing, periodicity, duration, or other details on what is to be executed. Command Arguments are defined in the OpenC2 Language Specification.
 
 An Actuator is an implementation of a cyber defense function that executes the Command. An Actuator Profile is a specification that identifies the subset of Actions, Targets and other aspects of this language specification that are required or optional in the context of a particular Actuator. An Actuator Profile may extend the language by defining additional Targets, Arguments, and Actuator Specifiers that are meaningful and possibly unique to the Actuator.
 
@@ -187,7 +187,7 @@ The Actuator may be omitted from a Command and typically will not be included in
 * **Response**: A Message from a Consumer to a Producer acknowledging a Command or returning the requested resources or status to a previously received Command.
 * **Specifier**: A property or field that identifies a Target or Actuator to some level of precision.
 * **Target**: The object of the Action, i.e., the Action is performed on the Target (e.g., IP Address).text.
-![OpenC2 Message Exchange](images/image_1.png)
+![OpenC2 Message Exchange](images/MessageFlow.png)
 
 **Figure 2-1. OpenC2 Message Exchange**
 
@@ -199,7 +199,7 @@ The Response is a Message sent from the recipient of a Command. Response message
 
 OpenC2 implementations integrate the related OpenC2 specifications described above with related industry specifications, protocols, and standards. Figure 1-2 depicts the relationships among OpenC2 specifications, and their relationships to other industry standards and environment-specific implementations of OpenC2. Note that the layering of implementation aspects in the diagram is notional, and not intended to preclude any particular approach to implementing the needed functionality (for example, the use of an application-layer message signature function to provide message source authentication and integrity).
 
-![OpenC2 Documentation and Layering Model](images/image_2.png)
+![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
 
 **Figure 2-2. OpenC2 Documentation and Layering Model**
 
