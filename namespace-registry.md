@@ -1,5 +1,5 @@
 # OpenC2 Namespace Registry
-## Preface
+## Namespace Concepts
 A [namespace](https://en.wikipedia.org/wiki/Namespace) is a set of names used to identify objects.
 A namespace ensures that all of a given set of objects can be easily identified and unambiguously referenced.
 
@@ -9,28 +9,53 @@ specification using a namespaced name:
 
     name = <namespace identifier> separator <local name>
 
-XML includes namespaces, but JSON does not.  Because OpenC2 consists of multiple specifications,
-it requires a namespacing mechanism even when using JSON data format.
+XML includes namespaces but JSON does not. Because OpenC2 consists of multiple specifications,
+it requires a namespacing mechanism usable with JSON data.
 OpenC2 has therefore created a naming approach similar to XML's that can be applied to non-namespaced
-data formats such as JSON. This approach uses a *resolver* to look up all namespaced type definitions
-from their defining specifications and include them in a single collection of local definitions.
+data formats such as JSON.  For brevity it uses a short Namespace Identifier (NSID) for each referenced namespace.
+The NSID is then used as a prefix with a colon separator before each referenced definition:
+
+**schema**:
+```
+    import: {"ex": "http://www.example.com/datatypes/v1.2"}
+
+    Person = Record {
+        1 name   String,
+        2 id     Integer,
+        3 email  ex:Email-Address       // type definition imported/resolved from another specification
+    }
+```
+**JSON data**:
+```
+    {"name": "John", "id": 12345, "email": "john@acme.com"}
+```
+Namespacing thus involves four different values:
+* **Namespace**: The unique identifier of a referenced specification: "http://www.example.com/datatypes/v1.2"
+* **Type Name**: the name of a type defined in a referenced specification: "Email-Address"
+* **NSID**: a short abbreviation for a Namespace used as a prefix in an imported type: "ex"
+* **Property Name**: a JSON object property name whose value is an imported type: "email"
+
+NSID and Property Name are both defined by the importing specification; neither are registered here.
+
+This approach uses a *resolver* to look up all namespaced type definitions
+from their defining specifications and include them in a single set of definitions.
 Because the resolver converts all namespaced names to local names, namespace identifiers never appear
-in OpenC2 JSON data. This means that specifications do not need to be available online at their URIs,
-and that implementations are not forced to do namespace resolution at runtime.
+in JSON data. Specifications do not need to be available online at their URIs and implementations
+are not required to do namespace resolution at runtime, although dynamic namespace resolution may be
+appropriate for some use cases.  
 
 ## Registration Process
-Standard actuator profile namespaces are defined by the OpenC2 Technical Committee. The OpenC2 TC Documentation Norms
-suggests naming conventions for TC work products. Namespace URIs should be based on this convention, omitting
-the filename and the "docs" domain component, and using "http:" as the scheme component. A namespace is only
-an identifier, it does not refer to a network-accessible resource.  Lookup services may provide resource URLs
-for a namespace.
+OpenC2 TC Documentation Norms suggests naming conventions for TC work products.
+Namespace URIs should be based on this convention, omitting the filename and the "docs" domain component,
+and using "http:" as the scheme component. A namespace is just an identifier, it does not refer to a network-accessible resource.
+Lookup services may provide resource URLs for a namespace.
 
 * **Actuator Profile Name**: ap-\<function-shorthand\>
 * **Example URL**: https://docs.oasis-open.org/openc2/ap-av/v1.0/ap-av-v1.0.html
 * **Example Namespace**: http://oasis-open.org/openc2/ap-av/v1.0
 
 Custom actuator profile namespaces are chosen by the profile author and MUST NOT conflict with namespace URIs registered here.
-Profile authors MAY register Namespaces under http://oasis-open.org/openc2/custom but are not required to do so.
+Custom profile authors MAY register Namespaces under http://oasis-open.org/openc2/custom but are not required to do so.
 
 ## Registry
 | Specification | Namespace | Source |
@@ -43,12 +68,12 @@ Profile authors MAY register Namespaces under http://oasis-open.org/openc2/custo
 | Stateful Packet Filtering AP      | http://oasis-open.org/openc2/ap-sfpf/v1.0     | https://github.com/oasis-tcs/openc2-ap-sfpf |
 | Software Bill of Materials AP     | http://oasis-open.org/openc2/ap-sbom/v1.0     | https://github.com/oasis-tcs/openc2-ap-sbom |
 | Intrusion Detection AP            | http://oasis-open.org/openc2/ap-ids/v1.0      | https://github.com/oasis-tcs/openc2-ap-ids Repo Exists |
-| Honeypot functions AP             |                                               | https://github.com/oasis-tcs/openc2-ap-honeypots Repo Exists |
+| Honeypot functions AP             | http://oasis-open.org/openc2/ap-honeypot/v1.0 | https://github.com/oasis-tcs/openc2-ap-honeypots Repo Exists |
 | Endpoint functions AP             |                                               | Proposed for LS |
 | Software-Defined Nework Control AP|                                               | Proposed for LS |
 | Email Gateway functions AP        |                                               | Proposed for LS |
 | Intrusion Prevention AP           |                                               | Proposed for LS |
 | Data Loss Prevention AP           |                                               | Proposed for LS |
 | Secure Web Gateway AP             |                                               | Proposed for LS |
-| Hello-world API HTTP Actuator AP  | http://oasis-open.org/openc2/custom/haha/v1.0 | Example: Custom actuator profile namespaces may be registered |
-| Hello-world API MQTT Actuator AP  | http://oasis-open.org/openc2/custom/hama/v1.0 | |
+| Hello-world API HTTP CAP          | http://oasis-open.org/openc2/custom/haha/v1.0 | Example: Custom AP namespaces may be registered |
+| Hello-world API MQTT CAP          | http://acme.com/openc2-profiles/hama/v1.0     | Example: Custom AP namespaces are chosen by their authors |
