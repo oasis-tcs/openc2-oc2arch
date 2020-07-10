@@ -36,13 +36,15 @@ Namespacing thus involves four different values:
 * **Property Name**: a JSON object property name whose value is an imported type: "email"
 
 NSID and Property Name are both defined by the importing specification; neither are registered here.
+Because NSIDs prefix Type Names and Type Names never appear in JSON data (except in a schema transfer),
+NSIDs also never appear in JSON data.
 
-This approach uses a *resolver* to look up all namespaced type definitions
-from their defining specifications and include them in a single set of definitions.
-Because the resolver converts all namespaced names to local names, namespace identifiers never appear
-in JSON data. Specifications do not need to be available online at their URIs and implementations
-are not required to do namespace resolution at runtime, although dynamic namespace resolution may be
-appropriate for some use cases.  
+This approach uses a *resolver* to look up all namespaced type definitions from their defining specifications
+and incorporate them into a single set of definitions. Authors can manually copy and paste definitions
+into a monolithic specification, but namespace resolution automates that process, eliminating redudundancy
+and the potential for inconsistency.
+Specifications do not need to be available online and implementations are not required to do namespace resolution
+at runtime, although dynamic namespace resolution may be appropriate for some use cases.  
 
 ## Registration Process
 OpenC2 TC Documentation Norms suggests naming conventions for TC work products.
