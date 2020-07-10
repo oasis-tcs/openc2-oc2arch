@@ -12,8 +12,9 @@ specification using a namespaced name:
 XML includes namespaces but JSON does not. Because OpenC2 consists of multiple specifications,
 it requires a namespacing mechanism usable with JSON data.
 OpenC2 has therefore created a naming approach similar to XML's that can be applied to non-namespaced
-data formats such as JSON.  For brevity it uses a short Namespace Identifier (NSID) for each referenced namespace.
-The NSID is then used as a prefix with a colon separator before each referenced definition:
+data formats such as JSON.  For brevity it assigns a short Namespace Identifier (NSID) to each
+referenced namespace using an **import** statement.
+It then uses the NSID as a prefix with a colon separator before each referenced definition:
 
 **schema**:
 ```
@@ -39,7 +40,7 @@ NSID and Property Name are both defined by the importing specification; neither 
 Because NSIDs prefix Type Names and Type Names never appear in JSON data (except in a schema transfer),
 NSIDs also never appear in JSON data.
 
-This approach uses a *resolver* to look up all namespaced type definitions from their defining specifications
+This approach uses a resolver to look up all namespaced type definitions from their defining specifications
 and incorporate them into a single set of definitions. Authors can manually copy and paste definitions
 into a monolithic specification, but namespace resolution automates that process, eliminating redudundancy
 and the potential for inconsistency.
