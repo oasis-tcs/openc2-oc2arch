@@ -3,18 +3,17 @@
 A [namespace](https://en.wikipedia.org/wiki/Namespace) is a set of names used to identify objects.
 A namespace ensures that all of a given set of objects can be easily identified and unambiguously referenced.
 
-All OpenC2 type definitions are contained in a specification, and each specification is assigned a globally-unique
-namespace in the form of a URI.  Types in one specification can reference types defined in another
-specification using a namespaced name:
+All OpenC2 type definitions are contained in a specification, and each specification is assigned a
+globally-unique namespace in the form of a URI.  Types in one specification can reference types
+defined in another specification using a namespaced name:
 
     name = <namespace identifier> separator <local name>
 
 XML includes namespaces but JSON does not. Because OpenC2 consists of multiple specifications,
 it requires a namespacing mechanism usable with JSON data.
 OpenC2 has therefore created a naming approach similar to XML's that can be applied to non-namespaced
-data formats such as JSON.  For brevity it assigns a short Namespace Identifier (NSID) to each
-referenced namespace using an **import** statement.
-It then uses the NSID as a prefix with a colon separator before each referenced definition:
+data formats such as JSON.  For brevity it assigns a short Namespace Identifier (NSID) to each referenced
+namespace using an **import** statement, then uses the NSID as a prefix to each referenced type:
 
 **schema**:
 ```
@@ -34,24 +33,27 @@ Namespacing thus involves four different values:
 * **Namespace**: The unique identifier of a referenced specification: "http://www.example.com/datatypes/v1.2"
 * **Type Name**: the name of a type defined in a referenced specification: "Email-Address"
 * **NSID**: a short abbreviation for a Namespace used as a prefix in an imported type: "ex"
-* **Property Name**: a JSON object property name whose value is an imported type: "email"
+* **Field Name**: may be serialized as a JSON object property whose value is an imported type: "email"
 
-NSID and Property Name are both defined by the importing specification; neither are registered here.
-Because NSIDs prefix Type Names and Type Names never appear in JSON data (except in a schema transfer),
-NSIDs also never appear in JSON data.
+NSID and Field Name are both defined by the importing specification; neither are registered here.
+Type Names (including NSID prefixes) never appear in JSON data, so Namespaces and NSIDs are never
+needed or used in JSON data except within a schema document.
 
 This approach uses a resolver to look up all namespaced type definitions from their defining specifications
-and incorporate them into a single set of definitions. Authors can manually copy and paste definitions
+and incorporate them into a single schema. Authors can manually copy and paste definitions
 into a monolithic specification, but namespace resolution automates that process, eliminating redudundancy
 and the potential for inconsistency.
-Specifications do not need to be available online and implementations are not required to do namespace resolution
-at runtime, although dynamic namespace resolution may be appropriate for some use cases.  
+
+A namespace URI is only an identifier. For syntactic reasons it must have a scheme (http) but it
+is not a network-accessible resource. Lookup services may provide multiple resource URLs
+(e.g., documents of various types) for a namespace.
+Referenced specifications do not need to be available online and implementations are not required to do
+namespace resolution at runtime, although dynamic namespace resolution may be appropriate for some use cases.  
 
 ## Registration Process
 OpenC2 TC Documentation Norms suggests naming conventions for TC work products.
 Namespace URIs should be based on this convention, omitting the filename and the "docs" domain component,
-and using "http:" as the scheme component. A namespace is just an identifier, it does not refer to a network-accessible resource.
-Lookup services may provide resource URLs for a namespace.
+and using "http" as the scheme component.
 
 * **Actuator Profile Name**: ap-\<function-shorthand\>
 * **Example URL**: https://docs.oasis-open.org/openc2/ap-av/v1.0/ap-av-v1.0.html
@@ -61,6 +63,7 @@ Custom actuator profile namespaces are chosen by the profile author and MUST NOT
 Custom profile authors MAY register Namespaces under http://oasis-open.org/openc2/custom but are not required to do so.
 
 ## Registry
+**Last Update:** 14 July 2020
 | Specification | Namespace | Source |
 | ------------- | --------- | ------ |
 | OpenC2 Language Spec v1.0 CS01    | http://oasis-open.org/openc2/lang/v1.0        | https://github.com/oasis-tcs/openc2-oc2ls |
