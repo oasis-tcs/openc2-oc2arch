@@ -45,10 +45,12 @@ into a monolithic specification, but namespace resolution automates that process
 and the potential for inconsistency.
 
 A namespace URI is only an identifier. For syntactic reasons it must have a scheme (http) but it
-is not a network-accessible resource. Lookup services may provide multiple resource URLs
-(e.g., documents of various types) for a namespace.
+is not a network-accessible resource. 
 Referenced specifications do not need to be available online and implementations are not required to do
-namespace resolution at runtime, although dynamic namespace resolution may be appropriate for some use cases.  
+namespace resolution at runtime, although dynamic namespace resolution may be appropriate for some use cases.
+URLs for online schemas should be derived from the namespace using scheme "https", filename "schema", and
+the applicable file extension: ".jadn" for the abstract schema, and ".json", ".xsd", ".cddl", ".proto", etc.
+for corresponding concrete schemas.
 
 ## Registration Process
 OpenC2 TC Documentation Norms suggests naming conventions for TC work products.
@@ -56,8 +58,9 @@ Namespace URIs should be based on this convention, omitting the filename and the
 and using "http" as the scheme component.
 
 * **Actuator Profile Name**: ap-\<function-shorthand\>
-* **Example URL**: https://docs.oasis-open.org/openc2/ap-av/v1.0/ap-av-v1.0.html
+* **Example Profile URL**: https://docs.oasis-open.org/openc2/ap-av/v1.0/ap-av-v1.0.html
 * **Example Namespace**: http://oasis-open.org/openc2/ap-av/v1.0
+* **Example Schema URL**: https://oasis-open.org/openc2/ap-av/v1.0/schema.jadn
 
 Custom actuator profile namespaces are chosen by the profile author and MUST NOT conflict with namespace URIs registered here.
 Custom profile authors MAY register Namespaces under http://oasis-open.org/openc2/custom but are not required to do so.
