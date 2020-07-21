@@ -41,7 +41,7 @@ needed or used in JSON data except within a schema document.
 
 This approach uses a resolver to look up all namespaced type definitions from their defining specifications
 and incorporate them into a single schema. Authors can manually copy and paste definitions
-into a monolithic specification, but namespace resolution automates that process, eliminating redudundancy
+into a monolithic specification, but namespace resolution automates that process, eliminating redundancy
 and the potential for inconsistency.
 
 A namespace URI is only an identifier. For syntactic reasons it must have a scheme (http) but it
@@ -53,8 +53,9 @@ the applicable file extension: ".jadn" for the abstract schema, and ".json", ".x
 for corresponding concrete schemas.
 
 ## Registration Process
-OpenC2 TC Documentation Norms suggests naming conventions for TC work products.
-Namespace URIs should be based on this convention, omitting the filename and the "docs" domain component,
+OpenC2 TC Documentation Norms suggests
+[naming conventions](https://github.com/oasis-tcs/openc2-tc-ops/blob/master/Documentation-Norms.md#42-assign-work-product-name)
+for TC work products.  Namespace URIs should be based on this convention, omitting the filename and the "docs" domain component,
 and using "http" as the scheme component.
 
 * **Actuator Profile Name**: ap-\<function-shorthand\>
