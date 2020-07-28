@@ -19,11 +19,10 @@ namespace using an **import** statement, then uses the NSID as a prefix to each 
 ```
     import: {"ex": "http://www.example.com/datatypes/v1.2"}
 
-    Person = Record {
-        1 name   String,
-        2 id     Integer,
+    Person = Record
+        1 name   String
+        2 id     Integer
         3 email  ex:Email-Address       // type definition imported/resolved from another specification
-    }
 ```
 **JSON data**:
 ```
