@@ -134,7 +134,10 @@ Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, 
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 
 ## 1.5 Goal
-Open C2 is an effort to rigorously standardize command and control of vital cyber defense systems. The Open C2 Architecture Specification (this document) serves as an overarching structural schematic. Contained herein is a roadmap to the language specifications and various actuator/transfer protocols that have been established to integrate use case interoperation between functional elements of cyber defense.     
+Open C2 is an effort to rigorously standardize command and control of vital cyber defense systems.
+The Open C2 Architecture Specification (this document) serves as an overarching structural schematic.
+Contained herein is a roadmap to the language specifications and various actuator/transfer protocols
+that have been established to integrate use case interoperation between functional elements of cyber defense.     
 
 The Integrated Adaptive Cyber Defense (IACD) framework defines a collection of activities, based on the traditional OODA (Observe–Orient–Decide–Act) Loop [[IACD]](#iacd):
 
