@@ -16,6 +16,7 @@ Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/) \
 Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
 
 ### Editors:
+Dan Johnson (dj@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
 Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
 
 ### Additional artifacts:
