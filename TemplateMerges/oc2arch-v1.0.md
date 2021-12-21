@@ -5,9 +5,9 @@
 
 # Open Command and Control (OpenC2) Architecture Specification Version 1.0
 
-## Committee Specification Draft 01
+## Working Draft 03
 
-## 19 August 2021
+## xx January 2022
 
 &nbsp;
 
@@ -90,23 +90,23 @@ For complete copyright information please see the full Notices section in an App
 
 # 1 Introduction
 
-<!-- All text is normative unless otherwise labeled -->
+_This section is non-normative._
 
+Open Command and Control (OpenC2) is a concise and extensible language to enable machine-to-machine communications for purposes of command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation. OpenC2 typically uses a request-response paradigm where a Command is encoded by a Producer (managing application) and transferred to a Consumer (managed device or virtualized function) using a secure transfer protocol, and the Consumer can respond with status and any requested information.
 
-Here is a customized command line which will generate HTML from this markdown file (named openc2-file.md):
+OpenC2 is documented in a suite of specifications of three primary types:
 
-pandoc -f gfm -t html openc2-file.md -c styles/markdown-styles-v1.7.3.css --toc --toc-depth=5 -s -o openc2-file.html --metadata title="Title of Specification Version 1.0"
+* **Overarching documents**, specifically the *OpenC2 Language Specification* and this *Architecture Specification*, which provide the fundamental definition of the OpenC2 language and describe the abstract architecture of OpenC2 implementations.
 
-OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
+* **OpenC2 Actuator Profiles** specify the subset of the OpenC2 language relevant in the context of specific Actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely to) implement multiple Actuator profiles. Actuator profiles extend the language by defining Specifiers that identify the Actuator to the required level of precision. Actuator Profiles may define Command Arguments and Targets that are relevant and/or unique to those Actuator functions.
 
-This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3.css).
+* **OpenC2 Transfer Specifications** utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 Messages.
 
-Note this command generates a Table of Contents (TOC) in HTML which is located at the top of the HTML document, and which requires additional editing in order to be published in the expected OASIS style. This editing will be handled by OASIS staff during publication.
-A TC may use other ways to generate HTML from markdown, which may generate a TOC in a different way.
+The interactions between OpenC2 Producers and Consumers are defined by these three types of specifications.
 
 ## 1.1 Changes from earlier versions
 
-<!-- Optional section -->
+* Reformatted to December 2020 OASIS work product template
 
 ## 1.2 Glossary
 
