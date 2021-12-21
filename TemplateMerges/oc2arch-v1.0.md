@@ -90,19 +90,57 @@ For complete copyright information please see the full Notices section in an App
 
 # 1 Introduction
 
-_This section is non-normative._
+_The content in this section is non-normative, except where it is
+marked normative._
 
-Open Command and Control (OpenC2) is a concise and extensible language to enable machine-to-machine communications for purposes of command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation. OpenC2 typically uses a request-response paradigm where a Command is encoded by a Producer (managing application) and transferred to a Consumer (managed device or virtualized function) using a secure transfer protocol, and the Consumer can respond with status and any requested information.
+OpenC2 is a suite of specifications that enables command and
+control of cyber defense systems and components. OpenC2 typically
+uses a request-response paradigm where a _Command_ is encoded by
+a _Producer_ (managing application) and transferred to a
+_Consumer_ (managed device or virtualized function) using a
+secure transfer protocol, and the Consumer can respond with
+status and any requested information.
 
-OpenC2 is documented in a suite of specifications of three primary types:
+OpenC2 allows the application producing the commands to discover
+the set of capabilities supported by the managed devices. These
+capabilities permit the managing application to adjust its
+behavior to take advantage of the features exposed by the managed
+device. The capability definitions can be easily extended in a
+noncentralized manner, allowing standard and non-standard
+capabilities to be defined with semantic and syntactic rigor.
 
-* **Overarching documents**, specifically the *OpenC2 Language Specification* and this *Architecture Specification*, which provide the fundamental definition of the OpenC2 language and describe the abstract architecture of OpenC2 implementations.
+* The **OpenC2 Architecture Specification** (this document)
+  describes the fundamental structures of OpenC2 and provides a
+  blueprint for developing Actuator Profiles and Transfer
+  Specifications.
 
-* **OpenC2 Actuator Profiles** specify the subset of the OpenC2 language relevant in the context of specific Actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely to) implement multiple Actuator profiles. Actuator profiles extend the language by defining Specifiers that identify the Actuator to the required level of precision. Actuator Profiles may define Command Arguments and Targets that are relevant and/or unique to those Actuator functions.
+* The **OpenC2 Language Specification** provides the semantics
+  for the essential elements of the language, the structure for
+  Commands and Responses, and the schema that defines the proper
+  syntax for the language elements that represents the Command or
+  Response.
 
-* **OpenC2 Transfer Specifications** utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 Messages.
+* **OpenC2 Actuator Profiles** specify the subset of the OpenC2
+  language relevant in the context of specific Actuator
+  functions. Cyber defense components, devices, systems and/or
+  instances may (in fact are likely to) implement multiple
+  Actuator profiles. Actuator profiles extend the language by
+  defining Specifiers that identify the Actuator to the required
+  level of precision. Actuator Profiles may define Command
+  Arguments and Targets that are relevant and/or unique to those
+  Actuator functions.
 
-The interactions between OpenC2 Producers and Consumers are defined by these three types of specifications.
+* **OpenC2 Transfer Specifications** utilize existing protocols
+  and standards to implement OpenC2 in specific environments.
+  These standards are used for communications and security
+  functions beyond the scope of the language, such as message
+  transfer encoding, authentication, and end-to-end transport of
+  OpenC2 Messages.
+
+The most common encoding of OpenC2 is in JSON and the most common
+binding is to HTTP; this document assumes this encoding and
+binding for all examples. Other encodings and bindings are
+permitted and are defined in their respective documents.
 
 ## 1.1 Changes from earlier versions
 
