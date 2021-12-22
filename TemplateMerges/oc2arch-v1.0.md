@@ -494,21 +494,6 @@ the results, if included, depend on the type of Response being
 transferred.
 
 
-## 2.1 Level 2 Heading
-text.
-
-### 2.1.1 Level 3 Heading
-text.
-
-#### 2.1.1.1 Level 4 Heading
-text.
-
-##### 2.1.1.1.1 Level 5 Heading
-This is the deepest level, because six # gets transformed into a Reference tag.
-
-
-## 2.2 Next Heading
-text.
 
 -------
 
