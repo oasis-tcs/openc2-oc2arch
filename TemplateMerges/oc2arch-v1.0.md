@@ -312,6 +312,88 @@ endpoints are unambiguous or when a high-level effects-based
 Command is desired and the tactical decisions on how the effect
 is achieved is left to the recipient.
 
+## 2.1 Commands and Responses
+
+The OpenC2 language has two distinct content types: Command and
+Response. The Command is sent from a Producer to a Consumer and
+describes an Action to be performed by an Actuator on a Target.
+The Response is sent from a Consumer, usually back to the
+Producer, and is a means to provide information (such as
+acknowledgment, status, etc.) as a result of a Command.
+
+### 2.1.1 OpenC2 Command
+The Command describes an Action to be performed on a Target and
+may include information identifying the Actuator or Actuators
+that are to execute the Command.
+
+A Command has four main components, two required and two
+optional. The required components are the Action and the Target.
+The optional components are Command Arguments and the Actuator. A
+Command can also contain an optional Command identifier, if
+necessary. [Section 3.3.1](#331-openc2-command) defines the
+syntax of an OpenC2 Command.
+
+The following list summarizes the main four components of a
+Command.
+
+* **Action** (required): The task or activity to be performed.
+* **Target** (required): The object of the action. The Action is
+  performed on the Target. Properties of the Target, called
+  Target Specifiers, further identify the Target to some level of
+  precision, such as a specific Target, a list of Targets, or a
+  class of Targets.
+* **Arguments** (optional): Provide additional information on how
+  the command is to be performed, such as date/time, periodicity,
+  duration, etc.
+* **Actuator** (optional): The Actuator executes the Command. The
+  Actuator will be defined within the context of an Actuator
+  Profile. Properties of the Actuator, called Actuator
+  Specifiers, further identify the Actuator to some level of
+  precision, such as a specific Actuator, a list of Actuators, or
+  a group of Actuators.
+
+The Action and Target components are required and are populated
+by one of the Actions in [Section 3.3.1.1](#3311-action) and the
+Targets in [Section 3.3.1.2](#3312-target). A particular Target
+may be further refined by the Target type definitions in [Section
+3.4.1](#341-target-types). Procedures to extend the Targets are
+described in [Section 3.1.4](#314-extensions).
+
+Command Arguments, if present, influence the Command by providing
+information such as timing, periodicity, duration, or other
+details on what is to be executed. They can also be used to
+convey the need for acknowledgment or additional status
+information about the execution of a Command. The valid Arguments
+defined in this specification are in [Section
+3.3.1.4](#3314-command-arguments). Procedures to extend Arguments
+are described in [Section 3.1.4](#314-extensions).
+
+An Actuator is an implementation of a cyber defense function that
+executes the Command. An Actuator Profile is a specification that
+identifies the subset of Actions, Targets and other aspects of
+this language specification that are required or optional in the
+context of a particular Actuator. An Actuator Profile may extend
+the language by defining additional Targets, Arguments, and
+Actuator Specifiers that are meaningful and possibly unique to
+the Actuator.
+
+The Actuator may be omitted from a Command and typically will not
+be included in implementations where the identities of the
+endpoints are unambiguous or when a high-level effects-based
+Command is desired and the tactical decisions on how the effect
+is achieved is left to the recipient.
+
+### 2.1.2 OpenC2 Response
+The Response is a Message sent from the recipient of a Command.
+Response messages provide acknowledgment, status, results from a
+query, or other information. At a minimum, a Response will
+contain a status code to indicate the result of performing the
+Command. Additional status text and response fields optionally
+provide more detailed information that is specific to or
+requested by the Command. [Section 3.3.2](#332-openc2-response)
+defines the syntax of an OpenC2 Response.
+
+
 ## 2.1 Level 2 Heading
 text.
 
