@@ -321,10 +321,9 @@ The Response is sent from a Consumer, usually back to the
 Producer, and is a means to provide information (such as
 acknowledgment, status, etc.) as a result of a Command.
 
-![OpenC2 Message Exchange](images/MessageFlow.png)
-
 **Figure 2-1. OpenC2 Message Exchange**
 
+![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
 ### 2.1.1 OpenC2 Command
@@ -429,9 +428,10 @@ configuration 3 there is no assumption that the interface
 between the Consumer manager and the managed devices uses
 OpenC2 Commands and Responses.
 
+**Figure 2-2. Producer / Consumer / Device COnfigurations**
+
 ![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
 
-**Figure 2-X. Producer / Consumer / Device COnfigurations**
 
 
 
