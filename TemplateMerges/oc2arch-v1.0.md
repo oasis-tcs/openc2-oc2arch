@@ -187,6 +187,48 @@ permitted and are defined in their respective documents.
 
 ### 1.2.2 Acronyms and abbreviations
 
+| Acronym | Description                                                          |
+|---------|----------------------------------------------------------------------|
+| API     | Application Programming Interface                                    |
+| ASCII   | American Standard Code for Information Interchange                   |
+| BCP     | Best Current Practice                                                |
+| CBOR    | Concise Binary Object Representation                                 |
+| CIDR    | Classless Inter-Domain Routing                                       |
+| CoAP    | Constrained Application Protocol                                     |
+| DOI     | Digital Object Identifier                                            |
+| EUI     | Extended Unique Identifier                                           |
+| HTTP    | Hyper Text Transfer Protocol                                         |
+| HTTPS   | Hyper Text Transfer Protocol Secure                                  |
+| IACD    | Integrated Adaptive Cyber Defense                                    |
+| IANA    | Internet Assigned Numbers Authority                                  |
+| ICMP    | Internet Control Message Protocol                                    |
+| ID      | Identifier                                                           |
+| IP      | Internet Protocol                                                    |
+| IPR     | Intellectual Property Rights                                         |
+| JSON    | JavaScript Object Notation                                           |
+| MAC     | Media Access Control                                                 |
+| MD5     | Message Digest                                                       |
+| MQTT    | Message Queuing Telemetry Transfer                                   |
+| OASIS   | Organization for the Advancement of Structured Information Standards |
+| OODA    | Observe-Orient-Decide-Act                                            |
+| OpenC2  | Open Command and Control                                             |
+| OpenDXL | Open Data eXchange Layer                                             |
+| PDF     | Portable Document Format                                             |
+| RFC     | Request for Comment                                                  |
+| SCTP    | Stream Control Transmission Protocol                                 |
+| SHA     | Security Hash Algorithm                                              |
+| SLPF    | StateLess Packet Filtering                                           |
+| STD     | Standard                                                             |
+| TC      | Technical Committee                                                  |
+| TCP     | Transmission Control Protocol                                        |
+| UDP     | User Datagram Control Protocol                                       |
+| UML     | Unified Modeling Language                                            |
+| URI     | Uniform Resource Identifier                                          |
+| UTC     | Coordinated Universal Time                                           |
+| UUID    | Universally Unique IDentifier                                        |
+| XML     | eXtensibel Markup Language                                           |
+
+
 ### 1.2.3 Document conventions
 
 - Naming conventions
