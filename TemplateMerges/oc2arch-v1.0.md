@@ -257,7 +257,60 @@ Add horizontal rule lines where page breaks are desired in the PDF - before each
 -------
 
 # 2 Section Heading
-text.
+
+OpenC2 is a suite of specifications for Producers and Consumers
+to command and execute cyber defense functions. These
+specifications include the OpenC2 Language Specification,
+Actuator Profiles, and Transfer Specifications. The OpenC2
+Language Specification and Actuator Profile specifications focus
+on the language content and meaning at the Producer and Consumer
+of the Command and Response while the transfer specifications
+focus on the protocols for their exchange.
+
+In general, there are two types of participants involved in the
+exchange of OpenC2 Messages, as depicted in Figure 1-1:
+
+1. **Producers**: A Producer is an entity that creates Commands
+   to provide instruction to one or more systems to act in
+   accordance with the content of the Command. A Producer may
+   receive and process Responses in conjunction with a Command.
+2. **Consumers**: A Consumer is an entity that receives and may
+   act upon a Command. A Consumer may create Responses that
+   provide any information captured or necessary to send back to
+   the Producer.
+
+The language defines two payload structures:
+
+1. **Command**: An instruction from one system known as the
+   Producer, to one or more systems, the Consumer(s), to act on
+   the content of the Command.
+2. **Response**: Any information sent back to the Producer as a
+   result of the Command.
+
+The Action and Target components are required. A particular
+Target may be further refined by the Target type. Procedures to
+extend the Targets are described in [Section
+3.1.4](#314-extensions).
+
+Command Arguments, if present, influence the Command by providing
+information such as timing, periodicity, duration, or other
+details on what is to be executed. Command Arguments are defined
+in the OpenC2 Language Specification.
+
+An Actuator is an implementation of a cyber defense function that
+executes the Command. An Actuator Profile is a specification that
+identifies the subset of Actions, Targets and other aspects of
+this language specification that are required or optional in the
+context of a particular Actuator. An Actuator Profile may extend
+the language by defining additional Targets, Arguments, and
+Actuator Specifiers that are meaningful and possibly unique to
+the Actuator.
+
+The Actuator may be omitted from a Command and typically will not
+be included in implementations where the identities of the
+endpoints are unambiguous or when a high-level effects-based
+Command is desired and the tactical decisions on how the effect
+is achieved is left to the recipient.
 
 ## 2.1 Level 2 Heading
 text.
