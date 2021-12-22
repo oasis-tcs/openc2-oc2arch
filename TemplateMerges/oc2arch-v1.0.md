@@ -433,7 +433,65 @@ OpenC2 Commands and Responses.
 ![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
 
 
+## 2.3 Implementations
 
+OpenC2 implementations integrate the related OpenC2
+specifications described above with related industry
+specifications, protocols, and standards. Figure 1-2 depicts the
+relationships among OpenC2 specifications, and their
+relationships to other industry standards and
+environment-specific implementations of OpenC2. Note that the
+layering of implementation aspects in the diagram is notional,
+and not intended to preclude any particular approach to
+implementing the needed functionality (for example, the use of an
+application-layer message signature function to provide message
+source authentication and integrity).
+
+
+**Figure 2-2. OpenC2 Documentation and Layering Model**
+![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
+
+OpenC2 is conceptually partitioned into four layers as shown in
+Table 2-1.
+
+**Table 2-1. OpenC2 Protocol Layers**
+
+| Layer | Examples |
+| :--- | :--- |
+| Function-Specific Content | Actuator Profiles<br>([[OpenC2-SLPF-v1.0]](#openc2-slpf-v10), ...) |
+| Common Content | Language Specification<br>(this document) |
+| Message | Transfer Specifications<br>([[OpenC2-HTTPS-v1.0]](#openc2-https-v10), OpenC2-over-CoAP, ...) |
+| Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
+
+* The **Secure Transport** layer provides a communication path
+  between the Producer and the Consumer. OpenC2 can be layered
+  over any standard transport protocol.
+* The **Message** layer provides a transfer- and
+  content-independent mechanism for conveying Messages. A
+  transfer specification maps transfer-specific protocol elements
+  to a transfer-independent set of message elements consisting of
+  content and associated metadata.
+* The **Common Content** layer defines the structure of Commands
+  and Responses and a set of common language elements used to
+  construct them.
+* The **Function-specific Content** layer defines the language
+  elements used to support a particular cyber defense function.
+  An Actuator profile defines the implementation conformance
+  requirements for that function. Producers and Consumers will
+  support one or more profiles.
+
+The components of a Command are an Action (what is to be done), a
+Target (what is being acted upon), an optional Actuator (what is
+performing the command), and Command Arguments, which influence
+how the Command is to be performed. An Action coupled with a
+Target is sufficient to describe a complete Command. Though
+optional, the inclusion of an Actuator and/or Command Arguments
+provides additional precision to a Command.
+
+The components of a Response are a numerical status code, an
+optional status text string, and optional results. The format of
+the results, if included, depend on the type of Response being
+transferred.
 
 
 ## 2.1 Level 2 Heading
