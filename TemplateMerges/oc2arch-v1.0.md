@@ -321,6 +321,12 @@ The Response is sent from a Consumer, usually back to the
 Producer, and is a means to provide information (such as
 acknowledgment, status, etc.) as a result of a Command.
 
+![OpenC2 Message Exchange](images/MessageFlow.png)
+
+**Figure 2-1. OpenC2 Message Exchange**
+
+
+
 ### 2.1.1 OpenC2 Command
 The Command describes an Action to be performed on a Target and
 may include information identifying the Actuator or Actuators
