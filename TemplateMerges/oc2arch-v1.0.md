@@ -109,6 +109,8 @@ device. The capability definitions can be easily extended in a
 noncentralized manner, allowing standard and non-standard
 capabilities to be defined with semantic and syntactic rigor.
 
+OpenC2 is defined across a family of specifications of several types:
+
 * The **OpenC2 Architecture Specification** (this document)
   describes the fundamental structures of OpenC2 and provides a
   blueprint for developing Actuator Profiles and Transfer
@@ -126,7 +128,7 @@ capabilities to be defined with semantic and syntactic rigor.
   instances may (in fact are likely to) implement multiple
   Actuator profiles. Actuator profiles extend the language by
   defining Specifiers that identify the Actuator to the required
-  level of precision. Actuator Profiles may define Command
+  level of precision. Actuator Profiles may also define Command
   Arguments and Targets that are relevant and/or unique to those
   Actuator functions.
 
