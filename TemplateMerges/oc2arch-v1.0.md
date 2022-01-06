@@ -228,7 +228,7 @@ permitted and are defined in their respective documents.
 | URI     | Uniform Resource Identifier                                          |
 | UTC     | Coordinated Universal Time                                           |
 | UUID    | Universally Unique IDentifier                                        |
-| XML     | eXtensibel Markup Language                                           |
+| XML     | eXtensible Markup Language                                           |
 
 
 ### 1.2.3 Document conventions
