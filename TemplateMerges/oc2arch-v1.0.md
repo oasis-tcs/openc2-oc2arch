@@ -372,23 +372,243 @@ Add horizontal rule lines where page breaks are desired in the PDF - before each
 -------
 
 # 2 Section Heading
-text.
 
-## 2.1 Level 2 Heading
-text.
+OpenC2 is a suite of specifications for Producers and Consumers
+to command and execute cyber defense functions. These
+specifications include the OpenC2 Language Specification,
+Actuator Profiles, and Transfer Specifications. The OpenC2
+Language Specification and Actuator Profile specifications focus
+on the language content and meaning at the Producer and Consumer
+of the Command and Response while the transfer specifications
+focus on the protocols for their exchange.
 
-### 2.1.1 Level 3 Heading
-text.
+In general, there are two types of participants involved in the
+exchange of OpenC2 Messages, as depicted in Figure 1-1:
 
-#### 2.1.1.1 Level 4 Heading
-text.
+1. **Producers**: A Producer is an entity that creates Commands
+   to provide instruction to one or more systems to act in
+   accordance with the content of the Command. A Producer may
+   receive and process Responses in conjunction with a Command.
+2. **Consumers**: A Consumer is an entity that receives and may
+   act upon a Command. A Consumer may create Responses that
+   provide any information captured or necessary to send back to
+   the Producer.
 
-##### 2.1.1.1.1 Level 5 Heading
-This is the deepest level, because six # gets transformed into a Reference tag.
+The language defines two payload structures:
+
+1. **Command**: An instruction from one system known as the
+   Producer, to one or more systems, the Consumer(s), to act on
+   the content of the Command.
+2. **Response**: Any information sent back to the Producer as a
+   result of the Command.
+
+The Action and Target components are required. A particular
+Target may be further refined by the Target type. Procedures to
+extend the Targets are described in [Section
+3.1.4](#314-extensions).
+
+Command Arguments, if present, influence the Command by providing
+information such as timing, periodicity, duration, or other
+details on what is to be executed. Command Arguments are defined
+in the OpenC2 Language Specification.
+
+An Actuator is an implementation of a cyber defense function that
+executes the Command. An Actuator Profile is a specification that
+identifies the subset of Actions, Targets and other aspects of
+this language specification that are required or optional in the
+context of a particular Actuator. An Actuator Profile may extend
+the language by defining additional Targets, Arguments, and
+Actuator Specifiers that are meaningful and possibly unique to
+the Actuator.
+
+The Actuator may be omitted from a Command and typically will not
+be included in implementations where the identities of the
+endpoints are unambiguous or when a high-level effects-based
+Command is desired and the tactical decisions on how the effect
+is achieved is left to the recipient.
+
+## 2.1 Commands and Responses
+
+The OpenC2 language has two distinct content types: Command and
+Response. The Command is sent from a Producer to a Consumer and
+describes an Action to be performed by an Actuator on a Target.
+The Response is sent from a Consumer, usually back to the
+Producer, and is a means to provide information (such as
+acknowledgment, status, etc.) as a result of a Command.
+
+**Figure 2-1. OpenC2 Message Exchange**
+
+![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
-## 2.2 Next Heading
-text.
+### 2.1.1 OpenC2 Command
+The Command describes an Action to be performed on a Target and
+may include information identifying the Actuator or Actuators
+that are to execute the Command.
+
+A Command has four main components, two required and two
+optional. The required components are the Action and the Target.
+The optional components are Command Arguments and the Actuator. A
+Command can also contain an optional Command identifier, if
+necessary. [Section 3.3.1](#331-openc2-command) defines the
+syntax of an OpenC2 Command.
+
+The following list summarizes the main four components of a
+Command.
+
+* **Action** (required): The task or activity to be performed.
+* **Target** (required): The object of the action. The Action is
+  performed on the Target. Properties of the Target, called
+  Target Specifiers, further identify the Target to some level of
+  precision, such as a specific Target, a list of Targets, or a
+  class of Targets.
+* **Arguments** (optional): Provide additional information on how
+  the command is to be performed, such as date/time, periodicity,
+  duration, etc.
+* **Actuator** (optional): The Actuator executes the Command. The
+  Actuator will be defined within the context of an Actuator
+  Profile. Properties of the Actuator, called Actuator
+  Specifiers, further identify the Actuator to some level of
+  precision, such as a specific Actuator, a list of Actuators, or
+  a group of Actuators.
+
+The Action and Target components are required and are populated
+by one of the Actions in [Section 3.3.1.1](#3311-action) and the
+Targets in [Section 3.3.1.2](#3312-target). A particular Target
+may be further refined by the Target type definitions in [Section
+3.4.1](#341-target-types). Procedures to extend the Targets are
+described in [Section 3.1.4](#314-extensions).
+
+Command Arguments, if present, influence the Command by providing
+information such as timing, periodicity, duration, or other
+details on what is to be executed. They can also be used to
+convey the need for acknowledgment or additional status
+information about the execution of a Command. The valid Arguments
+defined in this specification are in [Section
+3.3.1.4](#3314-command-arguments). Procedures to extend Arguments
+are described in [Section 3.1.4](#314-extensions).
+
+An Actuator is an implementation of a cyber defense function that
+executes the Command. An Actuator Profile is a specification that
+identifies the subset of Actions, Targets and other aspects of
+this language specification that are required or optional in the
+context of a particular Actuator. An Actuator Profile may extend
+the language by defining additional Targets, Arguments, and
+Actuator Specifiers that are meaningful and possibly unique to
+the Actuator.
+
+The Actuator may be omitted from a Command and typically will not
+be included in implementations where the identities of the
+endpoints are unambiguous or when a high-level effects-based
+Command is desired and the tactical decisions on how the effect
+is achieved is left to the recipient.
+
+### 2.1.2 OpenC2 Response
+The Response is a Message sent from the recipient of a Command.
+Response messages provide acknowledgment, status, results from a
+query, or other information. At a minimum, a Response will
+contain a status code to indicate the result of performing the
+Command. Additional status text and response fields optionally
+provide more detailed information that is specific to or
+requested by the Command. [Section 3.3.2](#332-openc2-response)
+defines the syntax of an OpenC2 Response.
+
+
+## 2.2 Producers, Consumers, and Devices
+
+Figure 2-X illustrates three representative
+configurations for an OpenC2 Consumer device:
+
+1. The Consumer implements a single Actuator Profile (AP).
+1. The Consumer implements multiple APs, which may be all
+   different, all the same, or a mixture.
+1. The Consumer is a manager for a collection of devices,
+   providing an indirect means for the Producer to use
+   OpenC2 Commands to influence the operations of those
+   devices. The managed devices in the collection may or may
+   not be identical.
+
+In configurations 1 and 2, the Producer has direct, explicit
+knowledge of the APs implemented by the Consumer.  OpenC2
+Commands issued by the Producer directly affect the
+operation of the Consumer device.  An example of multiple
+instances of the same AP in configuration 2 would be packet
+filtering functions on multiple, distinct network
+interfaces.
+
+In configuration 3, the Producer has knowledge of the
+capabilities supported by the Consumer manager, but only
+indirect affect the operation of the managed devices. In
+configuration 3 there is no assumption that the interface
+between the Consumer manager and the managed devices uses
+OpenC2 Commands and Responses.
+
+**Figure 2-2. Producer / Consumer / Device COnfigurations**
+
+![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
+
+
+## 2.3 Implementations
+
+OpenC2 implementations integrate the related OpenC2
+specifications described above with related industry
+specifications, protocols, and standards. Figure 1-2 depicts the
+relationships among OpenC2 specifications, and their
+relationships to other industry standards and
+environment-specific implementations of OpenC2. Note that the
+layering of implementation aspects in the diagram is notional,
+and not intended to preclude any particular approach to
+implementing the needed functionality (for example, the use of an
+application-layer message signature function to provide message
+source authentication and integrity).
+
+
+**Figure 2-2. OpenC2 Documentation and Layering Model**
+![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
+
+OpenC2 is conceptually partitioned into four layers as shown in
+Table 2-1.
+
+**Table 2-1. OpenC2 Protocol Layers**
+
+| Layer | Examples |
+| :--- | :--- |
+| Function-Specific Content | Actuator Profiles<br>([[OpenC2-SLPF-v1.0]](#openc2-slpf-v10), ...) |
+| Common Content | Language Specification<br>(this document) |
+| Message | Transfer Specifications<br>([[OpenC2-HTTPS-v1.0]](#openc2-https-v10), OpenC2-over-CoAP, ...) |
+| Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
+
+* The **Secure Transport** layer provides a communication path
+  between the Producer and the Consumer. OpenC2 can be layered
+  over any standard transport protocol.
+* The **Message** layer provides a transfer- and
+  content-independent mechanism for conveying Messages. A
+  transfer specification maps transfer-specific protocol elements
+  to a transfer-independent set of message elements consisting of
+  content and associated metadata.
+* The **Common Content** layer defines the structure of Commands
+  and Responses and a set of common language elements used to
+  construct them.
+* The **Function-specific Content** layer defines the language
+  elements used to support a particular cyber defense function.
+  An Actuator profile defines the implementation conformance
+  requirements for that function. Producers and Consumers will
+  support one or more profiles.
+
+The components of a Command are an Action (what is to be done), a
+Target (what is being acted upon), an optional Actuator (what is
+performing the command), and Command Arguments, which influence
+how the Command is to be performed. An Action coupled with a
+Target is sufficient to describe a complete Command. Though
+optional, the inclusion of an Actuator and/or Command Arguments
+provides additional precision to a Command.
+
+The components of a Response are a numerical status code, an
+optional status text string, and optional results. The format of
+the results, if included, depend on the type of Response being
+transferred.
+
+
 
 -------
 
