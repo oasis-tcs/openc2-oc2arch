@@ -5,9 +5,9 @@
 
 # Open Command and Control (OpenC2) Architecture Specification Version 1.0
 
-## Committee Specification Draft 01
+## Working Draft 03
 
-## 19 August 2021
+## xx January 2022
 
 &nbsp;
 
@@ -90,23 +90,63 @@ For complete copyright information please see the full Notices section in an App
 
 # 1 Introduction
 
-<!-- All text is normative unless otherwise labeled -->
+_The content in this section is non-normative, except where it is
+marked normative._
 
+OpenC2 is a suite of specifications that enables command and
+control of cyber defense systems and components. OpenC2 typically
+uses a request-response paradigm where a _Command_ is encoded by
+a _Producer_ (managing application) and transferred to a
+_Consumer_ (managed device or virtualized function) using a
+secure transfer protocol, and the Consumer can respond with
+status and any requested information.
 
-Here is a customized command line which will generate HTML from this markdown file (named openc2-file.md):
+OpenC2 allows the application producing the commands to discover
+the set of capabilities supported by the managed devices. These
+capabilities permit the managing application to adjust its
+behavior to take advantage of the features exposed by the managed
+device. The capability definitions can be easily extended in a
+noncentralized manner, allowing standard and non-standard
+capabilities to be defined with semantic and syntactic rigor.
 
-pandoc -f gfm -t html openc2-file.md -c styles/markdown-styles-v1.7.3.css --toc --toc-depth=5 -s -o openc2-file.html --metadata title="Title of Specification Version 1.0"
+OpenC2 is defined across a family of specifications of several types:
 
-OASIS staff are currently using pandoc 2.6 from https://github.com/jgm/pandoc/releases/tag/2.6.
+* The **OpenC2 Architecture Specification** (this document)
+  describes the fundamental structures of OpenC2 and provides a
+  blueprint for developing Actuator Profiles and Transfer
+  Specifications.
 
-This also requires the presence of a .css file containing the HTML styles (like styles/markdown-styles-v1.7.3.css).
+* The **OpenC2 Language Specification** provides the semantics
+  for the essential elements of the language, the structure for
+  Commands and Responses, and the schema that defines the proper
+  syntax for the language elements that represents the Command or
+  Response.
 
-Note this command generates a Table of Contents (TOC) in HTML which is located at the top of the HTML document, and which requires additional editing in order to be published in the expected OASIS style. This editing will be handled by OASIS staff during publication.
-A TC may use other ways to generate HTML from markdown, which may generate a TOC in a different way.
+* **OpenC2 Actuator Profiles** specify the subset of the OpenC2
+  language relevant in the context of specific Actuator
+  functions. Cyber defense components, devices, systems and/or
+  instances may (in fact are likely to) implement multiple
+  Actuator profiles. Actuator profiles extend the language by
+  defining Specifiers that identify the Actuator to the required
+  level of precision. Actuator Profiles may also define Command
+  Arguments and Targets that are relevant and/or unique to those
+  Actuator functions.
+
+* **OpenC2 Transfer Specifications** utilize existing protocols
+  and standards to implement OpenC2 in specific environments.
+  These standards are used for communications and security
+  functions beyond the scope of the language, such as message
+  transfer encoding, authentication, and end-to-end transport of
+  OpenC2 Messages.
+
+The most common encoding of OpenC2 is in JSON and the most common
+binding is to HTTP; this document assumes this encoding and
+binding for all examples. Other encodings and bindings are
+permitted and are defined in their respective documents.
 
 ## 1.1 Changes from earlier versions
 
-<!-- Optional section -->
+* Reformatted to December 2020 OASIS work product template
 
 ## 1.2 Glossary
 
@@ -114,7 +154,82 @@ A TC may use other ways to generate HTML from markdown, which may generate a TOC
 
 ### 1.2.1 Definitions of terms
 
+*This section is normative.*
+
+-   **Action**: The task or activity to be performed (e.g., 'deny').
+
+-   **Actuator**: The function performed by the Consumer that executes the
+    Command (e.g., 'Stateless Packet Filtering').
+
+-   **Argument**: A property of a Command that provides additional information
+    on how to perform the Command, such as date/time, periodicity, duration,
+    etc.
+
+-   **Command**: A Message defined by an Action-Target pair that is sent from a
+    Producer and received by a Consumer.
+
+-   **Consumer**: A managed device / application that receives Commands. Note
+    that a single device / application can have both Consumer and Producer
+    capabilities.
+
+-   **Message**: A content- and transport-independent set of elements conveyed
+    between Consumers and Producers.
+
+-   **Producer**: A manager application that sends Commands.
+
+-   **Response**: A Message from a Consumer to a Producer acknowledging a
+    Command or returning the requested resources or status to a previously
+    received Command.
+
+-   **Specifier**: A property or field that identifies a Target or Actuator to
+    some level of precision.
+
+-   **Target**: The object of the Action, i.e., the Action is performed on the
+    Target (e.g., IP Address).
+
 ### 1.2.2 Acronyms and abbreviations
+
+| Acronym | Description                                                          |
+|---------|----------------------------------------------------------------------|
+| API     | Application Programming Interface                                    |
+| ASCII   | American Standard Code for Information Interchange                   |
+| BCP     | Best Current Practice                                                |
+| CBOR    | Concise Binary Object Representation                                 |
+| CIDR    | Classless Inter-Domain Routing                                       |
+| CoAP    | Constrained Application Protocol                                     |
+| DOI     | Digital Object Identifier                                            |
+| EUI     | Extended Unique Identifier                                           |
+| HTTP    | Hyper Text Transfer Protocol                                         |
+| HTTPS   | Hyper Text Transfer Protocol Secure                                  |
+| IACD    | Integrated Adaptive Cyber Defense                                    |
+| IANA    | Internet Assigned Numbers Authority                                  |
+| ICMP    | Internet Control Message Protocol                                    |
+| ID      | Identifier                                                           |
+| IP      | Internet Protocol                                                    |
+| IPR     | Intellectual Property Rights                                         |
+| JSON    | JavaScript Object Notation                                           |
+| MAC     | Media Access Control                                                 |
+| MD5     | Message Digest                                                       |
+| MQTT    | Message Queuing Telemetry Transfer                                   |
+| OASIS   | Organization for the Advancement of Structured Information Standards |
+| OODA    | Observe-Orient-Decide-Act                                            |
+| OpenC2  | Open Command and Control                                             |
+| OpenDXL | Open Data eXchange Layer                                             |
+| PDF     | Portable Document Format                                             |
+| RFC     | Request for Comment                                                  |
+| SCTP    | Stream Control Transmission Protocol                                 |
+| SHA     | Security Hash Algorithm                                              |
+| SLPF    | StateLess Packet Filtering                                           |
+| STD     | Standard                                                             |
+| TC      | Technical Committee                                                  |
+| TCP     | Transmission Control Protocol                                        |
+| UDP     | User Datagram Control Protocol                                       |
+| UML     | Unified Modeling Language                                            |
+| URI     | Uniform Resource Identifier                                          |
+| UTC     | Coordinated Universal Time                                           |
+| UUID    | Universally Unique IDentifier                                        |
+| XML     | eXtensible Markup Language                                           |
+
 
 ### 1.2.3 Document conventions
 
@@ -312,14 +427,19 @@ Remove this note before submitting for publication.)
 
 ###### [OpenC2-Lang-v1.0]
 _Open Command and Control (OpenC2) Language Specification Version 1.0_. Edited by Jason Romano and Duncan Sparrell. Latest stage: https://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html
-<!--
-###### [OpenC2-HTTPS-v1.0]
-_Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0_. Edited by David Lemire. Latest stage: http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html
+
+###### [OpenC2-HTTPS-v1.1]
+_Specification for Transfer of OpenC2 Messages via HTTPS Version 1.1_. Edited by David Lemire. Latest stage: https://docs.oasis-open.org/openc2/open-impl-https/v1.1/open-impl-https-v1.1.html
+
+###### [OpenC2-MQTT-v1.0]
+_Specification for Transfer of OpenC2 Messages via MQTT Version 1.0_. Edited by David Lemire. Latest stage: https://docs.oasis-open.org/openc2/transf-mqtt/v1.0/transf-mqtt-v1.0.html
+
 ###### [OpenC2-SLPF-v1.0]
-_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell, and Alex Everett. Latest stage: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html
--->
+_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell, and Alex Everett. Latest stage: https://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html
+
 ###### [RFC2119]
 Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, http://www.rfc-editor.org/info/rfc2119.
+
 ###### [RFC8174]
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
 

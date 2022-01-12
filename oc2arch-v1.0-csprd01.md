@@ -93,7 +93,7 @@ OpenC2 is a suite of specifications that enables command and control of cyber de
 
 OpenC2 allows the application producing the commands to discover the set of capabilities supported by the managed devices. These capabilities permit the managing application to adjust its behavior to take advantage of the features exposed by the managed device. The capability definitions can be easily extended in a noncentralized manner, allowing standard and non-standard capabilities to be defined with semantic and syntactic rigor.
 
-* The **OpenC2 Architecture Specification** (this document) describes the fundamental structures of OpenC2 and provides a a blueprint for developing Actuator Profiles and Transfer Specifications.
+* The **OpenC2 Architecture Specification** (this document) describes the fundamental structures of OpenC2 and provides a blueprint for developing Actuator Profiles and Transfer Specifications.
 
 * The **OpenC2 Language Specification** provides the semantics for the essential elements of the language, the structure for Commands and Responses, and the schema that defines the proper syntax for the language elements that represents the Command or Response.
 
