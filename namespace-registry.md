@@ -15,7 +15,7 @@ plus functions for which profiles are under consideration.
 |          |               | [OpenC2 Language Spec v1.1](https://github.com/oasis-tcs/openc2-oc2ls)                            |           | http://oasis-open.org/openc2/lang/v1.1        |
 |          |               | [OpenC2 Language Spec v1.1 Common Types](https://github.com/oasis-tcs/openc2-oc2ls)               | ls:       | http://oasis-open.org/openc2/types/v1.1       |
 |          |               | [OpenC2 JSON Abstract Data Notation v1.0](https://github.com/oasis-tcs/openc2-jadn)               |           | http://oasis-open.org/openc2/jadn/v1.0        |
-|          |               | <center>**Standard Actuator Profile**</center>                                                    |           |                                               |
+|          |               | <div style="text-align: center">**Standard Actuator Profile**</div>                               |           |                                               |
 | 1024     | slpf          | [Stateless Packet Filtering AP](https://github.com/oasis-tcs/openc2-apsc-stateless-packet-filter) | slpf:     | http://oasis-open.org/openc2/ap-slpf/v1.0     |
 | 1025     | sfpf          | [Stateful Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-sfpf)                       | sfpf:     | http://oasis-open.org/openc2/ap-sfpf/v1.0     |
 | 1026     | sbom          | [Software Bill of Materials AP](https://github.com/oasis-tcs/openc2-ap-sbom)                      | sbom:     | http://oasis-open.org/openc2/ap-sbom/v1.0     |
@@ -25,9 +25,9 @@ plus functions for which profiles are under consideration.
 |          | hop           | [Honeypot Control AP](https://github.com/oasis-tcs/openc2-ap-honeypots)                           | hop:      | http://oasis-open.org/openc2/ap-honeypot/v1.0 |
 |          | av            | [Anti-virus AP](https://github.com/oasis-tcs/openc2-ap-av)                                        | av:       | http://oasis-open.org/openc2/ap-av/v1.0       |
 |          | log           | [Logging Control AP](https://github.com/oasis-tcs/openc2-ap-lc)                                   | log:      | http://oasis-open.org/openc2/ap-log/v1.0      |
-|          |               | <center>**Custom Actuator Profile**</center>                                                      |           |                                               |
+|          |               | <div style="text-align: center">**Custom Actuator Profile**</div>                                 |           |                                               |
 | 9001     | blinky        | Blinky Lights HTTP API                                                                            | led:      | http://oasis-open.org/openc2/custom/haha/v1.0 |
-|          |               | <center>**Proposed Actuator Profile**</center>                                                    |           |                                               |
+|          |               | <div style="text-align: center">**Proposed Actuator Profile**</div>                               |           |                                               |
 |          |               | Endpoint Response (split from EDR)                                                                |           |                                               |
 |          |               | Threat Analytics (split from EDR)                                                                 |           |                                               |
 | ~~1028~~ | ~~sdnc~~      | Software Defined Network Controller                                                               |           |                                               |
