@@ -28,10 +28,13 @@ plus functions for which profiles are under consideration.
 |          |               | <center>**Custom Actuator Profile**</center>                                                      |           |                                               |
 | 9001     | blinky        | Blinky Lights HTTP API                                                                            | led:      | http://oasis-open.org/openc2/custom/haha/v1.0 |
 |          |               | <center>**Proposed Actuator Profile**</center>                                                    |           |                                               |
+|          |               | Endpoint Response (split from EDR)                                                                |           |                                               |
+|          |               | Threat Analytics (split from EDR)                                                                 |           |                                               |
 | ~~1028~~ | ~~sdnc~~      | Software Defined Network Controller                                                               |           |                                               |
 | ~~1029~~ | ~~emgw~~      | Email Gateway                                                                                     |           |                                               |
 | ~~1031~~ | ~~ips~~       | Intrusion Prevention                                                                              |           |                                               |
 | ~~1032~~ | ~~dlp~~       | Data Loss Prevention                                                                              |           |                                               |
 | ~~1033~~ | ~~swg~~       | Secure Web Gateway                                                                                |           |                                               |
 |          |               | Security Posture Attribute Collection                                                             |           |                                               |
+|          |               | Security Posture Evaluation                                                                       |           |                                               |
 |          |               | Cloud Identity and Access Management                                                              |           |                                               |
