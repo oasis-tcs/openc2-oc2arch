@@ -2,11 +2,11 @@
 
 The OpenC2 core language is extended using profiles.
 This registry tracks the status of currently defined specifications,
-plus functions for which profiles are under consideration.
+plus functions for profiles under consideration.
 
 * Each specification is assigned a unique identifier (Namespace) in the form of an IRI.
 * A Namespace can be abbreviated using a Namespace Prefix when referencing types defined within it.
-* Properties with namespaced types are identified by a Property ID or Property Name in OpenC2 messages.
+* Properties with namespaced types are identified by ID or Name (depending on serialization) in OpenC2 messages.
 
 | Prop ID  | Property Name | OpenC2 Specification                                                                              | NS Prefix | Namespace                                     |
 |----------|---------------|---------------------------------------------------------------------------------------------------|-----------|-----------------------------------------------|
@@ -19,7 +19,7 @@ plus functions for which profiles are under consideration.
 | 1024     | slpf          | [Stateless Packet Filtering AP](https://github.com/oasis-tcs/openc2-apsc-stateless-packet-filter) | slpf:     | http://oasis-open.org/openc2/ap-slpf/v1.0     |
 | 1025     | sfpf          | [Stateful Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-sfpf)                       | sfpf:     | http://oasis-open.org/openc2/ap-sfpf/v1.0     |
 | 1026     | sbom          | [Software Bill of Materials AP](https://github.com/oasis-tcs/openc2-ap-sbom)                      | sbom:     | http://oasis-open.org/openc2/ap-sbom/v1.0     |
-| 1027     | edr           | [Endpoint Detection and Response AP](https://github.com/oasis-tcs/openc2-ap-edr)                  | edr:      | http://oasis-open.org/openc2/ap-edr/v1.0      |
+| 1027     | er            | [Endpoint Response AP](https://github.com/oasis-tcs/openc2-ap-er)                                 | edr:      | http://oasis-open.org/openc2/ap-edr/v1.0      |
 | 1030     | ids           | [Intrusion Detection AP](https://github.com/oasis-tcs/openc2-ap-ids)                              | ids:      | http://oasis-open.org/openc2/ap-ids/v1.0      |
 | 1034     | pf            | [Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-pf)                                  | pf:       | http://oasis-open.org/openc2/ap-pf/v1.0       |
 |          | hop           | [Honeypot Control AP](https://github.com/oasis-tcs/openc2-ap-honeypots)                           | hop:      | http://oasis-open.org/openc2/ap-honeypot/v1.0 |
@@ -28,7 +28,7 @@ plus functions for which profiles are under consideration.
 |          |               | <div style="text-align: center">**Custom Actuator Profile**</div>                                 |           |                                               |
 | 9001     | blinky        | Blinky Lights HTTP API                                                                            | led:      | http://oasis-open.org/openc2/custom/haha/v1.0 |
 |          |               | <div style="text-align: center">**Proposed Actuator Profile**</div>                               |           |                                               |
-|          |               | Endpoint Response (split from EDR)                                                                |           |                                               |
+|          |               | Endpoint Response (previously EDR, listed above)                                                  |           |                                               |
 |          |               | Threat Analytics (split from EDR)                                                                 |           |                                               |
 | ~~1028~~ | ~~sdnc~~      | Software Defined Network Controller                                                               |           |                                               |
 | ~~1029~~ | ~~emgw~~      | Email Gateway                                                                                     |           |                                               |
