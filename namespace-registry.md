@@ -6,7 +6,7 @@ plus functions for profiles under consideration.
 
 * Each specification is assigned a unique identifier (Namespace) in the form of an IRI.
 * A Namespace can be abbreviated using a Namespace Prefix when referencing types defined within it.
-* Properties with namespaced types are identified by ID or Name (depending on serialization) in OpenC2 messages.
+* Property sets with namespaced types are identified by ID or Name (depending on serialization) in OpenC2 messages.
 
 | Prop ID  | Property Name | OpenC2 Specification                                                                              | NS Prefix | Namespace                                     |
 |----------|---------------|---------------------------------------------------------------------------------------------------|-----------|-----------------------------------------------|
