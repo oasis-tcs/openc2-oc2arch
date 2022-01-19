@@ -24,7 +24,7 @@ plus functions for profiles under consideration.
 | 1029    | av            | [Anti-virus AP](https://github.com/oasis-tcs/openc2-ap-av)                                        | av:       | http://oasis-open.org/openc2/ap-av/v1.0       |
 | 1030    | ids           | [Intrusion Detection AP](https://github.com/oasis-tcs/openc2-ap-ids)                              | ids:      | http://oasis-open.org/openc2/ap-ids/v1.0      |
 | 1031    | log           | [Logging Control AP](https://github.com/oasis-tcs/openc2-ap-lc)                                   | log:      | http://oasis-open.org/openc2/ap-log/v1.0      |
-| 1032    | sup           | [Software Update AP](https://github.com/oasis-tcs/openc2-ap-sup)                                  |           |                                               |
+| 1032    | sup           | [Software Update AP](https://github.com/oasis-tcs/openc2-ap-sup)                                  | sup:      | http://oasis-open.org/openc2/ap-sup/v1.0      |
 | 1034    | pf            | [Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-pf)                                  | pf:       | http://oasis-open.org/openc2/ap-pf/v1.0       |
 |         |               | <div style="text-align: center">**Custom Actuator Profile**</div>                                 |           |                                               |
 | 9001    | blinky        | Blinky Lights HTTP API                                                                            | led:      | http://oasis-open.org/openc2/custom/haha/v1.0 |
