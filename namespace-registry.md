@@ -19,8 +19,8 @@ plus functions for profiles under consideration.
 | 1024    | slpf          | [Stateless Packet Filtering AP](https://github.com/oasis-tcs/openc2-apsc-stateless-packet-filter) | slpf:     | http://oasis-open.org/openc2/ap-slpf/v1.0     |
 | 1025    | sfpf          | [Stateful Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-sfpf)                       | sfpf:     | http://oasis-open.org/openc2/ap-sfpf/v1.0     |
 | 1026    | sbom          | [Software Bill of Materials AP](https://github.com/oasis-tcs/openc2-ap-sbom)                      | sbom:     | http://oasis-open.org/openc2/ap-sbom/v1.0     |
-| 1027    | er            | [Endpoint Response AP](https://github.com/oasis-tcs/openc2-ap-er)                                 | edr:      | http://oasis-open.org/openc2/ap-edr/v1.0      |
-| 1028    | hop           | [Honeypot Control AP](https://github.com/oasis-tcs/openc2-ap-honeypots)                           | hop:      | http://oasis-open.org/openc2/ap-honeypot/v1.0 |
+| 1027    | er            | [Endpoint Response AP](https://github.com/oasis-tcs/openc2-ap-er)                                 | er:       | http://oasis-open.org/openc2/ap-er/v1.0       |
+| 1028    | hop           | [Honeypot Control AP](https://github.com/oasis-tcs/openc2-ap-honeypots)                           | hop:      | http://oasis-open.org/openc2/ap-hop/v1.0      |
 | 1029    | av            | [Anti-virus AP](https://github.com/oasis-tcs/openc2-ap-av)                                        | av:       | http://oasis-open.org/openc2/ap-av/v1.0       |
 | 1030    | ids           | [Intrusion Detection AP](https://github.com/oasis-tcs/openc2-ap-ids)                              | ids:      | http://oasis-open.org/openc2/ap-ids/v1.0      |
 | 1031    | log           | [Logging Control AP](https://github.com/oasis-tcs/openc2-ap-lc)                                   | log:      | http://oasis-open.org/openc2/ap-log/v1.0      |
