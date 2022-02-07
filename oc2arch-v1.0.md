@@ -508,7 +508,7 @@ configuration 3 there is no assumption that the interface
 between the Consumer manager and the managed devices uses
 OpenC2 Commands and Responses.
 
-**Figure 2-2. Producer / Consumer / Device COnfigurations**
+**Figure 2-2. Producer / Consumer / Device Configurations**
 
 ![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
 
