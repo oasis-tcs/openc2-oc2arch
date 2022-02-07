@@ -515,17 +515,16 @@ OpenC2 Commands and Responses.
 
 ## 2.3 Implementations
 
-OpenC2 implementations integrate the related OpenC2
-specifications described above with related industry
-specifications, protocols, and standards. Figure 2-3 depicts the
-relationships among OpenC2 specifications, and their
-relationships to other industry standards and
-environment-specific implementations of OpenC2. Note that the
-layering of implementation aspects in the diagram is notional,
-and not intended to preclude any particular approach to
-implementing the needed functionality (for example, the use of an
-application-layer message signature function to provide message
-source authentication and integrity).
+OpenC2 implementations integrate the OpenC2 specifications
+described above with related industry specifications, protocols,
+and standards. Figure 2-3 depicts the relationships among the
+family of OpenC2 specifications, and their relationships to other
+industry standards and environment-specific implementations of
+OpenC2. Note that the layering of implementation aspects in the
+diagram is notional, and not intended to preclude any particular
+approach to implementing the needed functionality (for example,
+the use of an application-layer message signature function to
+provide message source authentication and integrity).
 
 
 **Figure 2-3. OpenC2 Documentation and Layering Model**
@@ -539,7 +538,7 @@ Table 2-1.
 | Layer | Examples |
 | :--- | :--- |
 | Function-Specific Content | Actuator Profiles<br>([OpenC2-SLPF-v1.0](#openc2-slpf-v10), ...) |
-| Common Content | Language Specification<br>(this document) |
+| Common Content | Language Specification |
 | Message | Transfer Specifications<br>([OpenC2-HTTPS-v1.0](#openc2-https-v10), [OpenC2-MQTT-v1.0](#openc2-mqtt-v10), ...) |
 | Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
 
