@@ -195,7 +195,7 @@ permitted and are defined in their respective documents.
 
 ### 1.2.2 Acronyms and abbreviations
 
-| Acronym | Description                                                          |
+| Acronym | Description |
 |---------|----------------------------------------------------------------------|
 | API     | Application Programming Interface |
 | ASCII   | American Standard Code for Information Interchange |
