@@ -136,11 +136,11 @@ OpenC2 is defined across a family of specifications of several types:
   Actuator functions.
 
 * **OpenC2 Transfer Specifications** utilize existing protocols
-  and standards to implement OpenC2 in specific environments.
-  These standards are used for communications and security
-  functions beyond the scope of the language, such as message
-  transfer encoding, authentication, and end-to-end transport of
-  OpenC2 Messages.
+  and standards to implement OpenC2 message transfer in specific
+  environments. These standards are used for communications and
+  security functions beyond the scope of the language, such as
+  message transfer encoding, authentication, and end-to-end
+  transport of OpenC2 Messages.
 
 The most common encoding of OpenC2 is in JSON and the most common
 binding is to HTTP; this document assumes this encoding and
