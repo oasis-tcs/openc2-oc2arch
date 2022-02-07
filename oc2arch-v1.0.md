@@ -180,6 +180,9 @@ permitted and are defined in their respective documents.
 
 -   **Producer**: A manager application that sends Commands.
 
+-   **Request**: A Message from a Producet to a Consumer used to convey a
+    Command.
+    
 -   **Response**: A Message from a Consumer to a Producer acknowledging a
     Command or returning the requested resources or status to a previously
     received Command.
