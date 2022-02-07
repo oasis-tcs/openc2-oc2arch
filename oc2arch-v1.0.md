@@ -378,10 +378,11 @@ OpenC2 is a suite of specifications for Producers and Consumers
 to command and execute cyber defense functions. These
 specifications include the OpenC2 Language Specification,
 Actuator Profiles, and Transfer Specifications. The OpenC2
-Language Specification and Actuator Profile specifications focus
-on the language content and meaning at the Producer and Consumer
-of the Command and Response while the transfer specifications
-focus on the protocols for their exchange.
+[Language Specification](#openc2-lang-v10) and Actuator Profile
+specifications focus on the language content and meaning at the
+Producer and Consumer level of Command and Response while the
+transfer specifications focus on the protocols for their
+exchange.
 
 In general, there are two types of participants involved in the
 exchange of OpenC2 Messages, as depicted in Figure 2-1:
@@ -408,31 +409,6 @@ The language defines two payload structures:
 2. **Response**: Any information sent back to the Producer as a
    result of the Command.
 
-The Action and Target components are required. A particular
-Target may be further refined by the Target type. The [Language
-Specification](#openc2-lang-v10) defines procedures to extend the
-set of OpenC2 Targets.
-
-Command Arguments, if present, influence the Command by providing
-information such as timing, periodicity, duration, or other
-details on what is to be executed. Command Arguments are defined
-in the OpenC2 Language Specification.
-
-An Actuator is an implementation of a cyber defense function that
-executes the Command. An Actuator Profile is a specification that
-identifies the subset of Actions, Targets and other aspects of
-this language specification that are required or optional in the
-context of a particular Actuator. An Actuator Profile may extend
-the language by defining additional Targets, Arguments, and
-Actuator Specifiers that are meaningful and possibly unique to
-the Actuator.
-
-The Actuator may be omitted from a Command and typically will not
-be included in implementations where the identities of the
-endpoints are unambiguous or when a high-level effects-based
-Command is desired and the tactical decisions on how the effect
-is achieved is left to the recipient.
-
 ## 2.1 Commands and Responses
 
 The OpenC2 language has two distinct content types: Command and
@@ -441,8 +417,6 @@ describes an Action to be performed by an Actuator on a Target.
 The Response is sent from a Consumer, usually back to the
 Producer, and is a means to provide information (such as
 acknowledgment, status, etc.) as a result of a Command.
-
-
 
 ### 2.1.1 OpenC2 Command
 The Command describes an Action to be performed on a Target and
@@ -474,6 +448,11 @@ Command.
   precision, such as a specific Actuator, a list of Actuators, or
   a group of Actuators.
 
+The Action and Target components are required. A particular
+Target may be further refined by the Target type. The [Language
+Specification](#openc2-lang-v10) defines procedures to extend the
+set of OpenC2 Targets.
+
 Command Arguments, if present, influence the Command by providing
 information such as timing, periodicity, duration, or other
 details on what is to be executed. They can also be used to
@@ -483,7 +462,7 @@ information about the execution of a Command.
 An Actuator is an implementation of a cyber defense function that
 executes the Command. An Actuator Profile is a specification that
 identifies the subset of Actions, Targets and other aspects of
-this language specification that are required or optional in the
+the OpenC2 language that are required or optional in the
 context of a particular Actuator. An Actuator Profile may extend
 the language by defining additional Targets, Arguments, and
 Actuator Specifiers that are meaningful and possibly unique to
@@ -494,6 +473,7 @@ be included in implementations where the identities of the
 endpoints are unambiguous or when a high-level effects-based
 Command is desired and the tactical decisions on how the effect
 is achieved is left to the recipient.
+
 
 ### 2.1.2 OpenC2 Response
 The Response is a Message sent from the recipient of a Command.
