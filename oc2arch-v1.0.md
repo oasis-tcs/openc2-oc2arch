@@ -421,15 +421,9 @@ acknowledgment, status, etc.) as a result of a Command.
 ### 2.1.1 OpenC2 Command
 The Command describes an Action to be performed on a Target and
 may include information identifying the Actuator or Actuators
-that are to execute the Command.
-
-A Command has four main components, two required and two
-optional. The required components are the Action and the Target.
-The optional components are Command Arguments and the Actuator. A
-Command can also contain an optional Command identifier, if
-necessary.
-
-The following list summarizes the main four components of a
+that are to execute the Command. A Command can also contain an
+optional Command identifier, if necessary. The following list
+summarizes the main four components of a
 Command.
 
 * **Action** (required): The task or activity to be performed.
