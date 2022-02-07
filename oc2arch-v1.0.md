@@ -404,9 +404,9 @@ The language defines two payload structures:
    result of the Command.
 
 The Action and Target components are required. A particular
-Target may be further refined by the Target type. Procedures to
-extend the Targets are described in [Section
-3.1.4](#314-extensions).
+Target may be further refined by the Target type. The [Language
+Specification](#openc2-lang-v10) defines procedures to extend the
+set of OpenC2 Targets.
 
 Command Arguments, if present, influence the Command by providing
 information such as timing, periodicity, duration, or other
@@ -451,8 +451,7 @@ A Command has four main components, two required and two
 optional. The required components are the Action and the Target.
 The optional components are Command Arguments and the Actuator. A
 Command can also contain an optional Command identifier, if
-necessary. [Section 3.3.1](#331-openc2-command) defines the
-syntax of an OpenC2 Command.
+necessary.
 
 The following list summarizes the main four components of a
 Command.
@@ -473,21 +472,11 @@ Command.
   precision, such as a specific Actuator, a list of Actuators, or
   a group of Actuators.
 
-The Action and Target components are required and are populated
-by one of the Actions in [Section 3.3.1.1](#3311-action) and the
-Targets in [Section 3.3.1.2](#3312-target). A particular Target
-may be further refined by the Target type definitions in [Section
-3.4.1](#341-target-types). Procedures to extend the Targets are
-described in [Section 3.1.4](#314-extensions).
-
 Command Arguments, if present, influence the Command by providing
 information such as timing, periodicity, duration, or other
 details on what is to be executed. They can also be used to
 convey the need for acknowledgment or additional status
-information about the execution of a Command. The valid Arguments
-defined in this specification are in [Section
-3.3.1.4](#3314-command-arguments). Procedures to extend Arguments
-are described in [Section 3.1.4](#314-extensions).
+information about the execution of a Command.
 
 An Actuator is an implementation of a cyber defense function that
 executes the Command. An Actuator Profile is a specification that
@@ -511,8 +500,7 @@ query, or other information. At a minimum, a Response will
 contain a status code to indicate the result of performing the
 Command. Additional status text and response fields optionally
 provide more detailed information that is specific to or
-requested by the Command. [Section 3.3.2](#332-openc2-response)
-defines the syntax of an OpenC2 Response.
+requested by the Command.
 
 
 ## 2.2 Producers, Consumers, and Devices
@@ -574,9 +562,9 @@ Table 2-1.
 
 | Layer | Examples |
 | :--- | :--- |
-| Function-Specific Content | Actuator Profiles<br>([[OpenC2-SLPF-v1.0]](#openc2-slpf-v10), ...) |
+| Function-Specific Content | Actuator Profiles<br>([OpenC2-SLPF-v1.0](#openc2-slpf-v10), ...) |
 | Common Content | Language Specification<br>(this document) |
-| Message | Transfer Specifications<br>([[OpenC2-HTTPS-v1.0]](#openc2-https-v10), OpenC2-over-CoAP, ...) |
+| Message | Transfer Specifications<br>([OpenC2-HTTPS-v1.0](#openc2-https-v10), [OpenC2-MQTT-v1.0](#openc2-mqtt-v10), ...) |
 | Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
 
 * The **Secure Transport** layer provides a communication path
