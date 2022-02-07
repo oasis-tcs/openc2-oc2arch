@@ -32,7 +32,8 @@ URI list end (commented out except during publication by OASIS TC Admin) -->
 [OASIS Open Command and Control (OpenC2) TC](https://www.oasis-open.org/committees/openc2/)
 
 #### Chair:
-Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
+Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](https://www.sfractal.com/) \
+Michael Rosa (mjrosa@cyber.nsa.gov), [National Security Agency](https://www.nsa.gov/)
 
 #### Editors:
 Dan Johnson (dj@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/) \
