@@ -384,7 +384,7 @@ of the Command and Response while the transfer specifications
 focus on the protocols for their exchange.
 
 In general, there are two types of participants involved in the
-exchange of OpenC2 Messages, as depicted in Figure 1-1:
+exchange of OpenC2 Messages, as depicted in Figure 2-1:
 
 1. **Producers**: A Producer is an entity that creates Commands
    to provide instruction to one or more systems to act in
@@ -394,6 +394,11 @@ exchange of OpenC2 Messages, as depicted in Figure 1-1:
    act upon a Command. A Consumer may create Responses that
    provide any information captured or necessary to send back to
    the Producer.
+
+**Figure 2-1. OpenC2 Message Exchange**
+
+![OpenC2 Message Exchange](images/MessageFlow.png)
+
 
 The language defines two payload structures:
 
@@ -437,9 +442,6 @@ The Response is sent from a Consumer, usually back to the
 Producer, and is a means to provide information (such as
 acknowledgment, status, etc.) as a result of a Command.
 
-**Figure 2-1. OpenC2 Message Exchange**
-
-![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
 ### 2.1.1 OpenC2 Command
