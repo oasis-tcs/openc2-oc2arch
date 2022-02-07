@@ -117,11 +117,13 @@ OpenC2 is defined across a family of specifications of several types:
   blueprint for developing Actuator Profiles and Transfer
   Specifications.
 
-* The **OpenC2 Language Specification** [OpenC2-Lang-v1.0]
-  provides the semantics for the essential elements of the
-  language, the structure for Commands and Responses, and the
-  schema that defines the proper syntax for the language elements
-  that represents the Command or Response.
+* The **OpenC2 Language Specification** provides the semantics
+ for the essential elements of the language, the structure for
+  Commands and Responses, and the schema that defines the proper
+  syntax for the language elements that represents the Command or
+  Response. The Language Specification also defines the
+  mechanisms for extending the OpenC2 language.
+  [[OpenC2-Lang-v1.0]](#openc2-lang-v10)
 
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2
   language relevant in the context of specific Actuator
