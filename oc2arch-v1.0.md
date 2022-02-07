@@ -517,7 +517,7 @@ OpenC2 Commands and Responses.
 
 OpenC2 implementations integrate the related OpenC2
 specifications described above with related industry
-specifications, protocols, and standards. Figure 1-2 depicts the
+specifications, protocols, and standards. Figure 2-3 depicts the
 relationships among OpenC2 specifications, and their
 relationships to other industry standards and
 environment-specific implementations of OpenC2. Note that the
@@ -528,7 +528,7 @@ application-layer message signature function to provide message
 source authentication and integrity).
 
 
-**Figure 2-2. OpenC2 Documentation and Layering Model**
+**Figure 2-3. OpenC2 Documentation and Layering Model**
 ![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
 
 OpenC2 is conceptually partitioned into four layers as shown in
