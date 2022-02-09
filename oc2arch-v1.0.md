@@ -118,10 +118,12 @@ OpenC2 is defined across a family of specifications of several types:
   Specifications.
 
 * The **OpenC2 Language Specification** provides the semantics
-  for the essential elements of the language, the structure for
+ for the essential elements of the language, the structure for
   Commands and Responses, and the schema that defines the proper
   syntax for the language elements that represents the Command or
-  Response.
+  Response. The Language Specification also defines the
+  mechanisms for extending the OpenC2 language.
+  [[OpenC2-Lang-v1.0]](#openc2-lang-v10)
 
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2
   language relevant in the context of specific Actuator
@@ -134,11 +136,11 @@ OpenC2 is defined across a family of specifications of several types:
   Actuator functions.
 
 * **OpenC2 Transfer Specifications** utilize existing protocols
-  and standards to implement OpenC2 in specific environments.
-  These standards are used for communications and security
-  functions beyond the scope of the language, such as message
-  transfer encoding, authentication, and end-to-end transport of
-  OpenC2 Messages.
+  and standards to implement OpenC2 message transfer in specific
+  environments. These standards are used for communications and
+  security functions beyond the scope of the language, such as
+  message transfer encoding, authentication, and end-to-end
+  transport of OpenC2 Messages.
 
 The most common encoding of OpenC2 is in JSON and the most common
 binding is to HTTP; this document assumes this encoding and
@@ -178,6 +180,9 @@ permitted and are defined in their respective documents.
 
 -   **Producer**: A manager application that sends Commands.
 
+-   **Request**: A Message from a Producet to a Consumer used to convey a
+    Command.
+    
 -   **Response**: A Message from a Consumer to a Producer acknowledging a
     Command or returning the requested resources or status to a previously
     received Command.
@@ -190,46 +195,45 @@ permitted and are defined in their respective documents.
 
 ### 1.2.2 Acronyms and abbreviations
 
-| Acronym | Description                                                          |
+| Acronym | Description |
 |---------|----------------------------------------------------------------------|
-| API     | Application Programming Interface                                    |
-| ASCII   | American Standard Code for Information Interchange                   |
-| BCP     | Best Current Practice                                                |
-| CBOR    | Concise Binary Object Representation                                 |
-| CIDR    | Classless Inter-Domain Routing                                       |
-| CoAP    | Constrained Application Protocol                                     |
-| DOI     | Digital Object Identifier                                            |
-| EUI     | Extended Unique Identifier                                           |
-| HTTP    | Hyper Text Transfer Protocol                                         |
-| HTTPS   | Hyper Text Transfer Protocol Secure                                  |
-| IACD    | Integrated Adaptive Cyber Defense                                    |
-| IANA    | Internet Assigned Numbers Authority                                  |
-| ICMP    | Internet Control Message Protocol                                    |
-| ID      | Identifier                                                           |
-| IP      | Internet Protocol                                                    |
-| IPR     | Intellectual Property Rights                                         |
-| JSON    | JavaScript Object Notation                                           |
-| MAC     | Media Access Control                                                 |
-| MD5     | Message Digest                                                       |
-| MQTT    | Message Queuing Telemetry Transfer                                   |
+| API     | Application Programming Interface |
+| ASCII   | American Standard Code for Information Interchange |
+| BCP     | Best Current Practice |
+| CBOR    | Concise Binary Object Representation |
+| CIDR    | Classless Inter-Domain Routing |
+| CoAP    | Constrained Application Protocol |
+| DOI     | Digital Object Identifier |
+| EUI     | Extended Unique Identifier |
+| HTTP    | Hyper Text Transfer Protocol |
+| HTTPS   | Hyper Text Transfer Protocol Secure |
+| IACD    | Integrated Adaptive Cyber Defense |
+| IANA    | Internet Assigned Numbers Authority |
+| ICMP    | Internet Control Message Protocol |
+| ID      | Identifier |
+| IP      | Internet Protocol |
+| IPR     | Intellectual Property Rights |
+| JSON    | JavaScript Object Notation |
+| MAC     | Media Access Control |
+| MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
-| OODA    | Observe-Orient-Decide-Act                                            |
-| OpenC2  | Open Command and Control                                             |
-| OpenDXL | Open Data eXchange Layer                                             |
-| PDF     | Portable Document Format                                             |
-| RFC     | Request for Comment                                                  |
-| SCTP    | Stream Control Transmission Protocol                                 |
-| SHA     | Security Hash Algorithm                                              |
-| SLPF    | StateLess Packet Filtering                                           |
-| STD     | Standard                                                             |
-| TC      | Technical Committee                                                  |
-| TCP     | Transmission Control Protocol                                        |
-| UDP     | User Datagram Control Protocol                                       |
-| UML     | Unified Modeling Language                                            |
-| URI     | Uniform Resource Identifier                                          |
-| UTC     | Coordinated Universal Time                                           |
-| UUID    | Universally Unique IDentifier                                        |
-| XML     | eXtensible Markup Language                                           |
+| OODA    | Observe-Orient-Decide-Act |
+| OpenC2  | Open Command and Control |
+| OpenDXL | Open Data eXchange Layer |
+| PDF     | Portable Document Format |
+| RFC     | Request for Comment |
+| SCTP    | Stream Control Transmission Protocol |
+| SHA     | Security Hash Algorithm |
+| SLPF    | StateLess Packet Filtering |
+| STD     | Standard |
+| TC      | Technical Committee |
+| TCP     | Transmission Control Protocol |
+| UDP     | User Datagram Control Protocol |
+| UML     | Unified Modeling Language |
+| URI     | Uniform Resource Identifier |
+| UTC     | Coordinated Universal Time |
+| UUID    | Universally Unique IDentifier |
+| XML     | eXtensible Markup Language |
 
 
 ### 1.2.3 Document conventions
@@ -378,13 +382,14 @@ OpenC2 is a suite of specifications for Producers and Consumers
 to command and execute cyber defense functions. These
 specifications include the OpenC2 Language Specification,
 Actuator Profiles, and Transfer Specifications. The OpenC2
-Language Specification and Actuator Profile specifications focus
-on the language content and meaning at the Producer and Consumer
-of the Command and Response while the transfer specifications
-focus on the protocols for their exchange.
+[Language Specification](#openc2-lang-v10) and Actuator Profile
+specifications focus on the language content and meaning at the
+Producer and Consumer level of Command and Response while the
+transfer specifications focus on the protocols for their
+exchange.
 
 In general, there are two types of participants involved in the
-exchange of OpenC2 Messages, as depicted in Figure 1-1:
+exchange of OpenC2 Messages, as depicted in Figure 2-1:
 
 1. **Producers**: A Producer is an entity that creates Commands
    to provide instruction to one or more systems to act in
@@ -395,6 +400,11 @@ exchange of OpenC2 Messages, as depicted in Figure 1-1:
    provide any information captured or necessary to send back to
    the Producer.
 
+**Figure 2-1. OpenC2 Message Exchange**
+
+![OpenC2 Message Exchange](images/MessageFlow.png)
+
+
 The language defines two payload structures:
 
 1. **Command**: An instruction from one system known as the
@@ -402,31 +412,6 @@ The language defines two payload structures:
    the content of the Command.
 2. **Response**: Any information sent back to the Producer as a
    result of the Command.
-
-The Action and Target components are required. A particular
-Target may be further refined by the Target type. Procedures to
-extend the Targets are described in [Section
-3.1.4](#314-extensions).
-
-Command Arguments, if present, influence the Command by providing
-information such as timing, periodicity, duration, or other
-details on what is to be executed. Command Arguments are defined
-in the OpenC2 Language Specification.
-
-An Actuator is an implementation of a cyber defense function that
-executes the Command. An Actuator Profile is a specification that
-identifies the subset of Actions, Targets and other aspects of
-this language specification that are required or optional in the
-context of a particular Actuator. An Actuator Profile may extend
-the language by defining additional Targets, Arguments, and
-Actuator Specifiers that are meaningful and possibly unique to
-the Actuator.
-
-The Actuator may be omitted from a Command and typically will not
-be included in implementations where the identities of the
-endpoints are unambiguous or when a high-level effects-based
-Command is desired and the tactical decisions on how the effect
-is achieved is left to the recipient.
 
 ## 2.1 Commands and Responses
 
@@ -437,24 +422,12 @@ The Response is sent from a Consumer, usually back to the
 Producer, and is a means to provide information (such as
 acknowledgment, status, etc.) as a result of a Command.
 
-**Figure 2-1. OpenC2 Message Exchange**
-
-![OpenC2 Message Exchange](images/MessageFlow.png)
-
-
 ### 2.1.1 OpenC2 Command
 The Command describes an Action to be performed on a Target and
 may include information identifying the Actuator or Actuators
-that are to execute the Command.
-
-A Command has four main components, two required and two
-optional. The required components are the Action and the Target.
-The optional components are Command Arguments and the Actuator. A
-Command can also contain an optional Command identifier, if
-necessary. [Section 3.3.1](#331-openc2-command) defines the
-syntax of an OpenC2 Command.
-
-The following list summarizes the main four components of a
+that are to execute the Command. A Command can also contain an
+optional Command identifier, if necessary. The following list
+summarizes the main four components of a
 Command.
 
 * **Action** (required): The task or activity to be performed.
@@ -473,26 +446,21 @@ Command.
   precision, such as a specific Actuator, a list of Actuators, or
   a group of Actuators.
 
-The Action and Target components are required and are populated
-by one of the Actions in [Section 3.3.1.1](#3311-action) and the
-Targets in [Section 3.3.1.2](#3312-target). A particular Target
-may be further refined by the Target type definitions in [Section
-3.4.1](#341-target-types). Procedures to extend the Targets are
-described in [Section 3.1.4](#314-extensions).
+The Action and Target components are required. A particular
+Target may be further refined by the Target type. The [Language
+Specification](#openc2-lang-v10) defines procedures to extend the
+set of OpenC2 Targets.
 
 Command Arguments, if present, influence the Command by providing
 information such as timing, periodicity, duration, or other
 details on what is to be executed. They can also be used to
 convey the need for acknowledgment or additional status
-information about the execution of a Command. The valid Arguments
-defined in this specification are in [Section
-3.3.1.4](#3314-command-arguments). Procedures to extend Arguments
-are described in [Section 3.1.4](#314-extensions).
+information about the execution of a Command.
 
 An Actuator is an implementation of a cyber defense function that
 executes the Command. An Actuator Profile is a specification that
 identifies the subset of Actions, Targets and other aspects of
-this language specification that are required or optional in the
+the OpenC2 language that are required or optional in the
 context of a particular Actuator. An Actuator Profile may extend
 the language by defining additional Targets, Arguments, and
 Actuator Specifiers that are meaningful and possibly unique to
@@ -504,6 +472,7 @@ endpoints are unambiguous or when a high-level effects-based
 Command is desired and the tactical decisions on how the effect
 is achieved is left to the recipient.
 
+
 ### 2.1.2 OpenC2 Response
 The Response is a Message sent from the recipient of a Command.
 Response messages provide acknowledgment, status, results from a
@@ -511,8 +480,7 @@ query, or other information. At a minimum, a Response will
 contain a status code to indicate the result of performing the
 Command. Additional status text and response fields optionally
 provide more detailed information that is specific to or
-requested by the Command. [Section 3.3.2](#332-openc2-response)
-defines the syntax of an OpenC2 Response.
+requested by the Command.
 
 
 ## 2.2 Producers, Consumers, and Devices
@@ -544,27 +512,26 @@ configuration 3 there is no assumption that the interface
 between the Consumer manager and the managed devices uses
 OpenC2 Commands and Responses.
 
-**Figure 2-2. Producer / Consumer / Device COnfigurations**
+**Figure 2-2. Producer / Consumer / Device Configurations**
 
 ![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
 
 
 ## 2.3 Implementations
 
-OpenC2 implementations integrate the related OpenC2
-specifications described above with related industry
-specifications, protocols, and standards. Figure 1-2 depicts the
-relationships among OpenC2 specifications, and their
-relationships to other industry standards and
-environment-specific implementations of OpenC2. Note that the
-layering of implementation aspects in the diagram is notional,
-and not intended to preclude any particular approach to
-implementing the needed functionality (for example, the use of an
-application-layer message signature function to provide message
-source authentication and integrity).
+OpenC2 implementations integrate the OpenC2 specifications
+described above with related industry specifications, protocols,
+and standards. Figure 2-3 depicts the relationships among the
+family of OpenC2 specifications, and their relationships to other
+industry standards and environment-specific implementations of
+OpenC2. Note that the layering of implementation aspects in the
+diagram is notional, and not intended to preclude any particular
+approach to implementing the needed functionality (for example,
+the use of an application-layer message signature function to
+provide message source authentication and integrity).
 
 
-**Figure 2-2. OpenC2 Documentation and Layering Model**
+**Figure 2-3. OpenC2 Documentation and Layering Model**
 ![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
 
 OpenC2 is conceptually partitioned into four layers as shown in
@@ -574,9 +541,9 @@ Table 2-1.
 
 | Layer | Examples |
 | :--- | :--- |
-| Function-Specific Content | Actuator Profiles<br>([[OpenC2-SLPF-v1.0]](#openc2-slpf-v10), ...) |
-| Common Content | Language Specification<br>(this document) |
-| Message | Transfer Specifications<br>([[OpenC2-HTTPS-v1.0]](#openc2-https-v10), OpenC2-over-CoAP, ...) |
+| Function-Specific Content | Actuator Profiles<br>([OpenC2-SLPF-v1.0](#openc2-slpf-v10), ...) |
+| Common Content | Language Specification |
+| Message | Transfer Specifications<br>([OpenC2-HTTPS-v1.0](#openc2-https-v10), [OpenC2-MQTT-v1.0](#openc2-mqtt-v10), ...) |
 | Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
 
 * The **Secure Transport** layer provides a communication path
