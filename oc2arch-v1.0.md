@@ -118,10 +118,12 @@ OpenC2 is defined across a family of specifications of several types:
   Specifications.
 
 * The **OpenC2 Language Specification** provides the semantics
-  for the essential elements of the language, the structure for
+ for the essential elements of the language, the structure for
   Commands and Responses, and the schema that defines the proper
   syntax for the language elements that represents the Command or
-  Response.
+  Response. The Language Specification also defines the
+  mechanisms for extending the OpenC2 language.
+  [[OpenC2-Lang-v1.0]](#openc2-lang-v10)
 
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2
   language relevant in the context of specific Actuator
@@ -134,11 +136,11 @@ OpenC2 is defined across a family of specifications of several types:
   Actuator functions.
 
 * **OpenC2 Transfer Specifications** utilize existing protocols
-  and standards to implement OpenC2 in specific environments.
-  These standards are used for communications and security
-  functions beyond the scope of the language, such as message
-  transfer encoding, authentication, and end-to-end transport of
-  OpenC2 Messages.
+  and standards to implement OpenC2 message transfer in specific
+  environments. These standards are used for communications and
+  security functions beyond the scope of the language, such as
+  message transfer encoding, authentication, and end-to-end
+  transport of OpenC2 Messages.
 
 The most common encoding of OpenC2 is in JSON and the most common
 binding is to HTTP; this document assumes this encoding and
@@ -178,6 +180,9 @@ permitted and are defined in their respective documents.
 
 -   **Producer**: A manager application that sends Commands.
 
+-   **Request**: A Message from a Producet to a Consumer used to convey a
+    Command.
+    
 -   **Response**: A Message from a Consumer to a Producer acknowledging a
     Command or returning the requested resources or status to a previously
     received Command.
@@ -190,46 +195,45 @@ permitted and are defined in their respective documents.
 
 ### 1.2.2 Acronyms and abbreviations
 
-| Acronym | Description                                                          |
+| Acronym | Description |
 |---------|----------------------------------------------------------------------|
-| API     | Application Programming Interface                                    |
-| ASCII   | American Standard Code for Information Interchange                   |
-| BCP     | Best Current Practice                                                |
-| CBOR    | Concise Binary Object Representation                                 |
-| CIDR    | Classless Inter-Domain Routing                                       |
-| CoAP    | Constrained Application Protocol                                     |
-| DOI     | Digital Object Identifier                                            |
-| EUI     | Extended Unique Identifier                                           |
-| HTTP    | Hyper Text Transfer Protocol                                         |
-| HTTPS   | Hyper Text Transfer Protocol Secure                                  |
-| IACD    | Integrated Adaptive Cyber Defense                                    |
-| IANA    | Internet Assigned Numbers Authority                                  |
-| ICMP    | Internet Control Message Protocol                                    |
-| ID      | Identifier                                                           |
-| IP      | Internet Protocol                                                    |
-| IPR     | Intellectual Property Rights                                         |
-| JSON    | JavaScript Object Notation                                           |
-| MAC     | Media Access Control                                                 |
-| MD5     | Message Digest                                                       |
-| MQTT    | Message Queuing Telemetry Transfer                                   |
+| API     | Application Programming Interface |
+| ASCII   | American Standard Code for Information Interchange |
+| BCP     | Best Current Practice |
+| CBOR    | Concise Binary Object Representation |
+| CIDR    | Classless Inter-Domain Routing |
+| CoAP    | Constrained Application Protocol |
+| DOI     | Digital Object Identifier |
+| EUI     | Extended Unique Identifier |
+| HTTP    | Hyper Text Transfer Protocol |
+| HTTPS   | Hyper Text Transfer Protocol Secure |
+| IACD    | Integrated Adaptive Cyber Defense |
+| IANA    | Internet Assigned Numbers Authority |
+| ICMP    | Internet Control Message Protocol |
+| ID      | Identifier |
+| IP      | Internet Protocol |
+| IPR     | Intellectual Property Rights |
+| JSON    | JavaScript Object Notation |
+| MAC     | Media Access Control |
+| MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
-| OODA    | Observe-Orient-Decide-Act                                            |
-| OpenC2  | Open Command and Control                                             |
-| OpenDXL | Open Data eXchange Layer                                             |
-| PDF     | Portable Document Format                                             |
-| RFC     | Request for Comment                                                  |
-| SCTP    | Stream Control Transmission Protocol                                 |
-| SHA     | Security Hash Algorithm                                              |
-| SLPF    | StateLess Packet Filtering                                           |
-| STD     | Standard                                                             |
-| TC      | Technical Committee                                                  |
-| TCP     | Transmission Control Protocol                                        |
-| UDP     | User Datagram Control Protocol                                       |
-| UML     | Unified Modeling Language                                            |
-| URI     | Uniform Resource Identifier                                          |
-| UTC     | Coordinated Universal Time                                           |
-| UUID    | Universally Unique IDentifier                                        |
-| XML     | eXtensible Markup Language                                           |
+| OODA    | Observe-Orient-Decide-Act |
+| OpenC2  | Open Command and Control |
+| OpenDXL | Open Data eXchange Layer |
+| PDF     | Portable Document Format |
+| RFC     | Request for Comment |
+| SCTP    | Stream Control Transmission Protocol |
+| SHA     | Security Hash Algorithm |
+| SLPF    | StateLess Packet Filtering |
+| STD     | Standard |
+| TC      | Technical Committee |
+| TCP     | Transmission Control Protocol |
+| UDP     | User Datagram Control Protocol |
+| UML     | Unified Modeling Language |
+| URI     | Uniform Resource Identifier |
+| UTC     | Coordinated Universal Time |
+| UUID    | Universally Unique IDentifier |
+| XML     | eXtensible Markup Language |
 
 
 ### 1.2.3 Document conventions
