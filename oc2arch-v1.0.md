@@ -182,7 +182,7 @@ permitted and are defined in their respective documents.
 
 -   **Request**: A Message from a Producet to a Consumer used to convey a
     Command.
-    
+
 -   **Response**: A Message from a Consumer to a Producer acknowledging a
     Command or returning the requested resources or status to a previously
     received Command.
@@ -297,7 +297,7 @@ text.
 | **content** | Message body as specified by content_type and msg_type. |
 
 Here is a reference to the table caption:
-Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction) 
+Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction)
 
 
 ### 1.3.3 Lists
@@ -366,7 +366,7 @@ Note the actual backticks will not appear in the HTML format. If it's necessary 
 }
 ```
 
-Text to be highlighted as code can also be surrounded by a single "backtick" character: 
+Text to be highlighted as code can also be surrounded by a single "backtick" character:
 `code text`
 
 ## 1.4 Page Breaks
@@ -590,6 +590,117 @@ See "Guidelines to Writing Conformance Clauses":
 http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
 
 Remove this note before submitting for publication.)
+
+----------
+
+An OpenC2 Producer is defined per Section 2 of this document.
+
+An OpenC2 Consumer is defined per Section 2 of this document.
+
+The OpenC2 Transport Specification List
+is defined as:
+- oc2-https
+- oc2-mqtt
+- oc2-odxl [Editor's note - remove if perchance arch goes for approval prior to odxl]
+
+The OpenC2 Actuator Profile Specification List
+is defined as:
+- slpf
+- pf [Editor's note - remove if perchance arch goes for approval prior to ]
+- sbom [Editor's note - remove if perchance arch goes for approval prior to ]
+- endp  [Editor's note - remove if perchance arch goes for approval prior to ]
+- sdnc [Editor's note - remove if perchance arch goes for approval prior to ]
+- emgw [Editor's note - remove if perchance arch goes for approval prior to ]
+- ids  [Editor's note - remove if perchance arch goes for approval prior to ]
+- ips  [Editor's note - remove if perchance arch goes for approval prior to ]
+- dlp  [Editor's note - remove if perchance arch goes for approval prior to ]
+- swg [Editor's note - remove if perchance arch goes for approval prior to ]
+
+The Actuator Profile List
+is defined as the list of
+Actuator Profiles supported by the Consumer as supplied in
+the response to the
+{action:query, target:features, target-specifier:[profiles]}
+command per Section 4.1 of the Language Specification.
+
+A Consumer's Actuator Profile List
+is composed of two types on profiles -
+Standard Actuator Profiles (SAP) ie those on the OpenC2
+OpenC2 Actuator Profile Specification List;
+and Custom Actuator Profiles (CAP)
+ie those not on the
+OpenC2 Actuator Profile Specification List.
+
+CC 4.1 In order to conform to this specification,
+an OpenC2 Producer
+MUST only issue OpenC2 commands conforming to
+OpenC2 Language Specification Section 5.1
+Conformance Clause 1.
+
+CC 4.2 In order to conform to this specification,
+an OpenC2 Consumer
+MUST only accept OpenC2 commands conforming to
+OpenC2 Language Specification Section 5.1
+Conformance Clause 1.
+
+CC 4.3 In order to conform to this specification,
+an OpenC2 Consumer
+MUST only return responses conforming to
+OpenC2 Language Specification Section 5.2
+Conformance Clause 2.
+
+CC 4.4 In order to conform to this specification,
+an OpenC2 Producer
+MUST only accept responses conforming to
+OpenC2 Language Specification Section 5.2
+Conformance Clause 2.
+
+CC 4.5 In order to conform to this specification,
+an OpenC2 Producer
+MUST be conformant to
+OpenC2 Language Specification Section 5.3
+Conformance Clause 3.
+
+CC 4.6 In order to conform to this specification,
+an OpenC2 Consumer
+MUST be conformant to
+OpenC2 Language Specification Section 5.4
+Conformance Clause 4.
+
+CC 4.7 In order to conform to this specification,
+an OpenC2 Producer
+MUST be conformant with at least one transport in the
+OpenC2 Transport Specification List.
+
+CC 4.8 In order to conform to this specification,
+an OpenC2 Consumer
+MUST be conformant with at least one transport in the
+OpenC2 Transport Specification List.
+
+CC 4.9 In order to conform to this specification,
+an OpenC2 Consumer
+MUST have an OpenC2 Consumer Actuator Profile List
+with at least one entry.
+
+CC 4.10 In order to conform to this specification,
+all SAP entries on a Consumer's
+OpenC2 Consumer Actuator Profile List
+MUST conform to the appropriate OASIS OpenC2 Actuator Profiles.
+
+CC 4.11 In order to conform to this specification,
+CAP MUST extend the functionality covered
+by a profile on the OpenC2 Actuator Profile Specification List,
+but MUST conform with the OpenC2 Actuator Profile Specification being extended.
+E.g if slpf, Consumer must conform to OASIS OpenC2 SLPF Actuator Profile Spec.
+Note if the actuator function is not an extension to an existing function,
+fails this conformance clause.
+E.g. a CAP fails this clause is it is for malware detection,
+and there is not a malare detection
+SAP.
+
+CC 4.12 In order to conform to this specification,
+all CAP entries MUST [Editor's note - need words on how to define doing extensions in standard way, probably referring to language spec section]
+
 
 
 -------
