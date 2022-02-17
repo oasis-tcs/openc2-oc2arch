@@ -36,7 +36,6 @@ Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](https://www.sfr
 Michael Rosa (mjrosa@cyber.nsa.gov), [National Security Agency](https://www.nsa.gov/)
 
 #### Editors:
-Dan Johnson (dj@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/) \
 Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
 
 #### Additional artifacts:
@@ -182,7 +181,7 @@ permitted and are defined in their respective documents.
 
 -   **Request**: A Message from a Producet to a Consumer used to convey a
     Command.
-    
+
 -   **Response**: A Message from a Consumer to a Producer acknowledging a
     Command or returning the requested resources or status to a previously
     received Command.
@@ -297,7 +296,7 @@ text.
 | **content** | Message body as specified by content_type and msg_type. |
 
 Here is a reference to the table caption:
-Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction) 
+Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction)
 
 
 ### 1.3.3 Lists
@@ -366,7 +365,7 @@ Note the actual backticks will not appear in the HTML format. If it's necessary 
 }
 ```
 
-Text to be highlighted as code can also be surrounded by a single "backtick" character: 
+Text to be highlighted as code can also be surrounded by a single "backtick" character:
 `code text`
 
 ## 1.4 Page Breaks
@@ -678,10 +677,10 @@ The following individuals have participated in the creation of this specificatio
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Philippe | Alman | Something Networks
-Alex | Amirnovman | Company B
-Kris | Anderman | Mini Micro
-Darren | Anstman | Big Networks
+Dan | Johnson | sFractal Consulting
+David | Lemire | Huntington Ingalls
+Duncan | Sparrell | sFractal Consulting
+
 
 -------
 
