@@ -151,11 +151,63 @@ permitted and are defined in their respective documents.
 
 * Reformatted to December 2020 OASIS work product template
 
-## 1.2 Glossary
+## 1.2 Goal
+
+OpenC2 is developing a language for interoperating between
+functional elements of cyber defense systems. This language, used
+in conjunction with OpenC2 Actuator Profiles and OpenC2 Transfer
+Specifications, allows for vendor-agnostic cybertime response to
+attacks.
+
+The Integrated Adaptive Cyber Defense (IACD) framework defines a
+collection of activities, based on the traditional OODA
+(Observe–Orient–Decide–Act) Loop [[IACD]](#iacd):
+
+* Sensing:  gathering of data regarding system activities
+* Sense Making:  evaluating data using analytics to understand
+  what's happening
+* Decision Making:  determining a course-of-action to respond to
+  system events
+* Acting:  Executing the course-of-action
+
+The goal of OpenC2 is to enable coordinated defense in
+cyber-relevant time between decoupled blocks that perform cyber
+defense functions. OpenC2 focuses on the Acting portion of the
+IACD framework; the assumption that underlies the design of
+OpenC2 is that the sensing/analytics have been provisioned and
+the decision to act has been made. This goal and these
+assumptions guide the design of OpenC2:
+
+* **Technology Agnostic:**  The OpenC2 language defines a set of
+  abstract atomic cyber defense actions in a platform- and
+  implementation-agnostic manner
+
+* **Concise:**  A Command is intended to convey only the
+  essential information required to describe the action required
+  and can be represented in a very compact form for
+  communications-constrained environments
+
+* **Abstract:**  Commands and Responses are defined abstractly
+  and can be encoded and transferred via multiple schemes as
+  dictated by the needs of different implementation environments
+
+* **Extensible:**  While OpenC2 defines a core set of Actions and
+  Targets for cyber defense, the language is expected to evolve
+  with cyber defense technologies, and permits extensions to
+  accommodate new cyber defense technologies.
+
+The OpenC2 language assumes that the event has been detected, a
+decision to act has been made, the act is warranted, and the
+initiator and recipient of the Commands are authenticated and
+authorized. The OpenC2 language was designed to be agnostic of
+the other aspects of cyber defense implementations that realize
+these assumptions.
+
+## 1.3 Glossary
 
 <!-- Optional section with suggested subsections -->
 
-### 1.2.1 Definitions of terms
+### 1.3.1 Definitions of terms
 
 *This section is normative.*
 
@@ -193,7 +245,7 @@ permitted and are defined in their respective documents.
 -   **Target**: The object of the Action, i.e., the Action is performed on the
     Target (e.g., IP Address).
 
-### 1.2.2 Acronyms and abbreviations
+### 1.3.2 Acronyms and abbreviations
 
 | Acronym | Description |
 |---------|----------------------------------------------------------------------|
@@ -236,7 +288,7 @@ permitted and are defined in their respective documents.
 | XML     | eXtensible Markup Language |
 
 
-### 1.2.3 Document conventions
+### 1.3.3 Document conventions
 
 - Naming conventions
 - Font colors and styles
