@@ -12,7 +12,7 @@ licensing. For more details, see the
 [Contributions](#contributions) and [Licensing](#licensing)
 sections below. 
 
-## :blue_book: _Specification for Transfer of OpenC2 Messages Via MQTT_ :blue_book:
+## :blue_book: _Open Command and Control (OpenC2) Architecture Specification_ :blue_book:
 
 This specification provides overall architectural guidance to the
 OpenC2 implementation community for the use of the OpenC2
