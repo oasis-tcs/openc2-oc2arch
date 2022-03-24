@@ -376,7 +376,7 @@ Add horizontal rule lines where page breaks are desired in the PDF - before each
 
 -------
 
-# 2 Overview of OpenC2 Architecture
+# 2 OpenC2 Architecture
 
 OpenC2 is a suite of specifications for Producers and Consumers
 to command and execute cyber defense functions. These
