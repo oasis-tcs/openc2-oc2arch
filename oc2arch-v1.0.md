@@ -386,7 +386,9 @@ Actuator Profiles, and Transfer Specifications. The OpenC2
 specifications focus on the language content and meaning at the
 Producer and Consumer level of Command and Response while the
 transfer specifications focus on the protocols for their
-exchange.
+exchange. The language is defined abstractly in the Language
+Specification, permitting flexibility of message serialization
+and transfer protocol choices when implementing OpenC2.
 
 In general, there are two types of participants involved in the
 exchange of OpenC2 Messages, as depicted in Figure 2-1:
