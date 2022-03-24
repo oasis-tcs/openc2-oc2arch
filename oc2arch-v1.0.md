@@ -407,35 +407,24 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 ![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
-The language defines two payload structures:
+The language defines two distinct content types (i.e., payload structures): Command and Response.
 
-1. **Command**: An instruction from one system known as the
-   Producer, to one or more systems, the Consumer(s), to act on
-   the content of the Command.
-2. **Response**: Any information sent back to the Producer as a
-   result of the Command.
+## 2.1 OpenC2 Commands
 
-## 2.1 Commands and Responses
+**Command**: An instruction from one system known as the
+Producer, to one or more systems, the Consumer(s), to act on the
+content of the Command.
 
-The OpenC2 language has two distinct content types: Command and
-Response. The Command is sent from a Producer to a Consumer and
-describes an Action to be performed by an Actuator on a Target.
-The Response is sent from a Consumer, usually back to the
-Producer, and is a means to provide information (such as
-acknowledgment, status, etc.) as a result of a Command.
-
-### 2.1.1 OpenC2 Command
 The Command describes an Action to be performed on a Target and
 may include information identifying the Actuator or Actuators
 that are to execute the Command. A Command can also contain an
 optional Command identifier, if necessary. The following list
-summarizes the main four components of a
-Command.
+summarizes the main four components of a Command.
 
 * **Action** (required): The task or activity to be performed.
 * **Target** (required): The object of the action. The Action is
   performed on the Target. Properties of the Target, called
-  Target Specifiers, further identify the Target to some level of
+  *Target Specifiers*, further identify the Target to some level of
   precision, such as a specific Target, a list of Targets, or a
   class of Targets.
 * **Arguments** (optional): Provide additional information on how
@@ -443,8 +432,8 @@ Command.
   duration, etc.
 * **Actuator** (optional): The Actuator executes the Command. The
   Actuator will be defined within the context of an Actuator
-  Profile. Properties of the Actuator, called Actuator
-  Specifiers, further identify the Actuator to some level of
+  Profile. Properties of the Actuator, called *Actuator
+  Specifiers*, further identify the Actuator to some level of
   precision, such as a specific Actuator, a list of Actuators, or
   a group of Actuators.
 
@@ -475,17 +464,21 @@ Command is desired and the tactical decisions on how the effect
 is achieved is left to the recipient.
 
 
-### 2.1.2 OpenC2 Response
-The Response is a Message sent from the recipient of a Command.
-Response messages provide acknowledgment, status, results from a
-query, or other information. At a minimum, a Response will
-contain a status code to indicate the result of performing the
-Command. Additional status text and response fields optionally
-provide more detailed information that is specific to or
-requested by the Command.
+## 2.2 OpenC2 Responses
+
+ **Response**: Any information sent back to the Producer as a
+ result of the Command.
+
+The Response is sent from a Consumer, usually back to the
+Producer, and is a means to provide information (such as
+acknowledgment, status, etc.) regarding the results of executing
+a Command.  At a minimum, a Response will contain a status code
+to indicate the result of performing the Command. Additional
+status text and response fields optionally provide more detailed
+information that is specific to or requested by the Command.
 
 
-## 2.2 Producers, Consumers, and Devices
+## 2.3 Producers, Consumers, and Devices
 
 Figure 2-X illustrates three representative
 configurations for an OpenC2 Consumer device:
@@ -519,7 +512,7 @@ OpenC2 Commands and Responses.
 ![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
 
 
-## 2.3 Implementations
+## 2.4 Implementations
 
 OpenC2 implementations integrate the OpenC2 specifications
 described above with related industry specifications, protocols,
