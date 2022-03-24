@@ -389,6 +389,8 @@ transfer specifications focus on the protocols for their
 exchange. The language is defined abstractly in the Language
 Specification, permitting flexibility of message serialization
 and transfer protocol choices when implementing OpenC2.
+Interoperability between specific OpenC2 implementations is
+dependent on common serialization and transfer mechanisms.
 
 In general, there are two types of participants involved in the
 exchange of OpenC2 Messages, as depicted in Figure 2-1:
@@ -425,7 +427,7 @@ summarizes the main four components of a Command.
 * **Target** (required): The object of the action. The Action is
   performed on the Target. Properties of the Target, called
   *Target Specifiers*, further identify the Target to some level of
-  precision, such as a specific Target, a list of Targets, or a
+  precision, such as one specific Target, a list of Targets, or a
   class of Targets.
 * **Arguments** (optional): Provide additional information on how
   the command is to be performed, such as date/time, periodicity,
@@ -480,7 +482,7 @@ information that is specific to or requested by the Command.
 
 ## 2.3 Producers, Consumers, and Devices
 
-Figure 2-X illustrates three representative
+Figure 2-2 illustrates three representative
 configurations for an OpenC2 Consumer device:
 
 1. The Consumer implements a single Actuator Profile (AP).
@@ -529,8 +531,8 @@ provide message source authentication and integrity).
 **Figure 2-3. OpenC2 Documentation and Layering Model**
 ![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
 
-OpenC2 is conceptually partitioned into four layers as shown in
-Table 2-1.
+OpenC2 is conceptually partitioned into four layers as described
+in Table 2-1.
 
 **Table 2-1. OpenC2 Protocol Layers**
 
@@ -558,18 +560,7 @@ Table 2-1.
   requirements for that function. Producers and Consumers will
   support one or more profiles.
 
-The components of a Command are an Action (what is to be done), a
-Target (what is being acted upon), an optional Actuator (what is
-performing the command), and Command Arguments, which influence
-how the Command is to be performed. An Action coupled with a
-Target is sufficient to describe a complete Command. Though
-optional, the inclusion of an Actuator and/or Command Arguments
-provides additional precision to a Command.
 
-The components of a Response are a numerical status code, an
-optional status text string, and optional results. The format of
-the results, if included, depend on the type of Response being
-transferred.
 
 
 
