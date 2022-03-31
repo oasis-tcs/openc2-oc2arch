@@ -198,12 +198,14 @@ permitted and are defined in their respective documents.
 | Acronym | Description |
 |---------|----------------------------------------------------------------------|
 | API     | Application Programming Interface |
+| AP      | Actuator Profile |
 | ASCII   | American Standard Code for Information Interchange |
 | BCP     | Best Current Practice |
 | CBOR    | Concise Binary Object Representation |
 | CIDR    | Classless Inter-Domain Routing |
 | CoAP    | Constrained Application Protocol |
 | DOI     | Digital Object Identifier |
+| ER      | Endpoint Response |
 | EUI     | Extended Unique Identifier |
 | HTTP    | Hyper Text Transfer Protocol |
 | HTTPS   | Hyper Text Transfer Protocol Secure |
@@ -212,8 +214,10 @@ permitted and are defined in their respective documents.
 | ICMP    | Internet Control Message Protocol |
 | ID      | Identifier |
 | IP      | Internet Protocol |
+| IoT     | Internet of Things |
 | IPR     | Intellectual Property Rights |
 | JSON    | JavaScript Object Notation |
+| LS      | Language Specification | 
 | MAC     | Media Access Control |
 | MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
