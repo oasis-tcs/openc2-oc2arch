@@ -703,21 +703,32 @@ Darren | Anstman | Big Networks
 
 ## E.1 Application of Actuator Profiles and Transfer Specifications
 
-This example illustrates the application of the various types of OpenC2 specifications. Figure E-1 shows a simple operating environment with five components:
+This example illustrates the application of the various types of
+OpenC2 specifications. Figure E-1 shows a simple operating
+environment with five components:
 
- - A Security Orchestration, Automation, and Response (SOAR) system that is the OpenC2 Producer in the environment, directing the operation of OpenC2-enabled cyber defense functions.
+ - A Security Orchestration, Automation, and Response (SOAR)
+   system that is the OpenC2 Producer in the environment,
+   directing the operation of OpenC2-enabled cyber defense
+   functions.
   
- - A Publish / Subscribe message broker to support communications among the orher components.
+ - A Publish / Subscribe message broker to support communications
+   among the orher components.
   
  - Three OpenC2 Consumers:
-   - An IP-Connected camera, illustrative of an Internet of Things (IoT) Consumer;
-   - A Laptop, illustrative of a general purpose endpoint consumer;
-   - A Firewall, illustrative of a network infrastructure consumer.
+   - An IP-Connected camera, illustrative of an Internet of
+     Things (IoT) Consumer;
+   - A Laptop, illustrative of a general purpose endpoint
+     consumer;
+   - A Firewall, illustrative of a network infrastructure
+     consumer.
 
 ##### Figure E-1: Application of Actuator Profiles and Transfer Specifications
 ![Figure E-1](images/Arch-Example-1.drawio.png)
 
-The diagram also shows a collection of OpenC2 specifications, and tags components with the specifications relevant to their participation in OpenC2 exchanges:
+The diagram also shows a collection of OpenC2 specifications, and
+tags components with the specifications relevant to their
+participation in OpenC2 exchanges:
 
  - The OpenC2 Language Specification
  - A Publish / Subscribe Transfer Specification
@@ -726,14 +737,23 @@ The diagram also shows a collection of OpenC2 specifications, and tags component
    - Packet Filtering ("P")
    - Software Bill of Material (SBOM) Retrieval ("S")
 
-Colored circles on each of the components identify which specifications are relevant to that component:
+Colored circles on each of the components identify which
+specifications are relevant to that component:
 
- - The message broker needs to conform to the publish/subscribe specification called out in the Transfer Specification, but does not have any OpenC2-specific requirements.
+ - The message broker needs to conform to the publish/subscribe
+   specification called out in the Transfer Specification, but
+   does not have any OpenC2-specific requirements.
 
- - Messaging is defined by a combination of the Language Specification and the Transfer Specification, indicated by a bi-colored (red/blue) bubble. This function is relevant to all of the OpenC2 components.
- - All three Consumers support the SBOM Retrieval AP; this is the only AP applicable to the IoT Consumer.
- - The laptop (Endpoint Consumer) must support the Endpoint Respose AP.
- - The firewall (Infrastructure Consumer) must support the Packet Filtering AP.
+ - Messaging is defined by a combination of the Language
+   Specification and the Transfer Specification, indicated by a
+   bi-colored (red/blue) bubble. This function is relevant to all
+   of the OpenC2 components.
+ - All three Consumers support the SBOM Retrieval AP; this is the
+   only AP applicable to the IoT Consumer.
+ - The laptop (Endpoint Consumer) must support the Endpoint
+   Respose AP.
+ - The firewall (Infrastructure Consumer) must support the Packet
+   Filtering AP.
 
 ## E.2 Actuator Profile Typical Content
 
