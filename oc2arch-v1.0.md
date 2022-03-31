@@ -695,9 +695,16 @@ Darren | Anstman | Big Networks
 
 -------
 
-# Appendix E. Example Appendix with subsections
+# Appendix E. Examples
 
-## E.1 Subsection title
+## E.1 Application of Actuator Profiles and Transfer Specifications
+
+
+
+##### Figure E-1: Application of Actuator Profiles and Transfer Specifications
+![Figure E-1](images/Arch-Example-1.drawio.png)
+
+
 
 ### E.1.1 Sub-subsection
 
