@@ -762,7 +762,7 @@ content of an OpenC2 Acuator Profile.
 ### 1.0 Introduction
 
 This section provides a brief overview of the cyber defense
-function addressed in this AP
+function addressed in this AP.
 
 ### 2.0 OpenC2 Language Binding
 
@@ -841,10 +841,52 @@ Examples of commands and responses that illustrate the use of
 this AP will be found in Appendix E.
 
 
-
-
-
 ## E.3 Transfer Specification Typical Content
+
+
+This example provides an overview of the typical structure and
+content of an OpenC2 Transfer Specification.
+
+### 1.0 Introduction
+
+This section provides a brief introduction to the transfer
+protocol that is the focus of this transfer specification.
+
+### 2.0 Operating Model
+
+This section provides an overview of the approach employed to use
+the transfer protocols in support of OpenC2 messaging. A
+description of how OpenC2 messages are packaged for transfer in
+the protocol is needed. Other content of the section is flexible
+based on the characteristics of the protocol in use. For example,
+a subsection of 2.0 would describe the topic structure used in a
+publish / subscribe environment, or which protocol features are
+used in a specific way for OpenC2 messaging.
+
+### 3.0 Protocol Mapping
+
+This section defines specific requirements to use the transfer
+protocol to implement the operating model, and provides details
+as needed to apply the standard that describe the protocol.
+Similar to section 2, the structure of this ection if flexible
+based on the characteristics of the protocol in use.
+
+### 4.0 Conformance
+
+This section provides the conformance clauses required in an
+OASIS specification.  Clauses may or may not be grouped into
+those applicable to Producers and those applicable to Consumers
+receiving and executing those commands, depending on the nature
+of the protocol in use.
+
+
+### Appendix E. Examples
+
+Examples of message transfer that illustrate the use of this
+transfer specifcation will be found in Appendix E.
+
+
+
 -------
 
 # Appendix F. Notices
