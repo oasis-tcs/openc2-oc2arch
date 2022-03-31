@@ -749,10 +749,10 @@ specifications are relevant to that component:
    indicated by a bi-colored (red/blue) bubble. This function is
    relevant to all of the OpenC2 components.
  - All IP-connected camera must support the SBOM Retrieval AP.
- - The laptop (Endpoint Consumer) must support the SBOM AP and
-   the Endpoint Respose AP.
+ - The laptop (Endpoint Consumer) must support the SBOM Retrieval
+   AP and the Endpoint Respose AP.
  - The firewall (Infrastructure Consumer) must support the SBOM
-   AP and the Packet Filtering AP.
+   Retrieval AP and the Packet Filtering AP.
 
 ## E.2 Actuator Profile Typical Content
 
