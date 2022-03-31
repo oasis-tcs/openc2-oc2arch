@@ -727,7 +727,7 @@ Colored circles on each of the components identify which specifications are rele
  - The message broker needs to conform to the publish/subscribe specification called out in the Transfer Specification, but does not have any OpenC2-specific requirements.
 
  - Messaging is defined by a combination of the Language Specification and the Transfer Specification, indicated by a bi-colored (red/blue) bubble. This function is relevant to all of the OpenC2 components.
- - All three Consumers support the SBOM Retrieval AP, which is the only AP applicable to the IoT Consumer.
+ - All three Consumers support the SBOM Retrieval AP; this is the only AP applicable to the IoT Consumer.
  - The laptop (Endpoint Consumer) must support the Endpoint Respose AP.
  - The firewall (Infrastructure Consumer) must support the Packet Filtering AP.
 
