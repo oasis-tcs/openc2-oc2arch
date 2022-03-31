@@ -162,7 +162,7 @@ permitted and are defined in their respective documents.
 -   **Action**: The task or activity to be performed (e.g., 'deny').
 
 -   **Actuator**: The function performed by the Consumer that executes the
-    Command (e.g., 'Stateless Packet Filtering').
+    Command (e.g., "Packet Filtering").
 
 -   **Argument**: A property of a Command that provides additional information
     on how to perform the Command, such as date/time, periodicity, duration,
@@ -390,7 +390,8 @@ exchange. The language is defined abstractly in the Language
 Specification, permitting flexibility of message serialization
 and transfer protocol choices when implementing OpenC2.
 Interoperability between specific OpenC2 implementations is
-dependent on common serialization and transfer mechanisms.
+dependent on the selection of common serialization and transfer
+mechanisms.
 
 In general, there are two types of participants involved in the
 exchange of OpenC2 Messages, as depicted in Figure 2-1:
@@ -414,7 +415,7 @@ structures): Command and Response.
 
 ## 2.1 OpenC2 Commands
 
-**Command**: An instruction from one system known as the
+**Command**: An instruction from one system, known as the
 Producer, to one or more systems, the Consumer(s), to act on the
 content of the Command.
 
@@ -454,11 +455,11 @@ information about the execution of a Command.
 An Actuator is an implementation of a cyber defense function that
 executes the Command. An Actuator Profile is a specification that
 identifies the subset of Actions, Targets and other aspects of
-the OpenC2 language that are required or optional in the
-context of a particular Actuator. An Actuator Profile may extend
-the language by defining additional Targets, Arguments, and
-Actuator Specifiers that are meaningful and possibly unique to
-the Actuator.
+the OpenC2 language that are required or optional in the context
+of a particular Actuator. An Actuator Profile also may extend the
+language by defining additional Targets, Arguments, and Actuator
+Specifiers that are meaningful and possibly unique to the
+Actuator.
 
 The Actuator may be omitted from a Command and typically will not
 be included in implementations where the identities of the
