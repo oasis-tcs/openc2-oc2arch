@@ -713,7 +713,7 @@ environment with five components:
    functions.
   
  - A Publish / Subscribe message broker to support communications
-   among the orher components.
+   among the other components.
   
  - Three OpenC2 Consumers:
    - An IP-Connected camera, illustrative of an Internet of
@@ -727,7 +727,7 @@ environment with five components:
 ![Figure E-1](images/Arch-Example-1.drawio.png)
 
 The diagram also shows a collection of OpenC2 specifications, and
-tags components with the specifications relevant to their
+tags the components with the specifications relevant to their
 participation in OpenC2 exchanges:
 
  - The OpenC2 Language Specification
@@ -740,20 +740,19 @@ participation in OpenC2 exchanges:
 Colored circles on each of the components identify which
 specifications are relevant to that component:
 
- - The message broker needs to conform to the publish/subscribe
-   specification called out in the Transfer Specification, but
-   does not have any OpenC2-specific requirements.
+ - The message broker needs to conform to the publish / subscribe
+   protocol called out in the Transfer Specification, but does
+   not have any OpenC2-specific requirements.
 
- - Messaging is defined by a combination of the Language
-   Specification and the Transfer Specification, indicated by a
-   bi-colored (red/blue) bubble. This function is relevant to all
-   of the OpenC2 components.
- - All three Consumers support the SBOM Retrieval AP; this is the
-   only AP applicable to the IoT Consumer.
- - The laptop (Endpoint Consumer) must support the Endpoint
-   Respose AP.
- - The firewall (Infrastructure Consumer) must support the Packet
-   Filtering AP.
+ - Messaging is defined by a combination of information from the
+   Language Specification and the Transfer Specification,
+   indicated by a bi-colored (red/blue) bubble. This function is
+   relevant to all of the OpenC2 components.
+ - All IP-connected camera must support the SBOM Retrieval AP.
+ - The laptop (Endpoint Consumer) must support the SBOM AP and
+   the Endpoint Respose AP.
+ - The firewall (Infrastructure Consumer) must support the SBOM
+   AP and the Packet Filtering AP.
 
 ## E.2 Actuator Profile Typical Content
 
