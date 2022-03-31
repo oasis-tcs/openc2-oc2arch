@@ -381,7 +381,7 @@ Add horizontal rule lines where page breaks are desired in the PDF - before each
 OpenC2 is a suite of specifications for Producers and Consumers
 to command and execute cyber defense functions. These
 specifications include the OpenC2 Language Specification,
-Actuator Profiles, and Transfer Specifications. The OpenC2
+Actuator Profiles (APs), and Transfer Specifications. The OpenC2
 [Language Specification](#openc2-lang-v10) and Actuator Profile
 specifications focus on the language content and meaning at the
 Producer and Consumer level of Command and Response while the
@@ -409,7 +409,8 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 ![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
-The language defines two distinct content types (i.e., payload structures): Command and Response.
+The language defines two distinct content types (i.e., payload
+structures): Command and Response.
 
 ## 2.1 OpenC2 Commands
 
