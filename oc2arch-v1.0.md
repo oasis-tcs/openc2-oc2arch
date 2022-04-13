@@ -249,12 +249,14 @@ these assumptions.
 | Acronym | Description |
 |---------|----------------------------------------------------------------------|
 | API     | Application Programming Interface |
+| AP      | Actuator Profile |
 | ASCII   | American Standard Code for Information Interchange |
 | BCP     | Best Current Practice |
 | CBOR    | Concise Binary Object Representation |
 | CIDR    | Classless Inter-Domain Routing |
 | CoAP    | Constrained Application Protocol |
 | DOI     | Digital Object Identifier |
+| ER      | Endpoint Response |
 | EUI     | Extended Unique Identifier |
 | HTTP    | Hyper Text Transfer Protocol |
 | HTTPS   | Hyper Text Transfer Protocol Secure |
@@ -263,8 +265,10 @@ these assumptions.
 | ICMP    | Internet Control Message Protocol |
 | ID      | Identifier |
 | IP      | Internet Protocol |
+| IoT     | Internet of Things |
 | IPR     | Intellectual Property Rights |
 | JSON    | JavaScript Object Notation |
+| LS      | Language Specification | 
 | MAC     | Media Access Control |
 | MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
@@ -732,11 +736,193 @@ Darren | Anstman | Big Networks
 
 -------
 
-# Appendix E. Example Appendix with subsections
+# Appendix E. Examples
 
-## E.1 Subsection title
+## E.1 Application of Actuator Profiles and Transfer Specifications
 
-### E.1.1 Sub-subsection
+This example illustrates the application of the various types of
+OpenC2 specifications. Figure E-1 shows a simple operating
+environment with five components:
+
+ - A Security Orchestration, Automation, and Response (SOAR)
+   system that is the OpenC2 Producer in the environment,
+   directing the operation of OpenC2-enabled cyber defense
+   functions.
+  
+ - A Publish / Subscribe message broker to support communications
+   among the other components.
+  
+ - Three OpenC2 Consumers:
+   - An IP-Connected camera, illustrative of an Internet of
+     Things (IoT) Consumer;
+   - A Laptop, illustrative of a general purpose endpoint
+     consumer;
+   - A Firewall, illustrative of a network infrastructure
+     consumer.
+
+##### Figure E-1: Application of Actuator Profiles and Transfer Specifications
+![Figure E-1](images/Arch-Example-1.drawio.png)
+
+The diagram also shows a collection of OpenC2 specifications, and
+tags the components with the specifications relevant to their
+participation in OpenC2 exchanges:
+
+ - The OpenC2 Language Specification
+ - A Publish / Subscribe Transfer Specification
+ - Three Actuator Profiles:
+   - Endpoint Response (tagged "E")
+   - Packet Filtering ("P")
+   - Software Bill of Material (SBOM) Retrieval ("S")
+
+Colored circles on each of the components identify which
+specifications are relevant to that component:
+
+ - The message broker needs to conform to the publish / subscribe
+   protocol called out in the Transfer Specification, but does
+   not have any OpenC2-specific requirements.
+
+ - Messaging is defined by a combination of information from the
+   Language Specification and the Transfer Specification,
+   indicated by a bi-colored (red/blue) bubble. This function is
+   relevant to all of the OpenC2 components.
+ - All IP-connected camera must support the SBOM Retrieval AP.
+ - The laptop (Endpoint Consumer) must support the SBOM Retrieval
+   AP and the Endpoint Respose AP.
+ - The firewall (Infrastructure Consumer) must support the SBOM
+   Retrieval AP and the Packet Filtering AP.
+
+## E.2 Actuator Profile Typical Content
+
+This example provides an overview of the typical structure and
+content of an OpenC2 Acuator Profile.
+
+### 1.0 Introduction
+
+This section provides a brief overview of the cyber defense
+function addressed in this AP.
+
+### 2.0 OpenC2 Language Binding
+
+This section defines the set of Actions, Targets, Arguments, and
+Actuator Specifiers that are meaningful in the context of PF and
+the appropriate status codes, status texts, and other properties
+of a Response message. This section is also where any AP-specific
+extentions to the language are defined.
+
+#### 2.1 OpenC2 Command Components
+
+This section identifies the OpenC2 Actions, Targets, Arguments,
+and Target and Actuator Specifiers needed for this AP. Depending
+on the needs of the AP, extended targets, arguments, and
+specifiers can be defined in this section.
+
+#### 2.2 OpenC2 Response Components
+
+This section defines common and unique responses neede for this
+AP, and the response status codes that are applicable.
+
+#### 2.3 OpenC2 Commands
+
+This section defines the commands (i.e., Action / Target pairs)
+used for the control of the cyber defense function. A matrix is
+used to identify the valid pairs:
+
+|          | action 1 | action 2 | action 3 | action 4 |
+|:--------:|:--------:|:--------:|:--------:|:--------:|
+| target A |          |   valid  |          |          |
+| target B |   valid  |   valid  |          |          |
+| target C |          |          |   valid  |   valid  |
+
+
+A second table links the valid commands to the available
+arguments, and links to the subsequent section where this command
+is discussed in detail.
+
+|            |   command 1   |   command 2   |   command 3   |   command 4   | command 5     |
+|:----------:|:-------------:|:-------------:|:-------------:|:-------------:|---------------|
+| argument 1 | section a.b.c |               | section a.b.e |               |               |
+| argument 2 | section a.b.c | section a.b.d |               |               |               |
+| argument 3 | section a.b.c |               |               | section a.b.f | section a.b.g |
+
+Subsequent subsections provide needed details about each command
+and its relevant arguments.
+
+### 3.0 Conformance
+
+This section provides the conformance clauses required in an
+OASIS specification. Clauses are grouped into those applicable to
+Producers using this AP to generate commands and those applicable
+to Consumers receiving and executing those commands.
+
+#### 3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target
+
+ - Baseline Producer Clauses
+ - Specific Producer Clause 1
+ - Specific Producer Clause 2
+ - ...
+ - Specific Producer Clause _n_
+
+
+#### 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
+
+ - Baseline Consumer Clauses
+ - Specific Consumer Clause 1
+ - Specific Consumer Clause 2
+ - ...
+ - Specific Consumer Clause _m_
+
+
+### Appendix E. Examples
+
+Examples of commands and responses that illustrate the use of
+this AP will be found in Appendix E.
+
+
+## E.3 Transfer Specification Typical Content
+
+
+This example provides an overview of the typical structure and
+content of an OpenC2 Transfer Specification.
+
+### 1.0 Introduction
+
+This section provides a brief introduction to the transfer
+protocol that is the focus of this transfer specification.
+
+### 2.0 Operating Model
+
+This section provides an overview of the approach employed to use
+the transfer protocols in support of OpenC2 messaging. A
+description of how OpenC2 messages are packaged for transfer in
+the protocol is needed. Other content of the section is flexible
+based on the characteristics of the protocol in use. For example,
+a subsection of 2.0 would describe the topic structure used in a
+publish / subscribe environment, or which protocol features are
+used in a specific way for OpenC2 messaging.
+
+### 3.0 Protocol Mapping
+
+This section defines specific requirements to use the transfer
+protocol to implement the operating model, and provides details
+as needed to apply the standard that describe the protocol.
+Similar to section 2, the structure of this ection if flexible
+based on the characteristics of the protocol in use.
+
+### 4.0 Conformance
+
+This section provides the conformance clauses required in an
+OASIS specification.  Clauses may or may not be grouped into
+those applicable to Producers and those applicable to Consumers
+receiving and executing those commands, depending on the nature
+of the protocol in use.
+
+
+### Appendix E. Examples
+
+Examples of message transfer that illustrate the use of this
+transfer specifcation will be found in Appendix E.
+
+
 
 -------
 
