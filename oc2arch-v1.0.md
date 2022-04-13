@@ -150,18 +150,70 @@ permitted and are defined in their respective documents.
 
 * Reformatted to December 2020 OASIS work product template
 
-## 1.2 Glossary
+## 1.2 Goal
+
+OpenC2 is developing a language for interoperating between
+functional elements of cyber defense systems. This language, used
+in conjunction with OpenC2 Actuator Profiles and OpenC2 Transfer
+Specifications, allows for vendor-agnostic cybertime response to
+attacks.
+
+The Integrated Adaptive Cyber Defense (IACD) framework defines a
+collection of activities, based on the traditional OODA
+(Observe–Orient–Decide–Act) Loop [[IACD]](#iacd):
+
+* Sensing:  gathering of data regarding system activities
+* Sense Making:  evaluating data using analytics to understand
+  what's happening
+* Decision Making:  determining a course-of-action to respond to
+  system events
+* Acting:  Executing the course-of-action
+
+The goal of OpenC2 is to enable coordinated defense in
+cyber-relevant time between decoupled blocks that perform cyber
+defense functions. OpenC2 focuses on the Acting portion of the
+IACD framework; the assumption that underlies the design of
+OpenC2 is that the sensing/analytics have been provisioned and
+the decision to act has been made. This goal and these
+assumptions guide the design of OpenC2:
+
+* **Technology Agnostic:**  The OpenC2 language defines a set of
+  abstract atomic cyber defense actions in a platform- and
+  implementation-agnostic manner
+
+* **Concise:**  A Command is intended to convey only the
+  essential information required to describe the action required
+  and can be represented in a very compact form for
+  communications-constrained environments
+
+* **Abstract:**  Commands and Responses are defined abstractly
+  and can be encoded and transferred via multiple schemes as
+  dictated by the needs of different implementation environments
+
+* **Extensible:**  While OpenC2 defines a core set of Actions and
+  Targets for cyber defense, the language is expected to evolve
+  with cyber defense technologies, and permits extensions to
+  accommodate new cyber defense technologies.
+
+The OpenC2 language assumes that the event has been detected, a
+decision to act has been made, the act is warranted, and the
+initiator and recipient of the Commands are authenticated and
+authorized. The OpenC2 language was designed to be agnostic of
+the other aspects of cyber defense implementations that realize
+these assumptions.
+
+## 1.3 Glossary
 
 <!-- Optional section with suggested subsections -->
 
-### 1.2.1 Definitions of terms
+### 1.3.1 Definitions of terms
 
 *This section is normative.*
 
 -   **Action**: The task or activity to be performed (e.g., 'deny').
 
 -   **Actuator**: The function performed by the Consumer that executes the
-    Command (e.g., 'Stateless Packet Filtering').
+    Command (e.g., "Packet Filtering").
 
 -   **Argument**: A property of a Command that provides additional information
     on how to perform the Command, such as date/time, periodicity, duration,
@@ -192,17 +244,19 @@ permitted and are defined in their respective documents.
 -   **Target**: The object of the Action, i.e., the Action is performed on the
     Target (e.g., IP Address).
 
-### 1.2.2 Acronyms and abbreviations
+### 1.3.2 Acronyms and abbreviations
 
 | Acronym | Description |
 |---------|----------------------------------------------------------------------|
 | API     | Application Programming Interface |
+| AP      | Actuator Profile |
 | ASCII   | American Standard Code for Information Interchange |
 | BCP     | Best Current Practice |
 | CBOR    | Concise Binary Object Representation |
 | CIDR    | Classless Inter-Domain Routing |
 | CoAP    | Constrained Application Protocol |
 | DOI     | Digital Object Identifier |
+| ER      | Endpoint Response |
 | EUI     | Extended Unique Identifier |
 | HTTP    | Hyper Text Transfer Protocol |
 | HTTPS   | Hyper Text Transfer Protocol Secure |
@@ -211,8 +265,10 @@ permitted and are defined in their respective documents.
 | ICMP    | Internet Control Message Protocol |
 | ID      | Identifier |
 | IP      | Internet Protocol |
+| IoT     | Internet of Things |
 | IPR     | Intellectual Property Rights |
 | JSON    | JavaScript Object Notation |
+| LS      | Language Specification | 
 | MAC     | Media Access Control |
 | MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
@@ -235,7 +291,7 @@ permitted and are defined in their respective documents.
 | XML     | eXtensible Markup Language |
 
 
-### 1.2.3 Document conventions
+### 1.3.3 Document conventions
 
 - Naming conventions
 - Font colors and styles
@@ -375,17 +431,22 @@ Add horizontal rule lines where page breaks are desired in the PDF - before each
 
 -------
 
-# 2 Overview of OpenC2 Architecture
+# 2 OpenC2 Architecture
 
 OpenC2 is a suite of specifications for Producers and Consumers
 to command and execute cyber defense functions. These
 specifications include the OpenC2 Language Specification,
-Actuator Profiles, and Transfer Specifications. The OpenC2
+Actuator Profiles (APs), and Transfer Specifications. The OpenC2
 [Language Specification](#openc2-lang-v10) and Actuator Profile
 specifications focus on the language content and meaning at the
 Producer and Consumer level of Command and Response while the
 transfer specifications focus on the protocols for their
-exchange.
+exchange. The language is defined abstractly in the Language
+Specification, permitting flexibility of message serialization
+and transfer protocol choices when implementing OpenC2.
+Interoperability between specific OpenC2 implementations is
+dependent on the selection of common serialization and transfer
+mechanisms.
 
 In general, there are two types of participants involved in the
 exchange of OpenC2 Messages, as depicted in Figure 2-1:
@@ -404,44 +465,34 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 ![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
-The language defines two payload structures:
+The language defines two distinct content types (i.e., payload
+structures): Command and Response.
 
-1. **Command**: An instruction from one system known as the
-   Producer, to one or more systems, the Consumer(s), to act on
-   the content of the Command.
-2. **Response**: Any information sent back to the Producer as a
-   result of the Command.
+## 2.1 OpenC2 Commands
 
-## 2.1 Commands and Responses
+**Command**: An instruction from one system, known as the
+Producer, to one or more systems, the Consumer(s), to act on the
+content of the Command.
 
-The OpenC2 language has two distinct content types: Command and
-Response. The Command is sent from a Producer to a Consumer and
-describes an Action to be performed by an Actuator on a Target.
-The Response is sent from a Consumer, usually back to the
-Producer, and is a means to provide information (such as
-acknowledgment, status, etc.) as a result of a Command.
-
-### 2.1.1 OpenC2 Command
 The Command describes an Action to be performed on a Target and
 may include information identifying the Actuator or Actuators
 that are to execute the Command. A Command can also contain an
 optional Command identifier, if necessary. The following list
-summarizes the main four components of a
-Command.
+summarizes the main four components of a Command.
 
 * **Action** (required): The task or activity to be performed.
 * **Target** (required): The object of the action. The Action is
   performed on the Target. Properties of the Target, called
-  Target Specifiers, further identify the Target to some level of
-  precision, such as a specific Target, a list of Targets, or a
+  *Target Specifiers*, further identify the Target to some level of
+  precision, such as one specific Target, a list of Targets, or a
   class of Targets.
 * **Arguments** (optional): Provide additional information on how
   the command is to be performed, such as date/time, periodicity,
   duration, etc.
 * **Actuator** (optional): The Actuator executes the Command. The
   Actuator will be defined within the context of an Actuator
-  Profile. Properties of the Actuator, called Actuator
-  Specifiers, further identify the Actuator to some level of
+  Profile. Properties of the Actuator, called *Actuator
+  Specifiers*, further identify the Actuator to some level of
   precision, such as a specific Actuator, a list of Actuators, or
   a group of Actuators.
 
@@ -459,11 +510,11 @@ information about the execution of a Command.
 An Actuator is an implementation of a cyber defense function that
 executes the Command. An Actuator Profile is a specification that
 identifies the subset of Actions, Targets and other aspects of
-the OpenC2 language that are required or optional in the
-context of a particular Actuator. An Actuator Profile may extend
-the language by defining additional Targets, Arguments, and
-Actuator Specifiers that are meaningful and possibly unique to
-the Actuator.
+the OpenC2 language that are required or optional in the context
+of a particular Actuator. An Actuator Profile also may extend the
+language by defining additional Targets, Arguments, and Actuator
+Specifiers that are meaningful and possibly unique to the
+Actuator.
 
 The Actuator may be omitted from a Command and typically will not
 be included in implementations where the identities of the
@@ -472,19 +523,23 @@ Command is desired and the tactical decisions on how the effect
 is achieved is left to the recipient.
 
 
-### 2.1.2 OpenC2 Response
-The Response is a Message sent from the recipient of a Command.
-Response messages provide acknowledgment, status, results from a
-query, or other information. At a minimum, a Response will
-contain a status code to indicate the result of performing the
-Command. Additional status text and response fields optionally
-provide more detailed information that is specific to or
-requested by the Command.
+## 2.2 OpenC2 Responses
+
+ **Response**: Any information sent back to the Producer as a
+ result of the Command.
+
+The Response is sent from a Consumer, usually back to the
+Producer, and is a means to provide information (such as
+acknowledgment, status, etc.) regarding the results of executing
+a Command.  At a minimum, a Response will contain a status code
+to indicate the result of performing the Command. Additional
+status text and response fields optionally provide more detailed
+information that is specific to or requested by the Command.
 
 
-## 2.2 Producers, Consumers, and Devices
+## 2.3 Producers, Consumers, and Devices
 
-Figure 2-X illustrates three representative
+Figure 2-2 illustrates three representative
 configurations for an OpenC2 Consumer device:
 
 1. The Consumer implements a single Actuator Profile (AP).
@@ -516,7 +571,7 @@ OpenC2 Commands and Responses.
 ![Producer-Consumer-Device Configurations](images/PCD-Configurations.png)
 
 
-## 2.3 Implementations
+## 2.4 Implementations
 
 OpenC2 implementations integrate the OpenC2 specifications
 described above with related industry specifications, protocols,
@@ -533,8 +588,8 @@ provide message source authentication and integrity).
 **Figure 2-3. OpenC2 Documentation and Layering Model**
 ![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
 
-OpenC2 is conceptually partitioned into four layers as shown in
-Table 2-1.
+OpenC2 is conceptually partitioned into four layers as described
+in Table 2-1.
 
 **Table 2-1. OpenC2 Protocol Layers**
 
@@ -562,18 +617,7 @@ Table 2-1.
   requirements for that function. Producers and Consumers will
   support one or more profiles.
 
-The components of a Command are an Action (what is to be done), a
-Target (what is being acted upon), an optional Actuator (what is
-performing the command), and Command Arguments, which influence
-how the Command is to be performed. An Action coupled with a
-Target is sufficient to describe a complete Command. Though
-optional, the inclusion of an Actuator and/or Command Arguments
-provides additional precision to a Command.
 
-The components of a Response are a numerical status code, an
-optional status text string, and optional results. The format of
-the results, if included, depend on the type of Response being
-transferred.
 
 
 
@@ -605,12 +649,6 @@ While any hyperlinks included in this appendix were valid at the time of publica
 
 The following documents are referenced in such a way that some or all of their content constitutes requirements of this document.
 
-(Reference sources:
-For references to IETF RFCs, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/ietf-rfc-list/ietf-rfc-list.html.  
-For references to W3C Recommendations, use the approved citation formats at:  
-http://docs.oasis-open.org/templates/w3c-recommendations-list/w3c-recommendations-list.html.  
-Remove this note before submitting for publication.)
 
 ###### [OpenC2-Lang-v1.0]
 _Open Command and Control (OpenC2) Language Specification Version 1.0_. Edited by Jason Romano and Duncan Sparrell. Latest stage: https://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html
@@ -631,6 +669,10 @@ Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14,
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, http://www.rfc-editor.org/info/rfc8174.
 
 ## A.2 Informative References
+
+###### [IACD]
+M. J. Herring, K. D. Willett, "Active Cyber Defense: A Vision for Real-Time Cyber Defense," Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014.<https://www.semanticscholar.org/paper/Active-Cyber-Defense-%3A-A-Vision-for-Real-Time-Cyber-Herring-Willett/7c128468ae42584f282578b86439dbe9e8c904a8>.<br><br>Willett, Keith D., "Integrated Adaptive Cyberspace Defense: Secure Orchestration", International Command and Control Research and Technology Symposium, June 2015 <https://www.semanticscholar.org/paper/Integrated-Adaptive-Cyberspace-Defense-%3A-Secure-by-Willett/a22881b8a046e7eab11acf647d530c2a3b03b762>.
+
 
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
@@ -694,11 +736,193 @@ Darren | Anstman | Big Networks
 
 -------
 
-# Appendix E. Example Appendix with subsections
+# Appendix E. Examples
 
-## E.1 Subsection title
+## E.1 Application of Actuator Profiles and Transfer Specifications
 
-### E.1.1 Sub-subsection
+This example illustrates the application of the various types of
+OpenC2 specifications. Figure E-1 shows a simple operating
+environment with five components:
+
+ - A Security Orchestration, Automation, and Response (SOAR)
+   system that is the OpenC2 Producer in the environment,
+   directing the operation of OpenC2-enabled cyber defense
+   functions.
+  
+ - A Publish / Subscribe message broker to support communications
+   among the other components.
+  
+ - Three OpenC2 Consumers:
+   - An IP-Connected camera, illustrative of an Internet of
+     Things (IoT) Consumer;
+   - A Laptop, illustrative of a general purpose endpoint
+     consumer;
+   - A Firewall, illustrative of a network infrastructure
+     consumer.
+
+##### Figure E-1: Application of Actuator Profiles and Transfer Specifications
+![Figure E-1](images/Arch-Example-1.drawio.png)
+
+The diagram also shows a collection of OpenC2 specifications, and
+tags the components with the specifications relevant to their
+participation in OpenC2 exchanges:
+
+ - The OpenC2 Language Specification
+ - A Publish / Subscribe Transfer Specification
+ - Three Actuator Profiles:
+   - Endpoint Response (tagged "E")
+   - Packet Filtering ("P")
+   - Software Bill of Material (SBOM) Retrieval ("S")
+
+Colored circles on each of the components identify which
+specifications are relevant to that component:
+
+ - The message broker needs to conform to the publish / subscribe
+   protocol called out in the Transfer Specification, but does
+   not have any OpenC2-specific requirements.
+
+ - Messaging is defined by a combination of information from the
+   Language Specification and the Transfer Specification,
+   indicated by a bi-colored (red/blue) bubble. This function is
+   relevant to all of the OpenC2 components.
+ - All IP-connected camera must support the SBOM Retrieval AP.
+ - The laptop (Endpoint Consumer) must support the SBOM Retrieval
+   AP and the Endpoint Respose AP.
+ - The firewall (Infrastructure Consumer) must support the SBOM
+   Retrieval AP and the Packet Filtering AP.
+
+## E.2 Actuator Profile Typical Content
+
+This example provides an overview of the typical structure and
+content of an OpenC2 Acuator Profile.
+
+### 1.0 Introduction
+
+This section provides a brief overview of the cyber defense
+function addressed in this AP.
+
+### 2.0 OpenC2 Language Binding
+
+This section defines the set of Actions, Targets, Arguments, and
+Actuator Specifiers that are meaningful in the context of PF and
+the appropriate status codes, status texts, and other properties
+of a Response message. This section is also where any AP-specific
+extentions to the language are defined.
+
+#### 2.1 OpenC2 Command Components
+
+This section identifies the OpenC2 Actions, Targets, Arguments,
+and Target and Actuator Specifiers needed for this AP. Depending
+on the needs of the AP, extended targets, arguments, and
+specifiers can be defined in this section.
+
+#### 2.2 OpenC2 Response Components
+
+This section defines common and unique responses neede for this
+AP, and the response status codes that are applicable.
+
+#### 2.3 OpenC2 Commands
+
+This section defines the commands (i.e., Action / Target pairs)
+used for the control of the cyber defense function. A matrix is
+used to identify the valid pairs:
+
+|          | action 1 | action 2 | action 3 | action 4 |
+|:--------:|:--------:|:--------:|:--------:|:--------:|
+| target A |          |   valid  |          |          |
+| target B |   valid  |   valid  |          |          |
+| target C |          |          |   valid  |   valid  |
+
+
+A second table links the valid commands to the available
+arguments, and links to the subsequent section where this command
+is discussed in detail.
+
+|            |   command 1   |   command 2   |   command 3   |   command 4   | command 5     |
+|:----------:|:-------------:|:-------------:|:-------------:|:-------------:|---------------|
+| argument 1 | section a.b.c |               | section a.b.e |               |               |
+| argument 2 | section a.b.c | section a.b.d |               |               |               |
+| argument 3 | section a.b.c |               |               | section a.b.f | section a.b.g |
+
+Subsequent subsections provide needed details about each command
+and its relevant arguments.
+
+### 3.0 Conformance
+
+This section provides the conformance clauses required in an
+OASIS specification. Clauses are grouped into those applicable to
+Producers using this AP to generate commands and those applicable
+to Consumers receiving and executing those commands.
+
+#### 3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target
+
+ - Baseline Producer Clauses
+ - Specific Producer Clause 1
+ - Specific Producer Clause 2
+ - ...
+ - Specific Producer Clause _n_
+
+
+#### 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
+
+ - Baseline Consumer Clauses
+ - Specific Consumer Clause 1
+ - Specific Consumer Clause 2
+ - ...
+ - Specific Consumer Clause _m_
+
+
+### Appendix E. Examples
+
+Examples of commands and responses that illustrate the use of
+this AP will be found in Appendix E.
+
+
+## E.3 Transfer Specification Typical Content
+
+
+This example provides an overview of the typical structure and
+content of an OpenC2 Transfer Specification.
+
+### 1.0 Introduction
+
+This section provides a brief introduction to the transfer
+protocol that is the focus of this transfer specification.
+
+### 2.0 Operating Model
+
+This section provides an overview of the approach employed to use
+the transfer protocols in support of OpenC2 messaging. A
+description of how OpenC2 messages are packaged for transfer in
+the protocol is needed. Other content of the section is flexible
+based on the characteristics of the protocol in use. For example,
+a subsection of 2.0 would describe the topic structure used in a
+publish / subscribe environment, or which protocol features are
+used in a specific way for OpenC2 messaging.
+
+### 3.0 Protocol Mapping
+
+This section defines specific requirements to use the transfer
+protocol to implement the operating model, and provides details
+as needed to apply the standard that describe the protocol.
+Similar to section 2, the structure of this ection if flexible
+based on the characteristics of the protocol in use.
+
+### 4.0 Conformance
+
+This section provides the conformance clauses required in an
+OASIS specification.  Clauses may or may not be grouped into
+those applicable to Producers and those applicable to Consumers
+receiving and executing those commands, depending on the nature
+of the protocol in use.
+
+
+### Appendix E. Examples
+
+Examples of message transfer that illustrate the use of this
+transfer specifcation will be found in Appendix E.
+
+
 
 -------
 
