@@ -614,7 +614,14 @@ may or may not use OpenC2.
 
 ### 2.3.4 Intermediate Consumer / Producer Device
 
-**Figure 2-4. Actuator Manager Device Using OpenC2**
+Figure 2-5 illustrates the situation where the Consumer fronts a
+set of managed devices implementing cybersecurity functions. The
+managed devices may implement any mixture of cybersecurity
+functions, but in this case the Manager's interface to those
+devices explicitly does use OpenC2, making the device an
+intermediate, combined Consumer / Producer.
+
+**Figure 2-5. Actuator Manager Device Using OpenC2**
 ![Actuator Manager Device using OpenC2](images/Actuator-Manager-Device-OpenC2.drawio.png)
 
 
