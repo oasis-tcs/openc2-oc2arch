@@ -973,12 +973,6 @@ Namespacing thus involves four different values:
 * **Field Name**: may be serialized as a JSON object property
   whose value is an imported type: "email"
 
-NSID and Field Name are both defined by the importing
-specification; neither are registered here. Type Names (including
-NSID prefixes) never appear in JSON data, so Namespaces and NSIDs
-are never needed or used in JSON data except within a schema
-document.
-
 This approach uses a resolver to look up all namespaced type
 definitions from their defining specifications and incorporates
 them into a single schema. Authors can manually copy and paste
