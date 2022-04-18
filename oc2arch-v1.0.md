@@ -568,13 +568,19 @@ OpenC2 Commands and Responses.
 
 **Figure 2-2. Producer / Consumer / Device Configurations**
 
-
+### 2.3.1 Single Function Device
 
 ![Single Function Device](images/Single-Function-Device.drawio.png)
 
+### 2.3.2 Multiple Function Device
+
 ![Multiple Function Device](images/Multiple-Function-Device.drawio.png)
 
+### 2.3.3 Actuator Manager Device
+
 ![Actuator Manager Device](images/Actuator-Manager-Device.drawio.png)
+
+### 2.3.4 Intermediate Consumer / Producer Device
 
 ![Actuator Manager Device using OpenC2](images/Actuator-Manager-Device-OpenC2.drawio.png)
 
