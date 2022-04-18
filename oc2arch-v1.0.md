@@ -539,49 +539,69 @@ information that is specific to or requested by the Command.
 
 ## 2.3 Producers, Consumers, and Devices
 
-Figure 2-2 illustrates three representative
-configurations for an OpenC2 Consumer device:
+This section discusses four representative configurations for an
+OpenC2 Consumer device:
 
-1. The Consumer implements a single Actuator Profile (AP).
-1. The Consumer implements multiple APs, which may be all
-   different, all the same, or a mixture.
+1. The Consumer implements a single function, and therefore
+   supports a Actuator Profile (AP).
+
+1. The Consumer implements multiple functions, and therefore
+   supports multiple APs, which may be all different, all the
+   same, or a mixture.
+
 1. The Consumer is a manager for a collection of devices,
-   providing an indirect means for the Producer to use
-   OpenC2 Commands to influence the operations of those
-   devices. The managed devices in the collection may or may
-   not be identical.
+   providing an indirect means for the Producer to use OpenC2
+   Commands to influence the operations of those devices. The
+   managed devices in the collection may or may not be identical,
+   and the interface to them is not assumed to use OpenC2.
+
+1. The Consumer is a manager for a collection of devices that
+   _are_ managed using OpenC2, making the device a combined
+   Consumer / Producer.
+
+In all of these configurations, "device" is a collective term for
+the processing element that is the OpenC2 Consumer. A device
+could be a physical or virtual entity in any number of computing
+environments. The essential characteristics are that it is is a
+network-accessible entity that operates as an OpenC2 Consumer. 
 
 In configurations 1 and 2, the Producer has direct, explicit
 knowledge of the APs implemented by the Consumer.  OpenC2
-Commands issued by the Producer directly affect the
-operation of the Consumer device.  An example of multiple
-instances of the same AP in configuration 2 would be packet
-filtering functions on multiple, distinct network
-interfaces.
+Commands issued by the Producer directly affect the operation of
+the Consumer device.
 
-In configuration 3, the Producer has knowledge of the
-capabilities supported by the Consumer manager, but only
-indirect affect the operation of the managed devices. In
-configuration 3 there is no assumption that the interface
-between the Consumer manager and the managed devices uses
-OpenC2 Commands and Responses.
-
-**Figure 2-2. Producer / Consumer / Device Configurations**
+In configurations 3 and 4, the Producer has knowledge of the
+capabilities supported by the Consumer manager, but only indirect
+affect the operation of the managed devices. In configuration 3
+there is no assumption that the interface between the Consumer
+manager and the managed devices uses OpenC2 Commands and
+Responses.
 
 ### 2.3.1 Single Function Device
 
+Figure 2-2 illustrates the situation with a Producer commanding an OpenC2 Consumer that implements a single cybersecurity function, and its corresponding AP. 
+
+**Figure 2-2. Single Function Device**
 ![Single Function Device](images/Single-Function-Device.drawio.png)
 
 ### 2.3.2 Multiple Function Device
 
+
+An example of multiple instances of the
+same AP in configuration 2 would be packet filtering functions on
+multiple, distinct network interfaces.
+
+**Figure 2-3. Multiple Function Device**
 ![Multiple Function Device](images/Multiple-Function-Device.drawio.png)
 
 ### 2.3.3 Actuator Manager Device
 
+**Figure 2-4. Actuator Manager Device**
 ![Actuator Manager Device](images/Actuator-Manager-Device.drawio.png)
 
 ### 2.3.4 Intermediate Consumer / Producer Device
 
+**Figure 2-4. Actuator Manager Device Using OpenC2**
 ![Actuator Manager Device using OpenC2](images/Actuator-Manager-Device-OpenC2.drawio.png)
 
 
