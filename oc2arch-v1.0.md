@@ -579,17 +579,24 @@ Responses.
 
 ### 2.3.1 Single Function Device
 
-Figure 2-2 illustrates the situation with a Producer commanding an OpenC2 Consumer that implements a single cybersecurity function, and its corresponding AP. 
+Figure 2-2 illustrates the situation with a Producer commanding
+an OpenC2 Consumer that implements a single cybersecurity
+function, and its corresponding AP. 
 
 **Figure 2-2. Single Function Device**
 ![Single Function Device](images/Single-Function-Device.drawio.png)
 
 ### 2.3.2 Multiple Function Device
 
-
-An example of multiple instances of the
-same AP in configuration 2 would be packet filtering functions on
-multiple, distinct network interfaces.
+Figure 2-3 illustrates the situation with a Producer commanding
+an OpenC2 Consumer that implements multiple cybersecurity
+function, and their corresponding APs. The cybersecurity
+functions may be all different, all the same, or a mixture. An
+example of different functions could be an end-user computer
+system with anti-virus (AV), endpoint response (ER) and packet
+filtering (PF) capabilities. An example of multiple instances of
+the same AP in configuration 2 would be packet filtering
+functions on multiple, distinct network interfaces.
 
 **Figure 2-3. Multiple Function Device**
 ![Multiple Function Device](images/Multiple-Function-Device.drawio.png)
