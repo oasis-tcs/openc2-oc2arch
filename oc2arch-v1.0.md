@@ -603,6 +603,12 @@ functions on multiple, distinct network interfaces.
 
 ### 2.3.3 Actuator Manager Device
 
+Figure 2-4 illustrates the situation where the Consumer fronts a
+set of managed devices implementing cybersecurity functions. The
+managed devices may implement any mixture of cybersecurity
+functions, and the Actuator Manager's interface to those devices
+may or may not use OpenC2.
+
 **Figure 2-4. Actuator Manager Device**
 ![Actuator Manager Device](images/Actuator-Manager-Device.drawio.png)
 
