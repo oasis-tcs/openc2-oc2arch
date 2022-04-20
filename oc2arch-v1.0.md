@@ -562,8 +562,9 @@ OpenC2 Consumer device:
 In all of these configurations, "device" is a collective term for
 the processing element that is the OpenC2 Consumer. A device
 could be a physical or virtual entity in any number of computing
-environments. The essential characteristics are that it is is a
-network-accessible entity that operates as an OpenC2 Consumer. 
+environments. The essential characteristics are that it is a
+network-accessible, addressable entity that operates as an OpenC2
+Consumer. 
 
 In configurations 1 and 2, the Producer has direct, explicit
 knowledge of the APs implemented by the Consumer.  OpenC2
@@ -571,11 +572,14 @@ Commands issued by the Producer directly affect the operation of
 the Consumer device.
 
 In configurations 3 and 4, the Producer has knowledge of the
-capabilities supported by the Consumer manager, but only indirect
-affect the operation of the managed devices. In configuration 3
-there is no assumption that the interface between the Consumer
-manager and the managed devices uses OpenC2 Commands and
-Responses.
+capabilities supported by the Consumer manager, but only
+indirectly affect the operation of the managed devices. In
+configuration 3 there is no assumption that the interface between
+the Consumer manager and the managed devices uses OpenC2 Commands
+and Responses, whereas in configuration 4 that interface is
+explictly OpenC2-based. Implementations with a mixture of OpenC2-
+and non-OpenC2-based interactions with the managed devices are
+also possible.
 
 ### 2.3.1 Single Function Device
 
