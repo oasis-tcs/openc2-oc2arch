@@ -601,8 +601,39 @@ advantage of prior work from similar capabilities in selecting
 names for actions. This will encourage commonality of usage and
 understanding of verbs in automation systems.
 
-### 2.3.3 Introspection
+### 2.3.3 Introspection Model
 
+A common situation in OpenC2 interactions is the need for a
+Producer to determine the capabilities of a Consumer in order to
+scope the range of commands that can usefully be sent to that
+Consumer. The approach is demonstrated in the Language
+Specification's provision of the `"query" : "features"` and
+`"query" : "profiles"` commands. This "introspection" capability,
+defined for OpenC2 as the ability of a Consumer to inform a
+Producer of the Consumer's capabilities, enables a degree of
+flexible self-configuration of the interactions between Producers
+and Consumers. 
+
+Any situation where a Consumer may potentially provide a range of
+responses to a Producer's command is a candidate to apply the
+introspection technique. For example, where a Consumer may return
+a response in any of several data formats or serializations, it
+is appropriate to consider a two-stage interaction:
+
+ - **Stage 1:** the Producer identifies the information of interest
+   and queries regarding the Consumer's capabilities to provide
+   that information. The Consumer responds with a list, possibly
+   prioritized, of the ways it can supply the required
+   information.
+
+ - **Stage 2:** the Producer selects from among the options provided
+   by the Consumer and sends a Command specifying the desired
+   packaging of the information. The Consumer responds with the
+   required information packaged as specified.
+
+The information provided by the Consumer in stage 1 enables the
+Producer to proceed with confidence about the outcome of the
+interaction in stage 2.
 
 ## 2.4 Implementations
 
