@@ -759,7 +759,7 @@ primary examples.
   information will let the attacker know if their active attacks
   have been detected and how the system responds.  Their active
   attacks can then be revised to avoid detection or to trigger a
-  known response.  In the latter case, the attacker can use
+  known response.  In the latter case, the attacker could use
   knowledge of the response strategy to cause the system to
   unnecessarily deny services to users.
 
@@ -789,7 +789,6 @@ primary examples.
   the attack is just substitution of a counterfeit component, the
   behavior may be different and cause problems.
 
-
 ## B.3 Security Services
 
 This section reviews the applicability of traditional security
@@ -797,18 +796,10 @@ services to OpenC2 operations.
 
 ### B.3.1 Confidentiality
 
-Confidentiality is important to OpenC2 message content to prevent
-an attacker from seeing what kinds of response actions are being
-taken or seeing the specific targets of actions.  Knowledge of
-either could aid the attacker in manipulating or circumventing
-cyber defenses.  Confidentiality protections may apply to the
-entire message being processed, or only to certain parts of it.
-Since confidentiality protection is not integral to OpenC2
-language structure, the options for partial protection will
-probably be at the level of whole body of the message versus full
-message protection including header and body, i.e., it would not
-normally be possible to selectively protect fields within the
-message.
+Confidentiality of OpenC2 message content prevents attackers from
+seeing the response actions that result from attacker activities.
+This knowledge could aid an attacker in manipulating or
+circumventing cyber defenses. 
 
 ### B.3.2 Integrity
 
@@ -824,19 +815,16 @@ stable configuration then its actions cannot be trusted.
 
 ### B.3.3 Availability
 
-Assuring availability can be very difficult if the OpenC2 message
-traffic is carried in-band with the user traffic.  Even if the C2
-traffic is logically or cryptographically isolated, it may still
-share physical resources (systems or network segments) with the
-user network and be vulnerable to outages at that level.  Means
-to determine reachability or presence of devices may be required.
+Availability in the context of OpenC2 is focused on the ability
+of Producers to send commands to Consumers. Assuring availability
+can be very difficult if the OpenC2 message traffic is carried
+in-band with the user traffic. Out-of-band management networks
+should be used where possible as they provide isolation of OpenC2
+activities from attacks against operational user networks and can
+be engineered to provide better support for high availability.
 Also, approaches to addressing intermittent connectivity and
 actions upon reconnection should be addressed.
 
-Out-of-band management networks should be used where possible as
-they provide isolation of OpenC2 activities from attacks against
-operational user networks and can be engineered to provide better
-support for high availability.
 
 ### B.3.4 Authentication
 
