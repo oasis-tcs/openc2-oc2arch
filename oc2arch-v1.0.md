@@ -696,41 +696,32 @@ Remove this note before submitting for publication.)
 ## B.1 Overview
 
 Cyber defense systems are high-value targets for an attacker
-since disabling detection/response capabilities opens the door to
-allow further attacks. There would be great value to an attacker
-to turn off the sensors, breach the defenses, disable responsive
-actions, and potentially use the cyber defense tools to attack
-the network.  There would be both direct/ first order effects and
-indirect/second and higher order effects since disabling cyber
-defenses would allow further attacks.
+since disabling detection and response capabilities opens the
+door to allow further attacks. There would be great value to an
+attacker to turn off the sensors, breach the defenses, disable
+responsive actions, and potentially use the cyber defense tools
+to attack the network.
 
 ## B.2 Threats
 
 There are two threat target areas to address when considering the
-OpenC2 security design:  
+security of OpenC2:  
 
-1. threats to and attacks on the user networks/systems being
-defended,  and 
-1. attacks directed at OpenC2 itself.  
-
-OpenC2 is an enabler of improved cyber defense capabilities – it
-provides the C2 for time-critical response actions. The mission
-of OpenC2 is to enable responses to threats targeted at user
-networks and systems in general; however, to the extent that
-OpenC2 traffic and processing share resources with the user
-networks/systems, those same threats (and mitigations) will be
-applicable. In addition, as noted above, there are also threats
-specific to cyber defensive capbilities that OpenC2
-imlementations must also consider.
+1. Threats to and attacks on the user networks/systems being
+defended, and 
+1. Attacks directed at OpenC2 itself.  
 
 ## B.2.1 Threats to the Networks and Systems Being Defended
 
-If OpenC2 traffic is carried in-band with user and other traffic,
-then it is subject to the same threats and will leverage the same
-defenses as the other traffic.  Even if the OpenC2 traffic is
-segregated using logical or cryptographic separation, the
-underlying physical resources may still be subject to common
-attacks (and other threats) that will affect OpenC2.
+By providing the C2 for time-critical response actions OpenC2 is
+an enabler of improved cyber defense capabilities for user
+networks and systems. However, to the extent that OpenC2 traffic
+and processing share resources with those user networks and
+systems, those same threats (and mitigations) will be applicable.
+Even if the OpenC2 traffic is segregated using logical or
+cryptographic separation, the underlying physical resources may
+still be subject to common attacks (and other threats) that will
+affect OpenC2 operations.
 
 ### B.2.2 Threats to OpenC2 Traffic and Processing
 
@@ -740,20 +731,16 @@ goals of the attacker and the resulting impacts since these will
 be different from a standard user analysis.  Four categories of
 threat sources should be addressed:
 
- * *Malicious Adversaries* (external or insider) – this is the main
-   focus of the rest of this section
+ * *Malicious Adversaries* (external or insider) – the primary
+   source of concern for the security of OpenC2 operations
 
- * *Non-malicious Users* – users making mistakes, especially
-   privileged users such as administrators or managers of OpenC2
-   systems, can cause major lapses in cyber defense
-   unintentionally – consider this in identifying requirements
-   for training, on-line help, least privilege controls, and
-   audit
+ * *Non-malicious Users* – mistakes by users, especially
+   privileged users, can cause major lapses in cyber defense
+   
  * *Structural Threats* – failures of hardware and software can
-   especially affect availability and part of OpenC2’s purpose is
-   to ensure availability of the user networks and services so
-   robustness and redundancy need to be considered, also consider
-   failures that impair defenses
+   affect network and system availability, and impede the ability
+   of OpenC2 mechanisms to operate
+
  * *Environmental Threats* – disasters and infrastructure failures
    may need to addressed and accommodated depending on the
    mission needs of the defended networks
@@ -835,7 +822,7 @@ integrity is also critical to OpenC2 security.  If a system,
 including system and application software, is not in a compliant,
 stable configuration then its actions cannot be trusted.
 
-## B.3.3 Availability
+### B.3.3 Availability
 
 Assuring availability can be very difficult if the OpenC2 message
 traffic is carried in-band with the user traffic.  Even if the C2
