@@ -693,6 +693,120 @@ We encourage editors and TC members concerned with this subject to read _Guideli
 
 Remove this note before submitting for publication.)
 
+## B.1 Overview
+
+Cyber defense systems are high-value targets for an attacker
+since disabling detection/response capabilities opens the door to
+allow further attacks. There would be great value to an attacker
+to turn off the sensors, breach the defenses, disable responsive
+actions, and potentially use the cyber defense tools to attack
+the network.  There would be both direct/ first order effects and
+indirect/second and higher order effects since disabling cyber
+defenses would allow further attacks.
+
+## B.2 Threats
+
+There are two threat target areas to address when considering the
+OpenC2 security design:  
+
+1. threats to and attacks on the user networks/systems being
+defended,  and 
+1. attacks directed at OpenC2 itself.  
+
+OpenC2 is an enabler of improved cyber defense capabilities – it
+provides the C2 for time-critical response actions. The mission
+of OpenC2 is to enable responses to threats targeted at user
+networks and systems in general; however, to the extent that
+OpenC2 traffic and processing share resources with the user
+networks/systems, those same threats (and mitigations) will be
+applicable. In addition, as noted above, there are also threats
+specific to cyber defensive capbilities that OpenC2
+imlementations must also consider.
+
+## B.2.1 Threats to the Networks and Systems Being Defended
+
+If OpenC2 traffic is carried in-band with user and other traffic,
+then it is subject to the same threats and will leverage the same
+defenses as the other traffic.  Even if the OpenC2 traffic is
+segregated using logical or cryptographic separation, the
+underlying physical resources may still be subject to common
+attacks (and other threats) that will affect OpenC2.
+
+### B.2.2 Threats to OpenC2 Traffic and Processing
+
+The threats, attacks, vulnerabilities, and impacts to a given
+OpenC2 implementation should be analyzed with a focus on the
+goals of the attacker and the resulting impacts since these will
+be different from a standard user analysis.  Four categories of
+threat sources should be addressed:
+
+ * *Malicious Adversaries* (external or insider) – this is the main
+   focus of the rest of this section
+
+ * *Non-malicious Users* – users making mistakes, especially
+   privileged users such as administrators or managers of OpenC2
+   systems, can cause major lapses in cyber defense
+   unintentionally – consider this in identifying requirements
+   for training, on-line help, least privilege controls, and
+   audit
+ * *Structural Threats* – failures of hardware and software can
+   especially affect availability and part of OpenC2’s purpose is
+   to ensure availability of the user networks and services so
+   robustness and redundancy need to be considered, also consider
+   failures that impair defenses
+ * *Environmental Threats* – disasters and infrastructure failures
+   may need to addressed and accommodated depending on the
+   mission needs of the defended networks
+
+### B.2.3 Potential Attack Types
+
+Malicious adversaries may use any form of attack, these are some
+primary examples.
+
+* *Passive Attacks* – An attacker may monitor traffic at levels
+  of sophistication and access  ranging from simple traffic
+  analysis (is there a change in the volume of OpenC2 traffic?)
+  to eavesdropping on the contents of the messages (if
+  unencrypted) to see what was detected, what actions are being
+  taken, and the specific targets of OpenC2 commands.  This
+  information will let the attacker know if their active attacks
+  have been detected and how the system responds.  Their active
+  attacks can then be revised to avoid detection or to trigger a
+  known response.  In the latter case, the attacker can use
+  knowledge of the response strategy to cause the system to
+  unnecessarily deny services to users.
+
+* *Active Attacks, Externally Initiated* – An attacker may try to
+  manipulate the OpenC2 traffic by deleting, delaying, or
+  replaying legitimate messages.  They may also attempt to modify
+  the contents of a message or masquerade as an OpenC2 manager
+  and issue bogus messages.  If any of these attacks succeed, the
+  attacker can disrupt or disable responses to other attacks and
+  can cause the defensive capabilities to impede legitimate
+  operations.  Successfully subverting defenses can allow more
+  intrusive attacks.
+
+* *Insider Attacks* (Malicious users) – An insider, especially a
+  privileged user, may be able to more effectively perform any of
+  the passive and active attacks already mentioned plus can act
+  as a legitimate user to perform other actions.  These actions
+  could include misconfiguring devices, changing policy rules,
+  issuing malicious commands from authorized sources, and even
+  turning systems off.
+
+* *Supply Chain or Distribution Attacks* - A vendor, transporter,
+  developer, or installer may modify the software or hardware
+  used for OpenC2-based functions.  The modification may
+  introduce an exploitable vulnerability, disable a critical
+  function, or cause failure under specific conditions.  Even if
+  the attack is just substitution of a counterfeit component, the
+  behavior may be different and cause problems.
+
+
+## B.3 Security Services
+
+## B.4 Network Topologies
+
 -------
 
 # Appendix C. Acknowledgments
