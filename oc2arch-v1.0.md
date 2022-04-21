@@ -988,6 +988,82 @@ working as intended.
 
 ## B.4 Network Topologies
 
+The available networking architecture, topology, and technology
+all have implications for, and may also be constrained by, OpenC2
+use and security.  The topology and communications modes
+supporting OpenC2 traffic will affect the ability and approaches
+to achieving robustness, providing redundancy, and meeting
+responsiveness goals. Ideally, OpenC2 traffic should be quickly
+and reliably delivered to all intended recipients with some
+guarantee or confirmation of both delivery and action taken. It
+will not always be possible to achieve these goals due to
+constraints of available or legacy networking and systems,
+mobility/connectedness of devices, effects of attacks or outages
+in the network, and management/cost factors.  
+
+### B.4.1 In-Band Cyber Defense C2
+
+If OpenC2 traffic is carried in-band with user and other traffic,
+then it is subject to the same threats (plus the threats against
+cyber defense C2) and will leverage the same defenses as the
+other traffic.  Even if the OpenC2 traffic is segregated using
+logical or cryptographic separation, the underlying physical
+resources may still be subject to common attacks (and other
+threats) that will affect OpenC2.
+
+Besides being subject to the same external threats as the other
+traffic, the implementer also needs to consider:
+ * Resource contention issues: C2 traffic may be delayed or
+   blocked by high volumes of user traffic or reductions in
+   network capacity or connectivity
+
+ * Intended cyber defense actions: The same blocking or filtering
+   of traffic meant to stop an external attacker may affect C2
+   traffic flow as well (e.g., external monitoring feeds could be
+   cut off)
+ * Targeted attacks against cyber defense C2: The attacker may
+   specifically attempt to single out C2 traffic for intercept,
+   modification, denial of service, or other attack
+
+### B.4.2 Out-Of-Band Cyber Defense C2
+
+Out-of-Band management involves the use of a dedicated channel
+for managing network devices.  This allows the network operator
+to establish trust boundaries in accessing the management
+function to apply it to network resources.  It also can be used
+to ensure management connectivity (including the ability to
+determine the status of any network component) independent of the
+status of in-band network components.  Out-of-Band Management
+(OOBM) is a common best practice with renewed focus based on the
+evolving threat landscape.  
+
+C2 systems are prime objectives of adversaries and OOBM can
+provide another layer in the defense-in-depth model.  The
+effectiveness of this layering or separation depends on how OOBM
+is implemented and secured.  There should be a much lower attack
+surface since general users would not have access to this
+channel.  Also security policies, generally, will restrict or
+prohibit connection to the OOBM through access control lists or
+other access methods.  In practice though, implementations may
+have prioritized administrator access (including remote access)
+and chosen weaker security.  For example, implementers may have
+left back-door access in place so that disastrous failures can
+rapidly be fixed.  To address these types of issues, a security
+plan should be implemented and enforced, focusing in these areas,
+which will enhance the entire security architecture of the
+enterprise: 
+ * Definitions of vulnerabilities and risks of out-of-band access
+for OpenC2 
+ * Review security architecture for mitigating those risks 
+ * Proper balance between security and the need for timely
+out-of-band access during critical events 
+ * Systems of processes, equipment and technologies that provide,
+wherever required for OpenC2 integrity, confidentiality, and/or
+non-repudiation for out-of-band access.
+
+
+
+
 -------
 
 # Appendix C. Acknowledgments
