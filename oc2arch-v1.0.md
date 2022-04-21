@@ -805,6 +805,187 @@ primary examples.
 
 ## B.3 Security Services
 
+This section reviews the applicability of traditional security
+services to OpenC2 operations.
+
+### B.3.1 Confidentiality
+
+Confidentiality is important to OpenC2 message content to prevent
+an attacker from seeing what kinds of response actions are being
+taken or seeing the specific targets of actions.  Knowledge of
+either could aid the attacker in manipulating or circumventing
+cyber defenses.  Confidentiality protections may apply to the
+entire message being processed, or only to certain parts of it.
+Since confidentiality protection is not integral to OpenC2
+language structure, the options for partial protection will
+probably be at the level of whole body of the message versus full
+message protection including header and body, i.e., it would not
+normally be possible to selectively protect fields within the
+message.
+
+### B.3.2 Integrity
+
+Both data and system integrity need to be addressed in OpenC2
+implementations. Data integrity is extremely important - the
+contents of a C2 message should not be modifiable without
+detection.  Replay and re-sequencing attacks also need to be
+addressed.  Message integrity must always be paired with source
+authentication. System integrity including software/application
+integrity is also critical to OpenC2 security.  If a system,
+including system and application software, is not in a compliant,
+stable configuration then its actions cannot be trusted.
+
+## B.3.3 Availability
+
+Assuring availability can be very difficult if the OpenC2 message
+traffic is carried in-band with the user traffic.  Even if the C2
+traffic is logically or cryptographically isolated, it may still
+share physical resources (systems or network segments) with the
+user network and be vulnerable to outages at that level.  Means
+to determine reachability or presence of devices may be required.
+Also, approaches to addressing intermittent connectivity and
+actions upon reconnection should be addressed.
+
+Out-of-band management networks should be used where possible as
+they provide isolation of OpenC2 activities from attacks against
+operational user networks and can be engineered to provide better
+support for high availability.
+
+### B.3.4 Authentication
+
+Authentication areas to address include verifying the identity
+and associated attributes claimed by or assumed of an entity
+(user, process, or device), and verifying the source and
+integrity of data.  OpenC2 is envisioned for application in
+environments where C2 will be automated as much as possible.  In
+the consequent machine-to-machine exchanges, the systems involved
+need to securely authenticate that authorized systems are
+involved and not a rogue entities. In particular, actuators
+receiving and executing OpenC2 commands must be able to confirm
+those commands came from a source that can confidently be
+authenticated.  With the increasing number of Internet-enabled
+devices, reliable machine authentication is crucial to allow
+secure communication in automated network environments.  
+
+In the IoT scenario, almost any imaginable entity or object may
+be made addressable and able to exchange data over the network.
+It is important to realize that each access point is a potential
+intrusion point.  Each device that issues OpenC2 commands may
+need to apply, and all recipients need to be able to validate,
+strong machine authentication.  In any architecture deployment,
+consider the appropriate levels and types of authentication for
+managers and actuators.  
+
+There are also aspects of identity and credential management that
+need to be addressed:  uniqueness of name space, identification
+of device type and instance, provisioning of credentials
+(typically digital certificates), means to verify trust chain and
+current status of credentials, means to revoke credentials, and
+session management.  There are many challenges to find the right
+authentication model that can support a machine-to-machine
+communication method depending on the range of device and network
+capabilities in the operating environment.
+
+### B.3.5 Authorization And Access Control
+
+Coupled with user or device authentication, a requesting entity
+must have authorization before executing certain tasks.
+Authorization is the process of enforcing policies: determining
+what types of actions on a resource or service are permitted for
+this requester.  Once a user has been authenticated, they may be
+authorized for different types of actions depending on the policy
+assigned.  The authorization should be role- or attribute-based
+to avoid the problems of maintaining an identity-based access
+control list.
+
+The policy rules may include conditional aspects such as time of
+day or operational status of network to prevent actions from
+adversely affecting missions.  In these cases, it is important to
+determine if the requester has knowledge of the conditions and
+can self-impose the policy rules or whether the policy needs to
+be enforced at (or near) the resource.
+
+With respect to controlling the environment and keeping commands
+in sync with allowed permissions and commands, another
+consideration for implementation is to map a controlled list of
+OpenC2 commands that are authorized and not authorized to various
+actuators.    There are actions within the OpenC2 language that
+can be grouped by their general activity.  Each group of actions
+may need to have specific authorization policy rules to allow
+such actions to be performed.   For example, the set of actions
+that control permissions and accesses should be strictly limited.
+The OpenC2 commands (e.g., DENY, CONTAIN, ALLOW) that affect
+network operations and defenses directly would have a different
+set of authorized users.
+
+### B.3.6 Accountability
+
+Authentication is also the basis for associating the requester
+with the actions requested, the authorization decision (allow or
+deny), and the actions taken.  The authenticated identity of the
+actor along with the action is captured in the audit logs and
+provides traceability to the responsible party.
+
+### B.3.7 Non-Repudiation
+
+Non-repudiation may be required if there is a requirement to
+formally prove the issuance or receipt of a C2 message, however
+any non-repudiation requirement should be evaluated critically
+due to impacts on the processing, availability and delays of
+automated cyber defense actions.  This level of security may not
+be required in a closed system where source authentication and
+logged receipt events are sufficient evidence of who sent and who
+received messages.  Non-repudiation implementations may require a
+third party acting as a notary or signature-based message
+authentication resulting in additional costs in terms of
+processing, communications, and invoking third-party services for
+the commands and responses.  A time stamping service will
+typically also be required.  The third party would timestamp
+OpenC2 messages and certify proof of issuance and delivery.  This
+will add dependencies and overhead to the system.
+
+### B.3.8 Auditing
+
+Audit trails are necessary in any secure system but have specific
+considerations in machine-to-machine communications.  In
+conjunction with appropriate tools and procedures, audit trails
+can provide a means to help accomplish several security-related
+objectives, including individual accountability, reconstruction
+of events, intrusion detection, and problem identification.
+Typical events include:
+
+ * Authentication exchange between components (manager, actuator,
+   and end points)
+ * Message generated, message sent, message received
+ * Action taken/allowed or request denied
+ * Success or failure of any OpenC2 exchange
+ * Configuration changes
+
+Actions and the results that are invoked using OpenC2 should be
+recorded and analyzed for security areas such as forensics,
+secure implementation, security architecture of impact changes
+within the environment, and completion of such tasks.  This type
+of auditing provides the essential ingredients for early
+detection of actions that violate security policy.
+
+### B.3.9 Metrics Collection And Analysis
+
+Collecting metrics will be necessary for a multitude of
+activities to assess performance and improve effectiveness of
+actions within an OpenC2 environment.  Implementations should
+provide the ability to measure resources a user or system
+component (e.g., sensors and actuators) consumes.  This could
+include the amount of system time or quantity of messages it has
+sent or received during a session.  This can be accomplished by
+logging of session statistics and usage information and is used
+for trend analysis, resource utilization, performance assessment,
+and capacity planning.  Overall all of these are important data
+captures to improve the configuration and deployment of OpenC2
+components and a verification that intended operations are
+working as intended.
+
+
+
 ## B.4 Network Topologies
 
 -------
