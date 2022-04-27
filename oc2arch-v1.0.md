@@ -828,10 +828,7 @@ actions upon reconnection should be addressed.
 
 ### B.3.4 Authentication
 
-Authentication areas to address include verifying the identity
-and associated attributes claimed by or assumed of an entity
-(user, process, or device), and verifying the source and
-integrity of data.  OpenC2 is envisioned for application in
+OpenC2 is envisioned for application in
 environments where C2 will be automated as much as possible.  In
 the consequent machine-to-machine exchanges, the systems involved
 need to securely authenticate that authorized systems are
@@ -864,14 +861,14 @@ capabilities in the operating environment.
 ### B.3.5 Authorization And Access Control
 
 Coupled with user or device authentication, a requesting entity
-must have authorization before executing certain tasks.
-Authorization is the process of enforcing policies: determining
-what types of actions on a resource or service are permitted for
-this requester.  Once a user has been authenticated, they may be
-authorized for different types of actions depending on the policy
-assigned.  The authorization should be role- or attribute-based
-to avoid the problems of maintaining an identity-based access
-control list.
+must have authorization before tasks are executed on its
+direction. Authorization is the process of enforcing policies:
+determining what types of actions on a resource or service are
+permitted for this requester.  Once a user has been
+authenticated, they may be authorized for different types of
+actions depending on the policy assigned.  The authorization
+should be role- or attribute-based to avoid the problems of
+maintaining an identity-based access control list.
 
 The policy rules may include conditional aspects such as time of
 day or operational status of network to prevent actions from
