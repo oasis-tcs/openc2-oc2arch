@@ -874,8 +874,8 @@ enforced at (or near) the resource.
 
 ### B.3.6 Accountability
 
-Authentication is also the basis for associating the requester
-with the actions requested, the authorization decision (allow or
+Authentication is also the basis for associating the Producer
+with the commands sent, the authorization decision (allow or
 deny), and the actions taken.  The authenticated identity of the
 actor along with the action is captured in the audit logs and
 provides traceability to the responsible party.
