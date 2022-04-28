@@ -960,22 +960,18 @@ in the network, and management/cost factors.
 If OpenC2 traffic is carried in-band with user and other traffic,
 then it is subject to the same threats (plus the threats against
 cyber defense C2) and will leverage the same defenses as the
-other traffic.  Even if the OpenC2 traffic is segregated using
-logical or cryptographic separation, the underlying physical
-resources may still be subject to common attacks (and other
-threats) that will affect OpenC2.
+other traffic. Besides being subject to the same external threats
+as the other traffic, the implementer also needs to consider:
 
-Besides being subject to the same external threats as the other
-traffic, the implementer also needs to consider:
- * Resource contention issues: C2 traffic may be delayed or
+ * *Resource contention issues*: C2 traffic may be delayed or
    blocked by high volumes of user traffic or reductions in
    network capacity or connectivity
 
- * Intended cyber defense actions: The same blocking or filtering
+ * *Intended cyber defense actions*: The same blocking or filtering
    of traffic meant to stop an external attacker may affect C2
    traffic flow as well (e.g., external monitoring feeds could be
    cut off)
- * Targeted attacks against cyber defense C2: The attacker may
+ * *Targeted attacks against cyber defense C2*: The attacker may
    specifically attempt to single out C2 traffic for intercept,
    modification, denial of service, or other attack
 
