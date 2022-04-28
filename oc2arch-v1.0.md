@@ -859,7 +859,7 @@ Coupled with user or device authentication, a requesting entity
 must have authorization before tasks are executed on its
 direction. Authorization is the process of enforcing policies:
 determining what types of actions on a resource or service are
-permitted for this requester.  Once a user has been
+permitted for this Producer.  Once a Producer has been
 authenticated, they may be authorized for different types of
 actions depending on the policy assigned.  The authorization
 should be role- or attribute-based to avoid the problems of
@@ -868,22 +868,9 @@ maintaining an identity-based access control list.
 The policy rules may include conditional aspects such as time of
 day or operational status of network to prevent actions from
 adversely affecting missions.  In these cases, it is important to
-determine if the requester has knowledge of the conditions and
-can self-impose the policy rules or whether the policy needs to
-be enforced at (or near) the resource.
-
-With respect to controlling the environment and keeping commands
-in sync with allowed permissions and commands, another
-consideration for implementation is to map a controlled list of
-OpenC2 commands that are authorized and not authorized to various
-actuators.    There are actions within the OpenC2 language that
-can be grouped by their general activity.  Each group of actions
-may need to have specific authorization policy rules to allow
-such actions to be performed.   For example, the set of actions
-that control permissions and accesses should be strictly limited.
-The OpenC2 commands (e.g., DENY, CONTAIN, ALLOW) that affect
-network operations and defenses directly would have a different
-set of authorized users.
+determine if the Producer has knowledge of the conditions and can
+self-impose the policy rules or whether the policy needs to be
+enforced at (or near) the resource.
 
 ### B.3.6 Accountability
 
