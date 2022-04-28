@@ -693,6 +693,8 @@ We encourage editors and TC members concerned with this subject to read _Guideli
 
 Remove this note before submitting for publication.)
 
+This appendix discusses security concerns related to OpenC2.
+
 ## B.1 Overview
 
 Cyber defense systems are high-value targets for an attacker
