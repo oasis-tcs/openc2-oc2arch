@@ -719,11 +719,11 @@ By providing the C2 for time-critical response actions OpenC2 is
 an enabler of improved cyber defense capabilities for user
 networks and systems. However, to the extent that OpenC2 traffic
 and processing share resources with those user networks and
-systems, those same threats (and mitigations) will be applicable.
-Even if the OpenC2 traffic is segregated using logical or
-cryptographic separation, the underlying physical resources may
-still be subject to common attacks (and other threats) that will
-affect OpenC2 operations.
+systems, those same threats (and mitigations) will also be
+applicable to OpenC2. Even if the OpenC2 traffic is segregated
+using logical or cryptographic separation, the underlying
+physical resources may still be subject to common attacks (and
+other threats) that will affect OpenC2 operations.
 
 ### B.2.2 Threats to OpenC2 Traffic and Processing
 
