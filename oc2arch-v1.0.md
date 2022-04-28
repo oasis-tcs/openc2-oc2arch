@@ -830,16 +830,16 @@ actions upon reconnection should be addressed.
 
 ### B.3.4 Authentication
 
-OpenC2 is envisioned for application in
-environments where C2 will be automated as much as possible.  In
-the consequent machine-to-machine exchanges, the systems involved
-need to securely authenticate that authorized systems are
-involved and not a rogue entities. In particular, actuators
-receiving and executing OpenC2 commands must be able to confirm
-those commands came from a source that can confidently be
-authenticated.  With the increasing number of Internet-enabled
-devices, reliable machine authentication is crucial to allow
-secure communication in automated network environments.  
+OpenC2 is envisioned for application in environments where C2
+will be automated as much as possible.  In the consequent
+machine-to-machine exchanges, the systems involved need to
+securely authenticate that authorized systems are involved and
+not a rogue entities. In particular, actuators receiving and
+executing OpenC2 commands must be able to confirm those commands
+came from a source that can confidently be authenticated.  With
+the increasing number of Internet-enabled devices, reliable
+machine authentication is crucial to allow secure communication
+in automated network environments.  
 
 In the IoT scenario, almost any imaginable entity or object may
 be made addressable and able to exchange data over the network.
