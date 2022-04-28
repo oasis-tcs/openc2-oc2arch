@@ -839,16 +839,9 @@ executing OpenC2 commands must be able to confirm those commands
 came from a source that can confidently be authenticated.  With
 the increasing number of Internet-enabled devices, reliable
 machine authentication is crucial to allow secure communication
-in automated network environments.  
-
-In the IoT scenario, almost any imaginable entity or object may
-be made addressable and able to exchange data over the network.
-It is important to realize that each access point is a potential
-intrusion point.  Each device that issues OpenC2 commands may
-need to apply, and all recipients need to be able to validate,
-strong machine authentication.  In any architecture deployment,
-consider the appropriate levels and types of authentication for
-managers and actuators.  
+in automated network environments. In any architecture
+deployment, consider the appropriate levels and types of
+authentication for managers and actuators.  
 
 There are also aspects of identity and credential management that
 need to be addressed:  uniqueness of name space, identification
