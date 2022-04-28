@@ -935,8 +935,8 @@ logging of session statistics and usage information and is used
 for trend analysis, resource utilization, performance assessment,
 and capacity planning.  Overall all of these are important data
 captures to improve the configuration and deployment of OpenC2
-components and a verification that intended operations are
-working as intended.
+components and a verification that operations are working as
+intended.
 
 
 
