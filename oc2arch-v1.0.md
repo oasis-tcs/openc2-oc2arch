@@ -468,7 +468,7 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 The language defines two distinct content types (i.e., payload
 structures): Command and Response.
 
-## 2.1 OpenC2 Commands
+## 2.1 Commands
 
 **Command**: An instruction from one system, known as the
 Producer, to one or more systems, the Consumer(s), to act on the
@@ -523,7 +523,7 @@ Command is desired and the tactical decisions on how the effect
 is achieved is left to the recipient.
 
 
-## 2.2 OpenC2 Responses
+## 2.2 Responses
 
  **Response**: Any information sent back to the Producer as a
  result of the Command.
@@ -537,7 +537,12 @@ status text and response fields optionally provide more detailed
 information that is specific to or requested by the Command.
 
 
-## 2.3 Producers, Consumers, and Devices
+## 2.3 Design Patterns
+
+This section describes a number of OpenC2 concepts related to
+creating working systems using OpenC2 specifications.
+
+### 2.3.1 Producers, Consumers, and Devices
 
 This section discusses four representative configurations for an
 OpenC2 Consumer device:
@@ -628,6 +633,66 @@ intermediate, combined Consumer / Producer.
 **Figure 2-5. Actuator Manager Device Using OpenC2**
 ![Actuator Manager Device using OpenC2](images/Actuator-Manager-Device-OpenC2.drawio.png)
 
+### 2.3.2 Action-Target Model
+
+The OpenC2 Language Specification defines a standard set of
+actions and a baseline collection of targets for those actions.
+An action-target pair defines a command, as described in [Section
+2.1](#21-commands).
+
+The available set of actions for creating OpenC2 commands is
+limited to those defined in the Language Specification in order
+to encourage commonality and interoperability of implementations.
+The function of each action is defined in the Language
+Specification, and the set of actions can only be expanded by
+modifying the Language Specification. 
+
+In contrast the baseline set of targets in the Language
+Specification is a usable set, but is also explicitly extensible.
+This recognizes the diversity of cybersecurity functions and the
+corresponding need for function-specific targets beyond the
+general purpose set provided in the Language Specification.
+
+There are other automation capabilities (e.g, Microsoft
+Powershell) that implement a verb-noun model similar to that used
+by OpenC2. Future expansions to the OpenC2 action set should take
+advantage of prior work from similar capabilities in selecting
+names for actions. This will encourage commonality of usage and
+understanding of verbs in automation systems.
+
+### 2.3.3 Introspection Model
+
+A common situation in OpenC2 interactions is the need for a
+Producer to determine the capabilities of a Consumer in order to
+scope the range of commands that can usefully be sent to that
+Consumer. The approach is demonstrated in the Language
+Specification's provision of the `"query" : "features"` and
+`"query" : "profiles"` commands. This "introspection" capability,
+defined for OpenC2 as the ability of a Consumer to inform a
+Producer of the Consumer's capabilities, enables a degree of
+flexible self-configuration of the interactions between Producers
+and Consumers. 
+
+Any situation where a Consumer may potentially provide a range of
+responses to a Producer's command is a candidate to apply the
+introspection technique. For example, where a Consumer may return
+a response in any of several data formats or serializations, it
+is appropriate to consider a two-stage interaction:
+
+ - **Stage 1:** the Producer identifies the information of interest
+   and queries regarding the Consumer's capabilities to provide
+   that information. The Consumer responds with a list, possibly
+   prioritized, of the ways it can supply the required
+   information.
+
+ - **Stage 2:** the Producer selects from among the options provided
+   by the Consumer and sends a Command specifying the desired
+   packaging of the information. The Consumer responds with the
+   required information packaged as specified.
+
+The information provided by the Consumer in stage 1 enables the
+Producer to proceed with confidence about the outcome of the
+interaction in stage 2.
 
 ## 2.4 Implementations
 
