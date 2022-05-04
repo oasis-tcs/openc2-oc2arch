@@ -51,7 +51,7 @@ This specification is related to:
 #### Abstract:
 Cyberattacks are increasingly sophisticated, less expensive to execute, dynamic and automated. The provision of cyber defense via statically configured products operating in isolation is untenable. Standardized interfaces, protocols and data models will facilitate the integration of the functional blocks within a system and between systems. Open Command and Control (OpenC2) is a concise and extensible language to enable machine-to-machine communications for purposes of command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation.
 
-This document describes the Abstract Architecture of OpenC2, to define a common understanding of the messages and interactions for all bindings and serializations.
+This document describes the abstract architecture of OpenC2 to define a common understanding of the messages and interactions for all bindings and serializations.
 
 #### Status:
 This document was last revised or approved by the OASIS Open Command and Control (OpenC2) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
@@ -283,7 +283,7 @@ these assumptions.
 
 -   **Producer**: A manager application that sends Commands.
 
--   **Request**: A Message from a Producet to a Consumer used to convey a
+-   **Request**: A Message from a Producer to a Consumer used to convey a
     Command.
 
 -   **Response**: A Message from a Consumer to a Producer acknowledging a
@@ -366,10 +366,10 @@ mechanisms.
 In general, there are two types of participants involved in the
 exchange of OpenC2 Messages, as depicted in Figure 2-1:
 
-1. **Producers**: A Producer is an entity that creates Commands
-   to provide instruction to one or more systems to act in
-   accordance with the content of the Command. A Producer may
-   receive and process Responses in conjunction with a Command.
+1. **Producers**: A Producer is an entity that creates and
+   transmits Commands instructing one or more systems to execute
+   Actions as specified in the Command. A Producer may receive
+   and process Responses in conjunction with a Command.
 2. **Consumers**: A Consumer is an entity that receives and may
    act upon a Command. A Consumer may create Responses that
    provide any information captured or necessary to send back to
@@ -380,8 +380,8 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 ![OpenC2 Message Exchange](images/MessageFlow.png)
 
 
-The language defines two distinct content types (i.e., payload
-structures): Command and Response.
+The Language Specification defines two distinct content types
+(i.e., payload structures): Command and Response.
 
 ## 2.1 Commands
 
@@ -431,11 +431,16 @@ language by defining additional Targets, Arguments, and Actuator
 Specifiers that are meaningful and possibly unique to the
 Actuator.
 
-The Actuator may be omitted from a Command and typically will not
-be included in implementations where the identities of the
-endpoints are unambiguous or when a high-level effects-based
-Command is desired and the tactical decisions on how the effect
-is achieved is left to the recipient.
+The Actuator is an optional component of a Command used to
+clarify which Consumer(s) are the intended recipient(s). It
+typically is not included in situations  where the identities of
+the intended endpoints are unambiguous (e.g., defined by the
+transfer mechanism). OpenC2 also provides for high-level
+effects-based Commands, where an intermediate element receiving
+the Command has discretion to define derivative Commands and
+select appropriate Actuators to achieve the desired effect. The
+Actuator component is usually omitted from an effects-based
+Command.
 
 
 ## 2.2 Responses
@@ -475,9 +480,9 @@ OpenC2 Consumer device:
    managed devices in the collection may or may not be identical,
    and the interface to them is not assumed to use OpenC2.
 
-1. The Consumer is a manager for a collection of devices that
-   _are_ managed using OpenC2, making the device a combined
-   Consumer / Producer.
+1. The Consumer is a manager for a collection of devices that are
+   managed using OpenC2, making the device a combined Consumer /
+   Producer.
 
 In all of these configurations, "device" is a collective term for
 the processing element that is the OpenC2 Consumer. A device
@@ -777,9 +782,9 @@ threat sources should be addressed:
  * *Non-malicious Users* – mistakes by users, especially
    privileged users, can cause major lapses in cyber defense
    
- * *Structural Threats* – failures of hardware and software can
-   affect network and system availability, and impede the ability
-   of OpenC2 mechanisms to operate
+ * *Structural Threats* – failures of hardware and/or software
+   can affect network and system integrity or availability, and
+   impede the ability of OpenC2 mechanisms to operate
 
  * *Environmental Threats* – disasters and infrastructure failures
    may need to addressed and accommodated depending on the
@@ -856,14 +861,16 @@ stable configuration then its actions cannot be trusted.
 ### B.3.3 Availability
 
 Availability in the context of OpenC2 is focused on the ability
-of Producers to send commands to Consumers. Assuring availability
-can be very difficult if the OpenC2 message traffic is carried
-in-band with the user traffic. Out-of-band management networks
-should be used where possible as they provide isolation of OpenC2
-activities from attacks against operational user networks and can
-be engineered to provide better support for high availability.
-Also, approaches to addressing intermittent connectivity and
-actions upon reconnection should be addressed.
+of Producers to send commands to Consumers, and the corresponding
+ability of Consumers to receive, execute, and send Responses to
+those commands. Assuring availability can be very difficult if
+the OpenC2 message traffic is carried in-band with the user
+traffic. Out-of-band management networks should be used where
+possible as they provide isolation of OpenC2 activities from
+attacks against operational user networks and can be engineered
+to provide better support for high availability. Also, approaches
+to addressing intermittent connectivity and actions upon
+reconnection should be addressed.
 
 
 ### B.3.4 Authentication
