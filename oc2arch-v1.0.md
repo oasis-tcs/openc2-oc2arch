@@ -816,6 +816,327 @@ We encourage editors and TC members concerned with this subject to read _Guideli
 
 Remove this note before submitting for publication.)
 
+This appendix discusses security concerns related to OpenC2.
+
+## B.1 Overview
+
+Cyber defense systems are high-value targets for an attacker
+since disabling detection and response capabilities opens the
+door to allow further attacks. There would be great value to an
+attacker to turn off the sensors, breach the defenses, disable
+responsive actions, and potentially use the cyber defense tools
+to attack the network.
+
+## B.2 Threats
+
+There are two threat target areas to address when considering the
+security of OpenC2:  
+
+1. Threats to and attacks on the user networks/systems being
+defended, and 
+1. Attacks directed at OpenC2 itself.  
+
+## B.2.1 Threats to the Networks and Systems Being Defended
+
+By providing the C2 for time-critical response actions OpenC2 is
+an enabler of improved cyber defense capabilities for user
+networks and systems. However, to the extent that OpenC2 traffic
+and processing share resources with those user networks and
+systems, those same threats (and mitigations) will also be
+applicable to OpenC2. Even if the OpenC2 traffic is segregated
+using logical or cryptographic separation, the underlying
+physical resources may still be subject to common attacks (and
+other threats) that will affect OpenC2 operations.
+
+### B.2.2 Threats to OpenC2 Traffic and Processing
+
+The threats, attacks, vulnerabilities, and impacts to a given
+OpenC2 implementation should be analyzed with a focus on the
+goals of the attacker and the resulting impacts since these will
+be different from a standard user analysis.  Four categories of
+threat sources should be addressed:
+
+ * *Malicious Adversaries* (external or insider) – the primary
+   source of concern for the security of OpenC2 operations
+
+ * *Non-malicious Users* – mistakes by users, especially
+   privileged users, can cause major lapses in cyber defense
+   
+ * *Structural Threats* – failures of hardware and software can
+   affect network and system availability, and impede the ability
+   of OpenC2 mechanisms to operate
+
+ * *Environmental Threats* – disasters and infrastructure failures
+   may need to addressed and accommodated depending on the
+   mission needs of the defended networks
+
+### B.2.3 Potential Attack Types
+
+Malicious adversaries may use any form of attack, these are some
+primary examples.
+
+* *Passive Attacks* – An attacker may monitor traffic at levels
+  of sophistication and access  ranging from simple traffic
+  analysis (is there a change in the volume of OpenC2 traffic?)
+  to eavesdropping on the contents of the messages (if
+  unencrypted) to see what was detected, what actions are being
+  taken, and the specific targets of OpenC2 commands.  This
+  information will let the attacker know if their active attacks
+  have been detected and how the system responds.  Their active
+  attacks can then be revised to avoid detection or to trigger a
+  known response.  In the latter case, the attacker could use
+  knowledge of the response strategy to cause the system to
+  unnecessarily deny services to users.
+
+* *Active Attacks, Externally Initiated* – An attacker may try to
+  manipulate the OpenC2 traffic by deleting, delaying, or
+  replaying legitimate messages.  They may also attempt to modify
+  the contents of a message or masquerade as an OpenC2 manager
+  and issue bogus messages.  If any of these attacks succeed, the
+  attacker can disrupt or disable responses to other attacks and
+  can cause the defensive capabilities to impede legitimate
+  operations.  Successfully subverting defenses can allow more
+  intrusive attacks.
+
+* *Insider Attacks* (Malicious users) – An insider, especially a
+  privileged user, may be able to more effectively perform any of
+  the passive and active attacks already mentioned plus can act
+  as a legitimate user to perform other actions.  These actions
+  could include misconfiguring devices, changing policy rules,
+  issuing malicious commands from authorized sources, and even
+  turning systems off.
+
+* *Supply Chain or Distribution Attacks* - A vendor, transporter,
+  developer, or installer may modify the software or hardware
+  used for OpenC2-based functions.  The modification may
+  introduce an exploitable vulnerability, disable a critical
+  function, or cause failure under specific conditions.  Even if
+  the attack is just substitution of a counterfeit component, the
+  behavior may be different and cause problems.
+
+## B.3 Security Services
+
+This section reviews the applicability of traditional security
+services to OpenC2 operations.
+
+### B.3.1 Confidentiality
+
+Confidentiality of OpenC2 message content prevents attackers from
+seeing the response actions that result from attacker activities.
+This knowledge could aid an attacker in manipulating or
+circumventing cyber defenses. 
+
+### B.3.2 Integrity
+
+Both data and system integrity need to be addressed in OpenC2
+implementations. Data integrity is extremely important - the
+contents of a C2 message should not be modifiable without
+detection.  Replay and re-sequencing attacks also need to be
+addressed.  Message integrity must always be paired with source
+authentication. System integrity including software/application
+integrity is also critical to OpenC2 security.  If a system,
+including system and application software, is not in a compliant,
+stable configuration then its actions cannot be trusted.
+
+### B.3.3 Availability
+
+Availability in the context of OpenC2 is focused on the ability
+of Producers to send commands to Consumers. Assuring availability
+can be very difficult if the OpenC2 message traffic is carried
+in-band with the user traffic. Out-of-band management networks
+should be used where possible as they provide isolation of OpenC2
+activities from attacks against operational user networks and can
+be engineered to provide better support for high availability.
+Also, approaches to addressing intermittent connectivity and
+actions upon reconnection should be addressed.
+
+
+### B.3.4 Authentication
+
+OpenC2 is envisioned for application in environments where C2
+will be automated as much as possible.  In the consequent
+machine-to-machine exchanges, the systems involved need to
+securely authenticate that authorized systems are involved and
+not rogue entities. In particular, actuators receiving and
+executing OpenC2 commands must be able to confirm those commands
+came from a source that can confidently be authenticated.  With
+the increasing number of Internet-enabled devices, reliable
+machine authentication is crucial to allow secure communication
+in automated network environments. In any architecture
+deployment, consider the appropriate levels and types of
+authentication for managers and actuators.  
+
+There are also aspects of identity and credential management that
+need to be addressed:  uniqueness of name space, identification
+of device type and instance, provisioning of credentials
+(typically digital certificates), means to verify trust chain and
+current status of credentials, means to revoke credentials, and
+session management.  There are many challenges to find the right
+authentication model that can support a machine-to-machine
+communication method depending on the range of device and network
+capabilities in the operating environment.
+
+### B.3.5 Authorization And Access Control
+
+Coupled with user or device authentication, a requesting entity
+must have authorization before tasks are executed on its
+direction. Authorization is the process of enforcing policies:
+determining what types of actions on a resource or service are
+permitted for this Producer.  Once a Producer has been
+authenticated, they may be authorized for different types of
+actions depending on the policy assigned.  The authorization
+should be role- or attribute-based to avoid the problems of
+maintaining an identity-based access control list.
+
+The policy rules may include conditional aspects such as time of
+day or operational status of network to prevent actions from
+adversely affecting missions.  In these cases, it is important to
+determine if the Producer has knowledge of the conditions and can
+self-impose the policy rules or whether the policy needs to be
+enforced at (or near) the resource.
+
+### B.3.6 Accountability
+
+Authentication is also the basis for associating the Producer
+with the commands sent, the authorization decision (allow or
+deny), and the actions taken.  The authenticated identity of the
+actor along with the action is captured in the audit logs and
+provides traceability to the responsible party.
+
+### B.3.7 Non-Repudiation
+
+Non-repudiation may be required if there is a requirement to
+formally prove the issuance or receipt of a C2 message, however
+any non-repudiation requirement should be evaluated critically
+due to impacts on the processing, availability and delays of
+automated cyber defense actions.  This level of security may not
+be required in a closed system where source authentication and
+logged receipt events are sufficient evidence of who sent and who
+received messages.  Non-repudiation implementations may require a
+third party acting as a notary or signature-based message
+authentication resulting in additional costs in terms of
+processing, communications, and invoking third-party services for
+the commands and responses.  A time stamping service will
+typically also be required.  The third party would timestamp
+OpenC2 messages and certify proof of issuance and delivery.  This
+will add dependencies and overhead to the system.
+
+### B.3.8 Auditing
+
+Audit trails are necessary in any secure system but have specific
+considerations in machine-to-machine communications.  In
+conjunction with appropriate tools and procedures, audit trails
+can provide a means to help accomplish several security-related
+objectives, including individual accountability, reconstruction
+of events, intrusion detection, and problem identification.
+Typical events include:
+
+ * Authentication exchange between components (manager, actuator,
+   and end points)
+ * Message generated, message sent, message received
+ * Action taken/allowed or request denied
+ * Success or failure of any OpenC2 exchange
+ * Configuration changes
+
+Actions and the results that are invoked using OpenC2 should be
+recorded and analyzed for security areas such as forensics,
+secure implementation, security architecture of impact changes
+within the environment, and completion of such tasks.  This type
+of auditing provides the essential ingredients for early
+detection of actions that violate security policy.
+
+### B.3.9 Metrics Collection And Analysis
+
+Collecting metrics will be necessary for a multitude of
+activities to assess performance and improve effectiveness of
+actions within an OpenC2 environment.  Implementations should
+provide the ability to measure resources a user or system
+component (e.g., sensors and actuators) consumes.  This could
+include the amount of system time or quantity of messages it has
+sent or received during a session.  This can be accomplished by
+logging of session statistics and usage information and is used
+for trend analysis, resource utilization, performance assessment,
+and capacity planning.  Overall all of these are important data
+captures to improve the configuration and deployment of OpenC2
+components and a verification that operations are working as
+intended.
+
+
+
+## B.4 Network Topologies
+
+The available networking architecture, topology, and technology
+all have implications for, and may also be constrained by, OpenC2
+use and security.  The topology and communications modes
+supporting OpenC2 traffic will affect the ability and approaches
+to achieving robustness, providing redundancy, and meeting
+responsiveness goals. Ideally, OpenC2 traffic should be quickly
+and reliably delivered to all intended recipients with some
+guarantee or confirmation of both delivery and action taken. It
+will not always be possible to achieve these goals due to
+constraints of available or legacy networking and systems,
+mobility/connectedness of devices, effects of attacks or outages
+in the network, and management/cost factors.  
+
+### B.4.1 In-Band Cyber Defense C2
+
+If OpenC2 traffic is carried in-band with user and other traffic,
+then it is subject to the same threats (plus the threats against
+cyber defense C2) and will leverage the same defenses as the
+other traffic. Besides being subject to the same external threats
+as the other traffic, the implementer also needs to consider:
+
+ * *Resource contention issues*: C2 traffic may be delayed or
+   blocked by high volumes of user traffic or reductions in
+   network capacity or connectivity
+
+ * *Intended cyber defense actions*: The same blocking or filtering
+   of traffic meant to stop an external attacker may affect C2
+   traffic flow as well (e.g., external monitoring feeds could be
+   cut off)
+ * *Targeted attacks against cyber defense C2*: The attacker may
+   specifically attempt to single out C2 traffic for intercept,
+   modification, denial of service, or other attack
+
+### B.4.2 Out-Of-Band Cyber Defense C2
+
+Out-of-Band management involves the use of a dedicated channel
+for managing network devices.  This allows the network operator
+to establish trust boundaries in accessing the management
+function to apply it to network resources.  It also can be used
+to ensure management connectivity (including the ability to
+determine the status of any network component) independent of the
+status of in-band network components.  Out-of-Band Management
+(OOBM) is a common best practice with renewed focus based on the
+evolving threat landscape.  
+
+C2 systems are prime objectives of adversaries and OOBM can
+provide another layer in the defense-in-depth model.  The
+effectiveness of this layering or separation depends on how OOBM
+is implemented and secured.  There should be a much lower attack
+surface since general users would not have access to this
+channel.  Also security policies, generally, will restrict or
+prohibit connection to the OOBM through access control lists or
+other access methods.  In practice though, implementations may
+have prioritized administrator access (including remote access)
+and chosen weaker security.  For example, implementers may have
+left back-door access in place so that disastrous failures can
+rapidly be fixed.  To address these types of issues, a security
+plan should be implemented and enforced, focusing in these areas,
+which will enhance the entire security architecture of the
+enterprise: 
+ * Definitions of vulnerabilities and risks of out-of-band access
+for OpenC2 
+ * Review security architecture for mitigating those risks 
+ * Proper balance between security and the need for timely
+out-of-band access during critical events 
+ * Systems of processes, equipment and technologies that provide,
+wherever required for OpenC2 integrity, confidentiality, and/or
+non-repudiation for out-of-band access.
+
+
+
+
 -------
 
 # Appendix C. Acknowledgments
