@@ -84,7 +84,97 @@ For complete copyright information please see the full Notices section in an App
 -------
 
 # Table of Contents
-[[TOC will be inserted here]]
+- [1 Introduction](#1-introduction)
+  - [1.1 Changes from earlier versions](#11-changes-from-earlier-versions)
+  - [1.2 Goal](#12-goal)
+  - [1.3 Glossary](#13-glossary)
+    - [1.3.1 Definitions of terms](#131-definitions-of-terms)
+    - [1.3.2 Acronyms and abbreviations](#132-acronyms-and-abbreviations)
+    - [1.3.3 Document conventions](#133-document-conventions)
+  - [1.3 Some markdown usage examples](#13-some-markdown-usage-examples)
+    - [1.3.1 Figures and Captions](#131-figures-and-captions)
+          - [Figure 1 -- Title of Figure](#figure-1----title-of-figure)
+          - [Figure 2 -- OpenC2 Message Exchange](#figure-2----openc2-message-exchange)
+    - [1.3.2 Tables](#132-tables)
+      - [1.3.2.1 Basic Table](#1321-basic-table)
+      - [1.3.2.2 Table with Three Columns and Some Bold Text](#1322-table-with-three-columns-and-some-bold-text)
+      - [1.3.2.3 Table with a caption which can be referenced](#1323-table-with-a-caption-which-can-be-referenced)
+          - [Table 1-5. See reference label construction](#table-1-5-see-reference-label-construction)
+    - [1.3.3 Lists](#133-lists)
+    - [1.3.4 Reference Label Construction](#134-reference-label-construction)
+          - [[RFC2119]](#rfc2119)
+    - [1.3.5 Code Blocks](#135-code-blocks)
+  - [1.4 Page Breaks](#14-page-breaks)
+- [2 OpenC2 Architecture](#2-openc2-architecture)
+  - [2.1 Commands](#21-commands)
+  - [2.2 Responses](#22-responses)
+  - [2.3 Design Patterns](#23-design-patterns)
+    - [2.3.1 Producers, Consumers, and Devices](#231-producers-consumers-and-devices)
+      - [2.3.1.1 Single Function Device](#2311-single-function-device)
+      - [2.3.1.2 Multiple Function Device](#2312-multiple-function-device)
+      - [2.3.1.3 Actuator Manager Device](#2313-actuator-manager-device)
+      - [2.3.1.4 Intermediate Consumer / Producer Device](#2314-intermediate-consumer--producer-device)
+    - [2.3.2 Action-Target Model](#232-action-target-model)
+    - [2.3.3 Introspection Model](#233-introspection-model)
+  - [2.4 Implementations](#24-implementations)
+- [3 Conformance](#3-conformance)
+- [Appendix A. References](#appendix-a-references)
+  - [A.1 Normative References](#a1-normative-references)
+          - [[OpenC2-Lang-v1.0]](#openc2-lang-v10)
+          - [[OpenC2-HTTPS-v1.1]](#openc2-https-v11)
+          - [[OpenC2-MQTT-v1.0]](#openc2-mqtt-v10)
+          - [[OpenC2-SLPF-v1.0]](#openc2-slpf-v10)
+          - [[RFC2119]](#rfc2119-1)
+          - [[RFC8174]](#rfc8174)
+  - [A.2 Informative References](#a2-informative-references)
+          - [[IACD]](#iacd)
+          - [[RFC3552]](#rfc3552)
+- [Appendix B. Safety, Security and Privacy Considerations](#appendix-b-safety-security-and-privacy-considerations)
+  - [B.1 Overview](#b1-overview)
+  - [B.2 Threats](#b2-threats)
+  - [B.2.1 Threats to the Networks and Systems Being Defended](#b21-threats-to-the-networks-and-systems-being-defended)
+    - [B.2.2 Threats to OpenC2 Traffic and Processing](#b22-threats-to-openc2-traffic-and-processing)
+    - [B.2.3 Potential Attack Types](#b23-potential-attack-types)
+  - [B.3 Security Services](#b3-security-services)
+    - [B.3.1 Confidentiality](#b31-confidentiality)
+    - [B.3.2 Integrity](#b32-integrity)
+    - [B.3.3 Availability](#b33-availability)
+    - [B.3.4 Authentication](#b34-authentication)
+    - [B.3.5 Authorization And Access Control](#b35-authorization-and-access-control)
+    - [B.3.6 Accountability](#b36-accountability)
+    - [B.3.7 Non-Repudiation](#b37-non-repudiation)
+    - [B.3.8 Auditing](#b38-auditing)
+    - [B.3.9 Metrics Collection And Analysis](#b39-metrics-collection-and-analysis)
+  - [B.4 Network Topologies](#b4-network-topologies)
+    - [B.4.1 In-Band Cyber Defense C2](#b41-in-band-cyber-defense-c2)
+    - [B.4.2 Out-Of-Band Cyber Defense C2](#b42-out-of-band-cyber-defense-c2)
+- [Appendix C. Acknowledgments](#appendix-c-acknowledgments)
+  - [C.1 Special Thanks](#c1-special-thanks)
+  - [C.2 Participants](#c2-participants)
+- [Appendix D. Revision History](#appendix-d-revision-history)
+- [Appendix E. Examples](#appendix-e-examples)
+  - [E.1 Application of Actuator Profiles and Transfer Specifications](#e1-application-of-actuator-profiles-and-transfer-specifications)
+        - [Figure E-1: Application of Actuator Profiles and Transfer Specifications](#figure-e-1-application-of-actuator-profiles-and-transfer-specifications)
+  - [E.2 Actuator Profile Typical Content](#e2-actuator-profile-typical-content)
+    - [1.0 Introduction](#10-introduction)
+    - [2.0 OpenC2 Language Binding](#20-openc2-language-binding)
+      - [2.1 OpenC2 Command Components](#21-openc2-command-components)
+      - [2.2 OpenC2 Response Components](#22-openc2-response-components)
+      - [2.3 OpenC2 Commands](#23-openc2-commands)
+    - [3.0 Conformance](#30-conformance)
+      - [3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target](#31-clauses-pertaining-to-the-openc2-producer-conformance-target)
+      - [3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target](#32-clauses-pertaining-to-the-openc2-consumer-conformance-target)
+    - [Appendix E. Examples](#appendix-e-examples-1)
+  - [E.3 Transfer Specification Typical Content](#e3-transfer-specification-typical-content)
+    - [1.0 Introduction](#10-introduction-1)
+    - [2.0 Operating Model](#20-operating-model)
+    - [3.0 Protocol Mapping](#30-protocol-mapping)
+    - [4.0 Conformance](#40-conformance)
+    - [Appendix E. Examples](#appendix-e-examples-2)
+- [Appendix F. OpenC2 Namespace Registry](#appendix-f-openc2-namespace-registry)
+  - [Namespace Concepts](#namespace-concepts)
+  - [Registration Process](#registration-process)
+- [Appendix G. Notices](#appendix-g-notices)
 
 -------
 
@@ -291,143 +381,6 @@ these assumptions.
 | XML     | eXtensible Markup Language |
 
 
-### 1.3.3 Document conventions
-
-- Naming conventions
-- Font colors and styles
-- Typographic conventions
-
-## 1.3 Some markdown usage examples
-
-**Text.**
-
-Note that text paragraphs in markdown should be separated by a blank line between them -
-
-Otherwise the separate paragraphs will be joined together when the HTML is generated.
-Even if the text appears to be separate lines in the markdown source.
-
-To avoid having the usual vertical space between paragraphs,  
-append two or more space characters (or space-backslash) to the end of the lines  
-which will generate an HTML break tag instead of a new paragraph tag \
-(as demonstrated here).
-
-### 1.3.1 Figures and Captions
-
-FIGURE EXAMPLE:
-<note caption is best placed ABOVE figure, so a hyperlink to it will actually display the figure, instead of rendering the figure off the screen above the caption. The same placement should be used for table captions>
-
-###### Figure 1 -- Title of Figure
-![image-label should be meaningful](images/image_0.png) (this image is intentionally missing)
-
-###### Figure 2 -- OpenC2 Message Exchange
-![message exchange](images/image_1.png)
-
-
-### 1.3.2 Tables
-
-#### 1.3.2.1 Basic Table
-**Table 1-1. Table Label**
-
-| Item | Description |
-| :--- | :--- |
-| Item 1 | Something<br>(second line) |
-| Item 2 | Something |
-| Item 3 | Something<br>(second line) |
-| Item 4 | text |
-
-#### 1.3.2.2 Table with Three Columns and Some Bold Text
-text.
-
-| Title 1 | Title 2 | title 3 |
-| :--- | :--- | :--- |
-| something | something | something else that is a long string of text that **might** need to wrap around inside the table box and will just continue until the column divider is reached |
-| something | something | something |
-
-#### 1.3.2.3 Table with a caption which can be referenced
-
-###### Table 1-5. See reference label construction
-
-| Name | Description |
-| :--- | :--- |
-| **content** | Message body as specified by content_type and msg_type. |
-
-Here is a reference to the table caption:
-Please see [Table 1-5 or other meaningful label](#table-1-5-see-reference-label-construction)
-
-
-### 1.3.3 Lists
-
-Bulleted list:
-* bullet item 1.
-* **Bold** bullet item 2.
-* bullet item 3.
-* bullet item 4.
-
-Indented or multi-level bullet list - add two spaces per level before bullet character (* or -):
-* main bullet type
-  * Example second bullet
-    * See third level
-      * fourth level
-
-Numbered list:
-1. item 1
-2. item 2
-3. item 3
-
-Left-justified list without bullets or numbers:
-To list multiple items without full paragraph breaks between items, add space-backslash after each item except the last.
-
-### 1.3.4 Reference Label Construction
-
-REFERENCES and ANCHORS
-- in markdown source, format the Reference tags as level 6 headings like: `###### [RFC2119]`
-###### [RFC2119]
-Bradner, S., "Key words ..."
-
-- reference text has to be on a separate line below the tag
-
-- format cross-references (citations of the references) like: `see [[RFC2119](#rfc2119)]`  
-"see [[RFC2119](#rfc2119)]"  
-(note the outer square brackets in markdown will appear in the visible HTML text)
-
-- The text in the Reference tag (following ###### ) will become an HTML anchor using the following conversion rules:  
-  - punctuation marks will be dropped (including "[" )  
-  - leading white spaces will be dropped  
-  - upper case will be converted to lower  
-  - spaces between letters will be converted to a single hyphen
-
-- The same HTML anchor construction rules apply to cross-references and to section headings.  
-  - Thus, a section heading like "## 1.2 Glossary"  
-  - becomes an anchor in HTML like `<a href="#12-glossary">`  
-  - referenced in the markdown like: see [Section 1.2](#12-glossary)  
-  - in markdown: `"see [Section 1.2](#12-glossary)"`  
-  - similar HTML anchors are also used in constructing the TOC
-
-### 1.3.5 Code Blocks
-
-Text to appear as an indented code block with grey background and monospace font - use three back-ticks before and after the code block.
-
-Note the actual backticks will not appear in the HTML format. If it's necessary to display visible backticks, place a back-slash before them like: \``` .
-
-```
-{   
-    "target": {
-        "x_kmip_2.0": {
-            {"kmip_type": "json"},
-            {"operation": "RekeyKeyPair"},
-            {"name": "publicWebKey11DEC2017"}
-        }
-    }
-}
-```
-
-Text to be highlighted as code can also be surrounded by a single "backtick" character:
-`code text`
-
-## 1.4 Page Breaks
-Add horizontal rule lines where page breaks are desired in the PDF - before each major section
-- insert the line rules in markdown by inserting 3 or more hyphens on a line by themselves:  ---
-- place these before each main section in markdown (usually "#" - which generates the HTML `<h1>` tag)
 
 -------
 
@@ -586,7 +539,7 @@ explictly OpenC2-based. Implementations with a mixture of OpenC2-
 and non-OpenC2-based interactions with the managed devices are
 also possible.
 
-### 2.3.1 Single Function Device
+#### 2.3.1.1 Single Function Device
 
 Figure 2-2 illustrates the situation with a Producer commanding
 an OpenC2 Consumer that implements a single cybersecurity
@@ -595,7 +548,7 @@ function, and its corresponding AP.
 **Figure 2-2. Single Function Device**
 ![Single Function Device](images/Single-Function-Device.drawio.png)
 
-### 2.3.2 Multiple Function Device
+#### 2.3.1.2 Multiple Function Device
 
 Figure 2-3 illustrates the situation with a Producer commanding
 an OpenC2 Consumer that implements multiple cybersecurity
@@ -610,7 +563,7 @@ functions on multiple, distinct network interfaces.
 **Figure 2-3. Multiple Function Device**
 ![Multiple Function Device](images/Multiple-Function-Device.drawio.png)
 
-### 2.3.3 Actuator Manager Device
+#### 2.3.1.3 Actuator Manager Device
 
 Figure 2-4 illustrates the situation where the Consumer fronts a
 set of managed devices implementing cybersecurity functions. The
@@ -621,7 +574,7 @@ is not using OpenC2.
 **Figure 2-4. Actuator Manager Device**
 ![Actuator Manager Device](images/Actuator-Manager-Device.drawio.png)
 
-### 2.3.4 Intermediate Consumer / Producer Device
+#### 2.3.1.4 Intermediate Consumer / Producer Device
 
 Figure 2-5 illustrates the situation where the Consumer fronts a
 set of managed devices implementing cybersecurity functions. The
