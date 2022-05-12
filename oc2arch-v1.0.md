@@ -5,9 +5,9 @@
 
 # Open Command and Control (OpenC2) Architecture Specification Version 1.0
 
-## Working Draft 03
+## Working Draft 05
 
-## 19 January 2022
+## 11 May 2022
 
 &nbsp;
 
