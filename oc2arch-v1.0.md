@@ -702,7 +702,7 @@ The OpenC2 *Actuator Profile Specification List* is defined as:
 - dlp  [Editor's note - remove if perchance arch goes for approval prior to ]
 - swg [Editor's note - remove if perchance arch goes for approval prior to ]
 
-The Actuator Profile List is defined as the list of Actuator
+The *Actuator Profile List* is defined as the list of Actuator
 Profiles supported by the Consumer as supplied in the response to
 the {action:query, target:features, target-specifier:[profiles]}
 command per Section 4.1 of the Language Specification.
