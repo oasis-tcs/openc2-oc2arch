@@ -685,7 +685,7 @@ An OpenC2 *Producer* is defined per Section 2 of this document.
 
 An OpenC2 *Consumer* is defined per Section 2 of this document.
 
-The OpenC2 *Transport Specification List* is defined as:
+The OpenC2 *Transfer Specification List* is defined as:
 - oc2-https
 - oc2-mqtt
 - oc2-odxl [Editor's note - remove if perchance arch goes for approval prior to odxl]
@@ -729,8 +729,8 @@ Producer MUST be conformant to OpenC2 Language Specification
 Section 5.3 Conformance Clause 3.
 
 CC 3.2.4 In order to conform to this specification, an OpenC2
-Producer MUST be conformant with at least one transport in the
-OpenC2 Transport Specification List.
+Producer MUST be conformant with at least one transfer
+specifiation in the OpenC2 Transfer Specification List.
 
 ## 3.3 OpenC2 Consumer Conformance Clauses
 
@@ -747,8 +747,8 @@ Consumer MUST be conformant to OpenC2 Language Specification
 Section 5.4 Conformance Clause 4.
 
 CC 3.3.4 In order to conform to this specification, an OpenC2
-Consumer MUST be conformant with at least one transport in the
-OpenC2 Transport Specification List.
+Consumer MUST be conformant with at least one transfer
+specfication in the OpenC2 Transfer Specification List.
 
 CC 3.3.5 In order to conform to this specification, an OpenC2
 Consumer MUST have an OpenC2 Consumer Actuator Profile List with
@@ -756,7 +756,7 @@ at least one entry.
 
 CC 3.3.6 In order to conform to this specification, all SAP
 entries on a Consumer's OpenC2 Consumer Actuator Profile List
-MUST conform to the appropriate OASIS OpenC2 Actuator Profiles.
+MUST conform to the corresponding OASIS OpenC2 Actuator Profiles.
 
 CC 3.3.7 In order to conform to this specification, CAP MUST
 extend the functionality covered by a profile on the OpenC2
@@ -766,7 +766,7 @@ slpf, Consumer must conform to OASIS OpenC2 SLPF Actuator Profile
 Spec. Note if the actuator function is not an extension to an
 existing function, fails this conformance clause. E.g. a CAP
 fails this clause is it is for malware detection, and there is
-not a malare detection SAP.
+not a malware detection SAP.
 
 CC 3.3.8 In order to conform to this specification, all CAP
 entries MUST [Editor's note - need words on how to define doing
