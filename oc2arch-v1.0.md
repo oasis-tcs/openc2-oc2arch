@@ -688,7 +688,6 @@ An OpenC2 *Consumer* is defined per Section 2 of this document.
 The OpenC2 *Transfer Specification List* is defined as:
 - oc2-https
 - oc2-mqtt
-- oc2-odxl [Editor's note - remove if perchance arch goes for approval prior to odxl]
 
 The OpenC2 *Actuator Profile Specification List* is defined as:
 - slpf
