@@ -762,7 +762,9 @@ CC 3.3.6 In order to conform to this specification, all SAP
 entries on a Consumer's OpenC2 Consumer Actuator Profile List
 MUST conform to the corresponding OASIS OpenC2 Actuator Profiles.
 
-CC 3.3.7 In order to conform to this specification, CAP MUST
+## 3.4 OpenC2 CAP Conformance Clauses
+
+CC 3.4.1 In order to conform to this specification, CAP MUST
 extend the functionality covered by a profile on the OpenC2
 Actuator Profile Specification List, but MUST conform with the
 OpenC2 Actuator Profile Specification being extended. E.g if
@@ -772,7 +774,7 @@ existing function, fails this conformance clause. E.g. a CAP
 fails this clause is it is for malware detection, and there is
 not a malware detection SAP.
 
-CC 3.3.8 In order to conform to this specification, all CAP
+CC 3.4.2 In order to conform to this specification, all CAP
 entries MUST [Editor's note - need words on how to define doing
 extensions in standard way, probably referring to language spec
 section]
