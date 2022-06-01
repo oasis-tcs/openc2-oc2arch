@@ -677,7 +677,7 @@ http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
 
 Remove this note before submitting for publication.)
 
-This section defines the conformance requirements for OpenC2 Implementations
+This section defines the conformance requirements for OpenC2 implementations.
 
 ## 3.1 Conformance-Related Definitions
 
