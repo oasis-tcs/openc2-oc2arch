@@ -713,9 +713,9 @@ as per Section 4.1 of the Language Specification.
 
 A Consumer's *Actuator Profile List* is composed of two types of
 profiles: 
- - Standard Actuator Profiles (SAP); i.e., those on the OpenC2
+ - Standard Actuator Profiles (SAP), i.e., those on the OpenC2
 Actuator Profile Specification List; and 
- - Custom Actuator Profiles (CAP); i.e., those not on the OpenC2
+ - Custom Actuator Profiles (CAP), i.e., those not on the OpenC2
 Actuator Profile Specification List.
 
 ## 3.2 OpenC2 Producer Conformance Clauses
