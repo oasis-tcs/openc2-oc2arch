@@ -734,7 +734,7 @@ Section 5.3 Conformance Clause 3.
 
 CC 3.2.4 In order to conform to this specification, an OpenC2
 Producer MUST be conformant with at least one transfer
-specifiation in the OpenC2 Transfer Specification List.
+specification in the OpenC2 Transfer Specification List.
 
 ## 3.3 OpenC2 Consumer Conformance Clauses
 
@@ -752,7 +752,7 @@ Section 5.4 Conformance Clause 4.
 
 CC 3.3.4 In order to conform to this specification, an OpenC2
 Consumer MUST be conformant with at least one transfer
-specfication in the OpenC2 Transfer Specification List.
+specification in the OpenC2 Transfer Specification List.
 
 CC 3.3.5 In order to conform to this specification, an OpenC2
 Consumer MUST have an OpenC2 Consumer Actuator Profile List with
