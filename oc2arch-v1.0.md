@@ -703,8 +703,13 @@ The OpenC2 *Actuator Profile Specification List* is defined as:
 
 The *Actuator Profile List* is defined as the list of Actuator
 Profiles supported by the Consumer as supplied in the response to
-the {action:query, target:features, target-specifier:[profiles]}
-command per Section 4.1 of the Language Specification.
+the command:
+
+```
+{action:query, target:features, target-specifier:[profiles]}
+```
+
+as per Section 4.1 of the Language Specification.
 
 A Consumer's Actuator Profile List is composed of two types on
 profiles 
