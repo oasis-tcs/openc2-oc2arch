@@ -711,7 +711,7 @@ the command:
 
 as per Section 4.1 of the Language Specification.
 
-A Consumer's Actuator Profile List is composed of two types on
+A Consumer's *Actuator Profile List* is composed of two types on
 profiles 
  - Standard Actuator Profiles (SAP) i.e., those on the OpenC2
 Actuator Profile Specification List; and 
