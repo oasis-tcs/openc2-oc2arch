@@ -390,7 +390,12 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 
 
 The Language Specification defines two distinct content types
-(i.e., payload structures): Command and Response. The following example, drawn from the AP for Stateless Packet Filtering [[SLPF](#openc2-slpf-v10)], illustrates the general structure of OpenC2 Command and Response message payloads, using the common JSON serialization. The example action permits `ftp` data transfers to `3ffe:1900:4545:3::f8ff:fe21:67cf` from any source.
+(i.e., payload structures): Command and Response. The following
+example, drawn from the AP for Stateless Packet Filtering
+[[SLPF](#openc2-slpf-v10)], illustrates the general structure of
+OpenC2 Command and Response message payloads, using the common
+JSON serialization. The example action permits `ftp` data
+transfers to `3ffe:1900:4545:3::f8ff:fe21:67cf` from any source.
 
 
 **Command:**
