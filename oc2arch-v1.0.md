@@ -193,14 +193,19 @@ OpenC2 is defined across a family of specifications of several types:
   message transfer encoding, authentication, and end-to-end
   transport of OpenC2 Messages.
 
-<<<<<<< HEAD
-
-=======
-The most common encoding of OpenC2 is in JSON and the most common
-binding is to HTTP; this document assumes this encoding and
-binding for all examples. Other encodings and bindings are
-permitted and are defined in their respective documents.
->>>>>>> d92c85e53e41fa08c0ad623ef265ae58b7b482fd
+The OpenC2 language is described in the Language Specification
+using an abstract information model that does not specify any
+particular message encoding form (i.e., serialization). The most
+common encoding of OpenC2 messages is in JSON and the OpenC2
+family of specifications presents examples in JSON format. Other
+encodings are permitted and are defined in their respective
+documents (e.g., a transfer specification). Similarly, OpenC2
+messages can be conveyed using a variety of transfer mechanisms,
+using both point-to-point (e.g., HTTPS) and publish/subscribe
+(e.g., MQTT) communication models. The selection of message
+content encoding is determined by a combination of the
+environment where OpenC2 is being applied and the capabilities
+and limitations of the chosen transfer specification.
 
 ## 1.1 Changes from earlier versions
 
