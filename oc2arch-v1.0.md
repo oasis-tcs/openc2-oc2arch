@@ -193,10 +193,19 @@ OpenC2 is defined across a family of specifications of several types:
   message transfer encoding, authentication, and end-to-end
   transport of OpenC2 Messages.
 
-The most common encoding of OpenC2 is in JSON and the most common
-binding is to HTTP; this document assumes this encoding and
-binding for all examples. Other encodings and bindings are
-permitted and are defined in their respective documents.
+The OpenC2 language is described in the Language Specification
+using an abstract information model that does not specify any
+particular message encoding form (i.e., serialization). The most
+common encoding of OpenC2 messages is in JSON and the OpenC2
+family of specifications presents examples in JSON format. Other
+encodings are permitted and are defined in their respective
+documents (e.g., a transfer specification). Similarly, OpenC2
+messages can be conveyed using a variety of transfer mechanisms,
+using both point-to-point (e.g., HTTPS) and publish/subscribe
+(e.g., MQTT) communication models. The selection of message
+content encoding is determined by a combination of the
+environment where OpenC2 is being applied and the capabilities
+and limitations of the chosen transfer specification.
 
 ## 1.1 Changes from earlier versions
 
@@ -381,7 +390,46 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 
 
 The Language Specification defines two distinct content types
-(i.e., payload structures): Command and Response.
+(i.e., payload structures): Command and Response. The following
+example, drawn from the AP for Stateless Packet Filtering
+[[SLPF](#openc2-slpf-v10)], illustrates the general structure of
+OpenC2 Command and Response message payloads, using the common
+JSON serialization. The example action permits `ftp` data
+transfers to `3ffe:1900:4545:3::f8ff:fe21:67cf` from any source.
+
+
+**Command:**
+
+```json
+{
+  "action": "allow",
+  "target": {
+    "ipv6_connection": {
+      "protocol": "tcp",
+      "dst_addr": "3ffe:1900:4545:3::f8ff:fe21:67cf",
+      "src_port": 21
+    }
+  },
+  "actuator": {
+    "slpf": {}
+  }
+}
+```
+
+In this case the Actuator returns a rule number associated with the allowed interaction.
+
+**Response:**
+
+```json
+{
+  "status": 200,
+  "results": {
+    "slpf": {
+      "rule_number": 1234
+    }
+  }
+}
+```
 
 ## 2.1 Commands
 
