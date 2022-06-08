@@ -397,7 +397,6 @@ OpenC2 Command and Response message payloads, using the common
 JSON serialization. The example action permits `ftp` data
 transfers to `3ffe:1900:4545:3::f8ff:fe21:67cf` from any source.
 
-
 **Command:**
 
 ```json
