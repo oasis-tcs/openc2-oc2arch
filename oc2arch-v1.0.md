@@ -677,6 +677,108 @@ http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
 
 Remove this note before submitting for publication.)
 
+This section defines the conformance requirements for OpenC2 implementations.
+
+## 3.1 Conformance-Related Definitions
+
+An OpenC2 *Producer* is defined per Section 2 of this document.
+
+An OpenC2 *Consumer* is defined per Section 2 of this document.
+
+The OpenC2 *Transfer Specification List* is defined as:
+- oc2-https
+- oc2-mqtt
+
+The OpenC2 *Actuator Profile Specification List* is defined as:
+- slpf
+- pf [Editor's note - remove if perchance arch goes for approval prior to ]
+- sbom [Editor's note - remove if perchance arch goes for approval prior to ]
+- endp  [Editor's note - remove if perchance arch goes for approval prior to ]
+- sdnc [Editor's note - remove if perchance arch goes for approval prior to ]
+- emgw [Editor's note - remove if perchance arch goes for approval prior to ]
+- ids  [Editor's note - remove if perchance arch goes for approval prior to ]
+- ips  [Editor's note - remove if perchance arch goes for approval prior to ]
+- dlp  [Editor's note - remove if perchance arch goes for approval prior to ]
+- swg [Editor's note - remove if perchance arch goes for approval prior to ]
+
+The *Actuator Profile List* is defined as the list of Actuator
+Profiles supported by the Consumer as supplied in the response to
+the command:
+
+```
+{action:query, target:features, target-specifier:[profiles]}
+```
+
+as per Section 4.1 of the Language Specification.
+
+A Consumer's *Actuator Profile List* is composed of two types of
+profiles: 
+ - Standard Actuator Profiles (SAP), i.e., those on the OpenC2
+Actuator Profile Specification List; and 
+ - Custom Actuator Profiles (CAP), i.e., those not on the OpenC2
+Actuator Profile Specification List.
+
+## 3.2 OpenC2 Producer Conformance Clauses
+
+CC 3.2.1 In order to conform to this specification, an OpenC2
+Producer MUST only issue OpenC2 commands conforming to OpenC2
+Language Specification Section 5.1 Conformance Clause 1.
+
+CC 3.2.2 In order to conform to this specification, an OpenC2
+Producer MUST only accept responses conforming to OpenC2 Language
+Specification Section 5.2 Conformance Clause 2.
+
+CC 3.2.3 In order to conform to this specification, an OpenC2
+Producer MUST be conformant to OpenC2 Language Specification
+Section 5.3 Conformance Clause 3.
+
+CC 3.2.4 In order to conform to this specification, an OpenC2
+Producer MUST be conformant with at least one transfer
+specification in the OpenC2 Transfer Specification List.
+
+## 3.3 OpenC2 Consumer Conformance Clauses
+
+CC 3.3.1 In order to conform to this specification, an OpenC2
+Consumer MUST only accept OpenC2 commands conforming to OpenC2
+Language Specification Section 5.1 Conformance Clause 1.
+
+CC 3.3.2 In order to conform to this specification, an OpenC2
+Consumer MUST only return responses conforming to OpenC2 Language
+Specification Section 5.2 Conformance Clause 2.
+
+CC 3.3.3 In order to conform to this specification, an OpenC2
+Consumer MUST be conformant to OpenC2 Language Specification
+Section 5.4 Conformance Clause 4.
+
+CC 3.3.4 In order to conform to this specification, an OpenC2
+Consumer MUST be conformant with at least one transfer
+specification in the OpenC2 Transfer Specification List.
+
+CC 3.3.5 In order to conform to this specification, an OpenC2
+Consumer MUST have an OpenC2 Consumer Actuator Profile List with
+at least one entry.
+
+CC 3.3.6 In order to conform to this specification, all SAP
+entries on a Consumer's OpenC2 Consumer Actuator Profile List
+MUST conform to the corresponding OASIS OpenC2 Actuator Profiles.
+
+## 3.4 OpenC2 CAP Conformance Clauses
+
+CC 3.4.1 In order to conform to this specification, CAP MUST
+extend the functionality covered by a profile on the OpenC2
+Actuator Profile Specification List, but MUST conform with the
+OpenC2 Actuator Profile Specification being extended. E.g if
+slpf, Consumer must conform to OASIS OpenC2 SLPF Actuator Profile
+Spec. Note if the actuator function is not an extension to an
+existing function, fails this conformance clause. E.g. a CAP
+fails this clause is it is for malware detection, and there is
+not a malware detection SAP.
+
+CC 3.4.2 In order to conform to this specification, all CAP
+entries MUST [Editor's note - need words on how to define doing
+extensions in standard way, probably referring to language spec
+section]
+
 
 -------
 
