@@ -1187,10 +1187,29 @@ The following individuals have participated in the creation of this specificatio
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Philippe | Alman | Something Networks
-Alex | Amirnovman | Company B
-Kris | Anderman | Mini Micro
-Darren | Anstman | Big Networks
+David | Bizeul | SEKOIA
+Marco | Caselli | Siemens AG
+Toby |  Considine | University of North Carolina at Chapel Hill
+Martin | Evandt | University of Oslo
+Alex | Everett | University of North Carolina at Chapel Hill
+Jane | Ginn | Cyber Threat Intelligence Network, Inc.
+John-Mark | Gurney | Copado
+Christian | Hunt | Copado
+_Dan_ | _Johnson_ | _sFractal_
+David | Kemp | National Security Agency
+David | Lemire | National Security Agency
+Patrick | Maroney | AT&T
+Vasileios | Mavroeidis | University of Oslo
+Dmitri | Raidman | Cybeats
+Christopher | Robinson | Cyber Threat Intelligence Network, Inc.
+Michael | Rosa | National Security Agency
+Duane | Skeen | Northrup Grumman
+Duncan | Sparrell | sFractal
+Gerald | Stueve | Fornetix
+Drew | Varner | NineFX, Inc.
+Russ | Warren | IBM
+
+_Italics_ indicates former TC members.
 
 -------
 
