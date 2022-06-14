@@ -1219,7 +1219,12 @@ _Italics_ indicates former TC members.
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| specname-v1.0-wd01 | yyyy-mm-dd | Editor Name | Initial working draft |
+| oc2arch-v1.0-csprd01.md | 2021-12-21 | Duncan Sparrell | WD01: Capture initial content prior to reorganization |
+| oc2arch-v1.0-wd01.md | 2021-12-21 | Duncan Sparrell | WD02: Capture new starter document prior to adding reorganized content |
+| oc2arch-v1.0.md | 2022-01-19 | Duncan Sparrell | WD03: Capture reorganized content |
+| oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
+| oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
+
 
 -------
 
