@@ -12,8 +12,8 @@ for development of open source [licensed](https://www.oasis-open.org/resources/o
 
 ## Description
 
-All OpenC2 Profiles work within an implied architecture as well as a in a common language. The purpose of this repository is to develop a
-specification of the standard architecture to guide all developers of Profiles. The OpenC2 Language Subcommittee is responsible for this specification.
+All OpenC2 Profiles work within an implied architecture as well as in a common language. The purpose of this repository is to develop a
+specification of the standard architecture to guide all developers of Profiles.
 
 This repository is organized with three branches:
 
@@ -23,17 +23,12 @@ This repository is organized with three branches:
  change. Contributors to the work product should 
  target their inputs to the Working branch.
 
- * The *_Releases_* branch contains incremental 
- releases (i.e., Working Drafts [WDs]) of the work 
- product. The current contents of the Working 
- branch are merged into the Releases branch to 
- create a WD. 
-
- * The *_Master_* branch contains TC-approved 
-[Committee Specification](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2018-05-22#dCommitteeSpec) (CS) or [OASIS Standard](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2018-05-22#dOASISstandard) 
+ * The *_Published_* branch contains TC-approved 
+[Committee Specification](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2018-05-22#dCommitteeSpec) (CS) or [OASIS Standard](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2018-05-22#dOASISstandard) (OS) 
 versions of the work product. Until the first CS 
-is approved, the Master branch will not contain 
+is approved, the Published branch will not contain 
 a complete version of the work product.
+
 ## Contributions
 
 As stated in this repository's [CONTRIBUTING](https://github.com/oasis-tcs/oc2arch/blob/master/CONTRIBUTING.md) file, contributors to this repository 
