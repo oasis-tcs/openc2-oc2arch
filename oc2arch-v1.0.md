@@ -635,7 +635,7 @@ Producer to determine the capabilities of a Consumer in order to
 scope the range of commands that can usefully be sent to that
 Consumer. The approach is demonstrated in the Language
 Specification's provision of the `"query" : "features"` and
-`"query" : "profiles"` commands. This "introspection" capability,
+`"query" : "properties"` commands. This "introspection" capability,
 defined for OpenC2 as the ability of a Consumer to inform a
 Producer of the Consumer's capabilities, enables a degree of
 flexible self-configuration of the interactions between Producers
