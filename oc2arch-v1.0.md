@@ -677,7 +677,7 @@ provide message source authentication and integrity).
 
 
 **Figure 2-3. OpenC2 Documentation and Layering Model**
-![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
+![OpenC2 Documentation and Layering Model](images/OC2-Docs-and-Layers.drawio.png)
 
 OpenC2 is conceptually partitioned into four layers as described
 in Table 2-1.
