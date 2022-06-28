@@ -708,9 +708,16 @@ in Table 2-1.
   requirements for that function. Producers and Consumers will
   support one or more profiles.
 
-
-
-
+OpenC2 is intended to be integrated into different systems which
+will provide a variety of security services. [Appendix
+B](#appendix-b-safety-security-and-privacy-considerations)
+describes the possible threats that could affect OpenC2
+operations and the security services needed to protect those
+operations against such threats. Because the implementation of
+these services are beyond the scope of this specification, the
+review in Appendix B is for reference purposes and to emphasize
+the importance of considering security services in the creation
+of OpenC2 implementations.
 
 -------
 
