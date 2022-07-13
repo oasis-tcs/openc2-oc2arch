@@ -810,13 +810,16 @@ MUST conform to the corresponding OASIS OpenC2 Actuator Profiles.
 
 ## 3.4 OpenC2 CAP Conformance Clauses
 
-CC 3.4.1 In order to conform to this specification, CAP MUST
+CC 3.4.1 In order to conform to this specification, a CAP MUST
 extend the functionality covered by a profile on the OpenC2
 Actuator Profile Specification List, but MUST conform with the
-OpenC2 Actuator Profile Specification being extended. E.g if
-slpf, Consumer must conform to OASIS OpenC2 SLPF Actuator Profile
-Spec. Note if the actuator function is not an extension to an
-existing function, fails this conformance clause. E.g. a CAP
+OpenC2 Actuator Profile Specification being extended. 
+
+For example, if a CAP extends the slpf functionality, the
+Consumer must conform to the OASIS OpenC2 SLPF Actuator Profile
+Specification. Note if the actuator function is not an extension
+to an existing function specified in a published AP, the Consumer
+implementation fails this conformance clause. For example, a CAP
 fails this clause is it is for malware detection, and there is
 not a malware detection SAP.
 
