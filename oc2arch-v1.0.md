@@ -722,15 +722,6 @@ of OpenC2 implementations.
 -------
 
 # 3 Conformance
-<!-- Required section -->
-
-(Note: The [OASIS TC Process](https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsConfClause) requires that a specification approved by the TC at the Committee Specification Public Review Draft, Committee Specification or OASIS Standard level must include a separate section, listing a set of numbered conformance clauses, to which any implementation of the specification must adhere in order to claim conformance to the specification (or any optional portion thereof). This is done by listing the conformance clauses here.
-For the definition of "conformance clause," see [OASIS Defined Terms](https://www.oasis-open.org/policies-guidelines/oasis-defined-terms-2017-05-26#dConformanceClause).
-
-See "Guidelines to Writing Conformance Clauses":  
-http://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html.
-
-Remove this note before submitting for publication.)
 
 This section defines the conformance requirements for OpenC2 implementations.
 
@@ -880,18 +871,6 @@ Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Conside
 -------
 
 # Appendix B. Safety, Security and Privacy Considerations
-
-<!-- Optional section -->
-
-(Note: OASIS strongly recommends that Technical Committees consider issues that might affect safety, security, privacy, and/or data protection in implementations of their specification and document them for implementers and adopters. For some purposes, you may find it required, e.g. if you apply for IANA registration.
-
-While it may not be immediately obvious how your specification might make systems vulnerable to attack, most specifications, because they involve communications between systems, message formats, or system settings, open potential channels for exploit. For example, IETF [[RFC3552](#rfc3552)] lists “eavesdropping, replay, message insertion, deletion, modification, and man-in-the-middle” as well as potential denial of service attacks as threats that must be considered and, if appropriate, addressed in IETF RFCs.
-
-In addition to considering and describing foreseeable risks, this section should include guidance on how implementers and adopters can protect against these risks.
-
-We encourage editors and TC members concerned with this subject to read _Guidelines for Writing RFC Text on Security Considerations_, IETF [[RFC3552](#rfc3552)], for more information.
-
-Remove this note before submitting for publication.)
 
 This appendix discusses security concerns related to OpenC2.
 
@@ -1220,21 +1199,20 @@ non-repudiation for out-of-band access.
 
 # Appendix C. Acknowledgments
 
-<!-- Required section -->
-
-Note: A Work Product approved by the TC must include a list of people who participated in the development of the Work Product. This is generally done by collecting the list of names in this appendix. This list shall be initially compiled by the Chair, and any Member of the TC may add or remove their names from the list by request. Remove this note before submitting for publication.
 
 ## C.1 Special Thanks
 
 <!-- This is an optional subsection to call out contributions from TC members. If a TC wants to thank non-TC members then they should avoid using the term "contribution" and instead thank them for their "expertise" or "assistance". -->
 
-Substantial contributions to this document from the following individuals are gratefully acknowledged:
+Asssitance with this document from the following individuals are gratefully acknowledged:
 
-Participant Name, Affiliation or "Individual Member"
+ * Larry Feldman, HII
+ * Jerome Czachor, HII
+ * Kevin Cressman, Praxis Engineering
+
 
 ## C.2 Participants
 
-<!-- A TC can determine who they list here, however, TC Observers must not be listed. It is common practice for TCs to list everyone that was part of the TC during the creation of the document, but this is ultimately a TC decision on who they want to list and not list. -->
 
 The following individuals have participated in the creation of this specification and are gratefully acknowledged:
 
