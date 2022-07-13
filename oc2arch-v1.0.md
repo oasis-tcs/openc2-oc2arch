@@ -1242,10 +1242,29 @@ The following individuals have participated in the creation of this specificatio
 
 | First Name | Last Name | Company |
 | :--- | :--- | :--- |
-Philippe | Alman | Something Networks
-Alex | Amirnovman | Company B
-Kris | Anderman | Mini Micro
-Darren | Anstman | Big Networks
+David | Bizeul | SEKOIA
+Marco | Caselli | Siemens AG
+Toby |  Considine | University of North Carolina at Chapel Hill
+Martin | Evandt | University of Oslo
+Alex | Everett | University of North Carolina at Chapel Hill
+Jane | Ginn | Cyber Threat Intelligence Network, Inc.
+John-Mark | Gurney | Copado
+Christian | Hunt | Copado
+_Dan_ | _Johnson_ | _sFractal_
+David | Kemp | National Security Agency
+David | Lemire | National Security Agency
+Patrick | Maroney | AT&T
+Vasileios | Mavroeidis | University of Oslo
+Dmitri | Raidman | Cybeats
+Christopher | Robinson | Cyber Threat Intelligence Network, Inc.
+Michael | Rosa | National Security Agency
+Duane | Skeen | Northrup Grumman
+Duncan | Sparrell | sFractal
+Gerald | Stueve | Fornetix
+Drew | Varner | NineFX, Inc.
+Russ | Warren | IBM
+
+_Italics_ indicates former TC members.
 
 -------
 
@@ -1255,7 +1274,12 @@ Darren | Anstman | Big Networks
 
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
-| specname-v1.0-wd01 | yyyy-mm-dd | Editor Name | Initial working draft |
+| oc2arch-v1.0-csprd01.md | 2021-12-21 | Duncan Sparrell | WD01: Capture initial content prior to reorganization |
+| oc2arch-v1.0-wd01.md | 2021-12-21 | Duncan Sparrell | WD02: Capture new starter document prior to adding reorganized content |
+| oc2arch-v1.0.md | 2022-01-19 | Duncan Sparrell | WD03: Capture reorganized content |
+| oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
+| oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
+
 
 -------
 
