@@ -70,7 +70,7 @@ When referencing this specification the following citation format should be used
 
 **[OpenC2-Arch-v1.0]**
 
-_Open Command and Control (OpenC2) Architecture Specification Version 1.0_. Edited by Dan Johnson and Duncan Sparrell. 19 August 2021. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/openc2/oc2arch/v1.0/csd01/oc2arch-v1.0-csd01.html. Latest stage: https://docs.oasis-open.org/openc2/oc2arch/v1.0/oc2arch-v1.0.html.
+_Open Command and Control (OpenC2) Architecture Specification Version 1.0_. Edited by Duncan Sparrell. 19 August 2021. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/openc2/oc2arch/v1.0/csd01/oc2arch-v1.0-csd01.html. Latest stage: https://docs.oasis-open.org/openc2/oc2arch/v1.0/oc2arch-v1.0.html.
 
 #### Notices
 Copyright © OASIS Open 2021. All Rights Reserved.
