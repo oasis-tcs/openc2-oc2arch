@@ -5,9 +5,9 @@
 
 # Open Command and Control (OpenC2) Architecture Specification Version 1.0
 
-## Working Draft 05
+## Working Draft 06
 
-## 11 May 2022
+## 13 July 2022
 
 &nbsp;
 
@@ -103,13 +103,17 @@ For complete copyright information please see the full Notices section in an App
     - [2.3.3 Introspection Model](#233-introspection-model)
   - [2.4 Implementations](#24-implementations)
 - [3 Conformance](#3-conformance)
+  - [3.1 Conformance-Related Definitions](#31-conformance-related-definitions)
+  - [3.2 OpenC2 Producer Conformance Clauses](#32-openc2-producer-conformance-clauses)
+  - [3.3 OpenC2 Consumer Conformance Clauses](#33-openc2-consumer-conformance-clauses)
+  - [3.4 OpenC2 CAP Conformance Clauses](#34-openc2-cap-conformance-clauses)
 - [Appendix A. References](#appendix-a-references)
   - [A.1 Normative References](#a1-normative-references)
   - [A.2 Informative References](#a2-informative-references)
 - [Appendix B. Safety, Security and Privacy Considerations](#appendix-b-safety-security-and-privacy-considerations)
   - [B.1 Overview](#b1-overview)
   - [B.2 Threats](#b2-threats)
-  - [B.2.1 Threats to the Networks and Systems Being Defended](#b21-threats-to-the-networks-and-systems-being-defended)
+    - [B.2.1 Threats to the Networks and Systems Being Defended](#b21-threats-to-the-networks-and-systems-being-defended)
     - [B.2.2 Threats to OpenC2 Traffic and Processing](#b22-threats-to-openc2-traffic-and-processing)
     - [B.2.3 Potential Attack Types](#b23-potential-attack-types)
   - [B.3 Security Services](#b3-security-services)
@@ -134,8 +138,8 @@ For complete copyright information please see the full Notices section in an App
   - [E.2 Actuator Profile Typical Content](#e2-actuator-profile-typical-content)
   - [E.3 Transfer Specification Typical Content](#e3-transfer-specification-typical-content)
 - [Appendix F. OpenC2 Namespace Registry](#appendix-f-openc2-namespace-registry)
-  - [Namespace Concepts](#namespace-concepts)
-  - [Registration Process](#registration-process)
+  - [F.1 Namespace Concepts](#f1-namespace-concepts)
+  - [F.2 Registration Process](#f2-registration-process)
 - [Appendix G. Notices](#appendix-g-notices)
 
 -------
@@ -209,7 +213,9 @@ and limitations of the chosen transfer specification.
 
 ## 1.1 Changes from earlier versions
 
-* Reformatted to December 2020 OASIS work product template
+* Updated conformance section from preliminary draft and refined language
+* Added example message exchange in JSON format
+* Populated revision history and acknowledgements
 
 ## 1.2 Goal
 
@@ -886,7 +892,7 @@ security of OpenC2:
 defended, and 
 1. Attacks directed at OpenC2 itself.  
 
-## B.2.1 Threats to the Networks and Systems Being Defended
+### B.2.1 Threats to the Networks and Systems Being Defended
 
 By providing the C2 for time-critical response actions OpenC2 is
 an enabler of improved cyber defense capabilities for user
@@ -1251,7 +1257,7 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0.md | 2022-01-19 | Duncan Sparrell | WD03: Capture reorganized content |
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
-
+| oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
 
 -------
 
@@ -1447,7 +1453,7 @@ transfer specifcation will be found in Appendix E.
 # Appendix F. OpenC2 Namespace Registry
 
 
-## Namespace Concepts
+## F.1 Namespace Concepts
 A [namespace](https://en.wikipedia.org/wiki/Namespace) is a set
 of names used to identify objects. A namespace ensures that all
 of a given set of objects can be easily identified and
@@ -1510,7 +1516,7 @@ be derived from the namespace using scheme "https", filename
 abstract schema, and ".json", ".xsd", ".cddl", ".proto", etc. for
 corresponding concrete schemas.
 
-## Registration Process
+## F.2 Registration Process
 OpenC2 TC work product names and shorthands are coordinated with
 OASIS TC Administration during initial work product definition.
 Namespace URIs are based on the shorthands from this
