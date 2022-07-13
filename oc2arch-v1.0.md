@@ -746,15 +746,6 @@ The OpenC2 *Transfer Specification List* is defined as:
 
 The OpenC2 *Actuator Profile Specification List* is defined as:
 - slpf
-- pf [Editor's note - remove if perchance arch goes for approval prior to ]
-- sbom [Editor's note - remove if perchance arch goes for approval prior to ]
-- endp  [Editor's note - remove if perchance arch goes for approval prior to ]
-- sdnc [Editor's note - remove if perchance arch goes for approval prior to ]
-- emgw [Editor's note - remove if perchance arch goes for approval prior to ]
-- ids  [Editor's note - remove if perchance arch goes for approval prior to ]
-- ips  [Editor's note - remove if perchance arch goes for approval prior to ]
-- dlp  [Editor's note - remove if perchance arch goes for approval prior to ]
-- swg [Editor's note - remove if perchance arch goes for approval prior to ]
 
 The *Actuator Profile List* is defined as the list of Actuator
 Profiles supported by the Consumer as supplied in the response to
