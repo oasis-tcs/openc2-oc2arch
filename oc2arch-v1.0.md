@@ -824,9 +824,9 @@ fails this clause is it is for malware detection, and there is
 not a malware detection SAP.
 
 CC 3.4.2 In order to conform to this specification, all CAP
-entries MUST [Editor's note - need words on how to define doing
-extensions in standard way, probably referring to language spec
-section]
+entries MUST extend the functionality of an SAP in a manner
+consistent with the OpenC2 Language Specification section 3.1.4
+requirements for extensions.
 
 
 -------
