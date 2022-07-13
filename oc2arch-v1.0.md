@@ -56,7 +56,7 @@ This document describes the abstract architecture of OpenC2 to define a common u
 #### Status:
 This document was last revised or approved by the OASIS Open Command and Control (OpenC2) TC on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
 
-TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "[Send A Comment](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=)" button on the TC's web page at https://www.oasis-open.org/committees/openc2/.
+TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "[Send A Comment](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=openc2)" button on the TC's web page at https://www.oasis-open.org/committees/openc2/.
 
 This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/openc2/ipr.php).
 
@@ -193,10 +193,19 @@ OpenC2 is defined across a family of specifications of several types:
   message transfer encoding, authentication, and end-to-end
   transport of OpenC2 Messages.
 
-The most common encoding of OpenC2 is in JSON and the most common
-binding is to HTTP; this document assumes this encoding and
-binding for all examples. Other encodings and bindings are
-permitted and are defined in their respective documents.
+The OpenC2 language is described in the Language Specification
+using an abstract information model that does not specify any
+particular message encoding form (i.e., serialization). The most
+common encoding of OpenC2 messages is in JSON and the OpenC2
+family of specifications presents examples in JSON format. Other
+encodings are permitted and are defined in their respective
+documents (e.g., a transfer specification). Similarly, OpenC2
+messages can be conveyed using a variety of transfer mechanisms,
+using both point-to-point (e.g., HTTPS) and publish/subscribe
+(e.g., MQTT) communication models. The selection of message
+content encoding is determined by a combination of the
+environment where OpenC2 is being applied and the capabilities
+and limitations of the chosen transfer specification.
 
 ## 1.1 Changes from earlier versions
 
@@ -381,7 +390,46 @@ exchange of OpenC2 Messages, as depicted in Figure 2-1:
 
 
 The Language Specification defines two distinct content types
-(i.e., payload structures): Command and Response.
+(i.e., payload structures): Command and Response. The following
+example, drawn from the AP for Stateless Packet Filtering
+[[SLPF](#openc2-slpf-v10)], illustrates the general structure of
+OpenC2 Command and Response message payloads, using the common
+JSON serialization. The example action permits `ftp` data
+transfers to `3ffe:1900:4545:3::f8ff:fe21:67cf` from any source.
+
+**Command:**
+
+```json
+{
+  "action": "allow",
+  "target": {
+    "ipv6_connection": {
+      "protocol": "tcp",
+      "dst_addr": "3ffe:1900:4545:3::f8ff:fe21:67cf",
+      "src_port": 21
+    }
+  },
+  "actuator": {
+    "slpf": {}
+  }
+}
+```
+
+In this case the Actuator returns a rule number associated with the allowed interaction.
+
+**Response:**
+
+```json
+{
+  "status": 200,
+  "results": {
+    "slpf": {
+      "rule_number": 1234
+    }
+  }
+}
+```
+
 
 ## 2.1 Commands
 
@@ -587,7 +635,7 @@ Producer to determine the capabilities of a Consumer in order to
 scope the range of commands that can usefully be sent to that
 Consumer. The approach is demonstrated in the Language
 Specification's provision of the `"query" : "features"` and
-`"query" : "profiles"` commands. This "introspection" capability,
+`"query" : "properties"` commands. This "introspection" capability,
 defined for OpenC2 as the ability of a Consumer to inform a
 Producer of the Consumer's capabilities, enables a degree of
 flexible self-configuration of the interactions between Producers
@@ -629,7 +677,7 @@ provide message source authentication and integrity).
 
 
 **Figure 2-3. OpenC2 Documentation and Layering Model**
-![OpenC2 Documentation and Layering Model](images/OC2LayeringModel.png)
+![OpenC2 Documentation and Layering Model](images/OC2-Docs-and-Layers.drawio.png)
 
 OpenC2 is conceptually partitioned into four layers as described
 in Table 2-1.
@@ -660,9 +708,16 @@ in Table 2-1.
   requirements for that function. Producers and Consumers will
   support one or more profiles.
 
-
-
-
+OpenC2 is intended to be integrated into different systems which
+will provide a variety of security services. [Appendix
+B](#appendix-b-safety-security-and-privacy-considerations)
+describes the possible threats that could affect OpenC2
+operations and the security services needed to protect those
+operations against such threats. Because the implementation of
+these services are beyond the scope of this specification, the
+review in Appendix B is for reference purposes and to emphasize
+the importance of considering security services in the creation
+of OpenC2 implementations.
 
 -------
 
