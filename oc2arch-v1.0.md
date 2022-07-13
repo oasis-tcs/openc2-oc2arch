@@ -1253,7 +1253,7 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0.md | 2022-01-19 | Duncan Sparrell | WD03: Capture reorganized content |
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
-
+| oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
 
 -------
 
