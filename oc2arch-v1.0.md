@@ -5,9 +5,9 @@
 
 # Open Command and Control (OpenC2) Architecture Specification Version 1.0
 
-## Working Draft 05
+## Working Draft 06
 
-## 11 May 2022
+## 13 July 2022
 
 &nbsp;
 
@@ -209,7 +209,9 @@ and limitations of the chosen transfer specification.
 
 ## 1.1 Changes from earlier versions
 
-* Reformatted to December 2020 OASIS work product template
+* Updated conformance section from preliminary draft and refined language
+* Added example message exchange in JSON format
+* Populated revision history and acknowledgements
 
 ## 1.2 Goal
 
