@@ -350,7 +350,7 @@ these assumptions.
 | STD     | Standard |
 | TC      | Technical Committee |
 | TCP     | Transmission Control Protocol |
-| UDP     | User Datagram Control Protocol |
+| UDP     | User Datagram Protocol |
 | UML     | Unified Modeling Language |
 | URI     | Uniform Resource Identifier |
 | UTC     | Coordinated Universal Time |
