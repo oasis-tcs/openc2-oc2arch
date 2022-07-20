@@ -345,7 +345,7 @@ these assumptions.
 | PDF     | Portable Document Format |
 | RFC     | Request for Comment |
 | SCTP    | Stream Control Transmission Protocol |
-| SHA     | Security Hash Algorithm |
+| SHA     | Secure Hash Algorithms |
 | SLPF    | StateLess Packet Filtering |
 | STD     | Standard |
 | TC      | Technical Committee |
