@@ -355,6 +355,7 @@ these assumptions.
 | URI     | Uniform Resource Identifier |
 | UTC     | Coordinated Universal Time |
 | UUID    | Universally Unique IDentifier |
+| VLAN    | Virtual Local Area Network | 
 | XML     | eXtensible Markup Language |
 
 
