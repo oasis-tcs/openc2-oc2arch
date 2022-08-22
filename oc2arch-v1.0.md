@@ -945,14 +945,16 @@ primary examples.
   unnecessarily deny services to users.
 
 * *Active Attacks, Externally Initiated* – An attacker may try to
-  manipulate the OpenC2 traffic by deleting, delaying, or
-  replaying legitimate messages.  They may also attempt to modify
-  the contents of a message or masquerade as an OpenC2 manager
-  and issue bogus messages.  If any of these attacks succeed, the
-  attacker can disrupt or disable responses to other attacks and
-  can cause the defensive capabilities to impede legitimate
-  operations.  Successfully subverting defenses can allow more
-  intrusive attacks.
+  manipulate OpenC2 traffic by deleting, delaying, or replaying
+  legitimate messages.  They may also attempt to modify the
+  contents of a message or masquerade as an OpenC2 Producer and
+  issue bogus messages. Finally, an external attacker might be
+  able to compromise a legitimate OpenC2 Producer within an
+  environment. If any of these attacks succeed, the attacker can
+  disrupt or disable responses to other attacks and can cause the
+  defensive capabilities to impede legitimate operations.
+  Successfully subverting defenses can allow more intrusive
+  attacks.
 
 * *Insider Attacks* (Malicious users) – An insider, especially a
   privileged user, may be able to more effectively perform any of
