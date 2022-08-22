@@ -1158,15 +1158,19 @@ as the other traffic, the implementer also needs to consider:
 
 ### B.4.2 Out-Of-Band Cyber Defense C2
 
-Out-of-Band management involves the use of a dedicated channel
-for managing network devices.  This allows the network operator
-to establish trust boundaries in accessing the management
-function to apply it to network resources.  It also can be used
-to ensure management connectivity (including the ability to
-determine the status of any network component) independent of the
-status of in-band network components.  Out-of-Band Management
-(OOBM) is a common best practice with renewed focus based on the
-evolving threat landscape.  
+Out-of-Band management (OOBM) involves the use of a dedicated
+channel for managing network devices. OOBM allows the network
+operator to establish trust boundaries in accessing the
+management function to apply it to network resources. Depending
+on the specific implementation, OOBM also can be used to ensure
+management connectivity (including the ability to determine the
+status of any network component) independent of the status of
+in-band network components. OOBM is a common best practice with
+renewed focus based on the evolving threat landscape. There are a
+range of potential implementations of OOBM, from an entirely
+physically-separated network to approaches that apply logical
+separation (e.g., virtual LANs [VLAN]) on the network backbone to
+separate management traffic from ordinary user traffic.
 
 C2 systems are prime objectives of adversaries and OOBM can
 provide another layer in the defense-in-depth model.  The
