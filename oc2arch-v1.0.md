@@ -620,7 +620,7 @@ to encourage commonality and interoperability of implementations.
 The function of each action is defined in the Language
 Specification, and the set of actions can only be expanded by
 modifying the Language Specification. Specifically, the set of
-OpenC2 actions cannot be expanded by defining new action in an
+OpenC2 actions cannot be expanded by defining new actions in an
 Actuator Profile.
 
 In contrast the baseline set of targets in the Language
