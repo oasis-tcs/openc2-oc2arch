@@ -609,8 +609,8 @@ intermediate, combined Consumer / Producer.
 
 ### 2.3.2 Action-Target Model
 
-The OpenC2 Language Specification defines a standard set of
-actions and a baseline collection of targets for those actions.
+The OpenC2 Language Specification defines a *standard* set of
+actions and a *baseline* collection of targets for those actions.
 An action-target pair defines a command, as described in [Section
 2.1](#21-commands).
 
@@ -619,7 +619,9 @@ limited to those defined in the Language Specification in order
 to encourage commonality and interoperability of implementations.
 The function of each action is defined in the Language
 Specification, and the set of actions can only be expanded by
-modifying the Language Specification. 
+modifying the Language Specification. Specifically, the set of
+OpenC2 actions cannot be expanded by defining new action in an
+Actuator Profile.
 
 In contrast the baseline set of targets in the Language
 Specification is a usable set, but is also explicitly extensible.
