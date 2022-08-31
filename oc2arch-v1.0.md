@@ -322,6 +322,7 @@ these assumptions.
 | CBOR    | Concise Binary Object Representation |
 | CIDR    | Classless Inter-Domain Routing |
 | CoAP    | Constrained Application Protocol |
+| COSE    | CBOR Object Signing and Encryption |
 | DOI     | Digital Object Identifier |
 | ER      | Endpoint Response |
 | EUI     | Extended Unique Identifier |
@@ -334,6 +335,7 @@ these assumptions.
 | IP      | Internet Protocol |
 | IoT     | Internet of Things |
 | IPR     | Intellectual Property Rights |
+| JOSE    | JSON Object Signing and Encryption |
 | JSON    | JavaScript Object Notation |
 | LS      | Language Specification | 
 | MAC     | Media Access Control |
