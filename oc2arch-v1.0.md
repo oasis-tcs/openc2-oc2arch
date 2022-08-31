@@ -978,11 +978,24 @@ services to OpenC2 operations. As OpenC2 specifies a _language_
 of implementations, in a variety of environments, using a variety
 of transfer protocols, data encodings, etc., this discussion does
 not specify any particular mechanisms to implement these security
-services. Implementations of OpenC2 should apply well-vetted and
+services. 
+
+Implementations of OpenC2 should apply well-vetted and
 widely-used industry standard mechanisms (e.g., as specified by
 Internet Engineering Task Force [IETF] Requests for Comment
 [RFCs]) compatible with other implementation choides to provide
-security services.
+security services. For example:
+
+ * JSON-encoded messages could protected using techniques
+   described in the JSON Object Signing and Encryption (JOSE)
+   family of RFCs, specifically [RFC7616], [RFC7516], and
+   associated documents.
+
+ * CBOR-encoded messages could protected using techniques
+   described in the CBOR Object Signing and Encryption (COSE)
+   family of RFCs, specifically [RFC8152] and associated
+   documents.
+
 
 ### B.3.1 Confidentiality
 
