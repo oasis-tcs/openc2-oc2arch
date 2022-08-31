@@ -973,7 +973,16 @@ primary examples.
 ## B.3 Security Services
 
 This section reviews the applicability of traditional security
-services to OpenC2 operations.
+services to OpenC2 operations. As OpenC2 specifies a _language_
+(as opposed to a protocol or a system) that is subject to a range
+of implementations, in a variety of environments, using a variety
+of transfer protocols, data encodings, etc., this discussion does
+not specify any particular mechanisms to implement these security
+services. Implementations of OpenC2 should apply well-vetted and
+widely-used industry standard mechanisms (e.g., as specified by
+Internet Engineering Task Force [IETF] Requests for Comment
+[RFCs]) compatible with other implementation choides to provide
+security services.
 
 ### B.3.1 Confidentiality
 
