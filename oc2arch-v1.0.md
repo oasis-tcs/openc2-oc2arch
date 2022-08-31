@@ -870,6 +870,16 @@ M. J. Herring, K. D. Willett, "Active Cyber Defense: A Vision for Real-Time Cybe
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 
+
+###### [RFC7515]
+Jones, M., Bradley, J., and N. Sakimura, "JSON Web Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May 2015, <https://www.rfc-editor.org/info/rfc7515>.
+
+###### [RFC7516]
+ Jones, M. and J. Hildebrand, "JSON Web Encryption (JWE)", RFC 7516, DOI 10.17487/RFC7516, May 2015, <https://www.rfc-editor.org/info/rfc7516>.
+
+###### [RFC8152] 
+Schaad, J., "CBOR Object Signing and Encryption (COSE)", RFC 8152, DOI 10.17487/RFC8152, July 2017, <https://www.rfc-editor.org/info/rfc8152>.
+
 -------
 
 # Appendix B. Safety, Security and Privacy Considerations
@@ -990,7 +1000,7 @@ security services. For example:
 
  * JSON-encoded messages could protected using techniques
    described in the JSON Object Signing and Encryption (JOSE)
-   family of RFCs, specifically [RFC7616], [RFC7516], and
+   family of RFCs, specifically [RFC7515], [RFC7516], and
    associated documents.
 
  * CBOR-encoded messages could protected using techniques
