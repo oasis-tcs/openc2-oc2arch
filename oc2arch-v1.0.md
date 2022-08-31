@@ -1292,7 +1292,7 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
-| oc2arch-v1.0-wd06.md | 2022-09-xx | Duncan Sparrell | PR01: recommend standards-based approach to security services |
+| oc2arch-v1.0-wd06.md | 2022-09-xx | Duncan Sparrell | Arch-105: recommend standards-based approach to security services |
 -------
 
 # Appendix E. Examples
