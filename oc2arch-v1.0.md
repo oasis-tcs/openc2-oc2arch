@@ -950,11 +950,12 @@ primary examples.
   contents of a message or masquerade as an OpenC2 Producer and
   issue bogus messages. Finally, an external attacker might be
   able to compromise a legitimate OpenC2 Producer within an
-  environment. If any of these attacks succeed, the attacker can
-  disrupt or disable responses to other attacks and can cause the
-  defensive capabilities to impede legitimate operations.
-  Successfully subverting defenses can allow more intrusive
-  attacks.
+  environment; protection of an OpenC2 Producer should be a
+  priority in any implementation of OpenC2. If any of these
+  attacks succeed, the attacker can disrupt or disable responses
+  to other attacks and can cause the defensive capabilities to
+  impede legitimate operations. Successfully subverting defenses
+  can allow more intrusive attacks.
 
 * *Insider Attacks* (Malicious users) – An insider, especially a
   privileged user, may be able to more effectively perform any of
@@ -1260,7 +1261,7 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
-| oc2arch-v1.0-wd07.md | 2022-08-xx | Duncan Sparrell | Arch-104: add Producer takeover to B.2.3 |
+| oc2arch-v1.0-wd07.md | 2022-09-xx | Duncan Sparrell | Arch-104: add Producer takeover to B.2.3 |
 
 -------
 
