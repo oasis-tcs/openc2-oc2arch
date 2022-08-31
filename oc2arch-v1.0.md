@@ -340,6 +340,7 @@ these assumptions.
 | MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
 | OODA    | Observe-Orient-Decide-Act |
+| OOBM    | Out-of-Band Management |
 | OpenC2  | Open Command and Control |
 | OpenDXL | Open Data eXchange Layer |
 | PDF     | Portable Document Format |
