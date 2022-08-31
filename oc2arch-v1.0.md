@@ -1000,13 +1000,13 @@ security services. For example:
 
  * JSON-encoded messages could protected using techniques
    described in the JSON Object Signing and Encryption (JOSE)
-   family of RFCs, specifically [RFC7515], [RFC7516], and
-   associated documents.
+   family of RFCs, specifically [[RFC7515](#rfc7515)],
+   [[RFC7516](#rfc7516)], and associated documents.
 
  * CBOR-encoded messages could protected using techniques
    described in the CBOR Object Signing and Encryption (COSE)
-   family of RFCs, specifically [RFC8152] and associated
-   documents.
+   family of RFCs, specifically [[RFC8152](#rfc8152)] and
+   associated documents.
 
 
 ### B.3.1 Confidentiality
