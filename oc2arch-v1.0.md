@@ -995,15 +995,15 @@ services.
 Implementations of OpenC2 should apply well-vetted and
 widely-used industry standard mechanisms (e.g., as specified by
 Internet Engineering Task Force [IETF] Requests for Comment
-[RFCs]) compatible with other implementation choides to provide
+[RFCs]) compatible with other implementation choices to provide
 security services. For example:
 
- * JSON-encoded messages could protected using techniques
+ * JSON-encoded messages could be protected using the techniques
    described in the JSON Object Signing and Encryption (JOSE)
    family of RFCs, specifically [[RFC7515](#rfc7515)],
    [[RFC7516](#rfc7516)], and associated documents.
 
- * CBOR-encoded messages could protected using techniques
+ * CBOR-encoded messages could be protected using the techniques
    described in the CBOR Object Signing and Encryption (COSE)
    family of RFCs, specifically [[RFC8152](#rfc8152)] and
    associated documents.
