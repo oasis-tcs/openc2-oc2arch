@@ -1162,7 +1162,7 @@ as the other traffic, the implementer also needs to consider:
 
 Out-of-Band management (OOBM) involves the use of a dedicated
 channel for managing network devices. OOBM allows the network
-operator to establish trust boundaries in accessing the
+operator to establish trust boundaries around accessing the
 management function to apply it to network resources. Depending
 on the specific implementation, OOBM also can be used to ensure
 management connectivity (including the ability to determine the
