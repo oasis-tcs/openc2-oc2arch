@@ -279,8 +279,9 @@ these assumptions.
 
 -   **Action**: The task or activity to be performed (e.g., 'deny').
 
--   **Actuator**: The function performed by the Consumer that executes the
-    Command (e.g., "Packet Filtering").
+-   **Actuator**: The Consumer that executes the Command.
+
+-   **Actuator Profile**: The document that defines a category of operations performed by an Actuator (e.g., 'Stateless Packet Filtering').
 
 -   **Argument**: A property of a Command that provides additional information
     on how to perform the Command, such as date/time, periodicity, duration,
@@ -305,7 +306,7 @@ these assumptions.
     Command or returning the requested resources or status to a previously
     received Command.
 
--   **Specifier**: A property or field that identifies a Target or Actuator to
+-   **Specifier**: A property or field that identifies a Target to
     some level of precision.
 
 -   **Target**: The object of the Action, i.e., the Action is performed on the
