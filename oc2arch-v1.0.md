@@ -181,14 +181,13 @@ OpenC2 is defined across a family of specifications of several types:
   [[OpenC2-Lang-v1.0]](#openc2-lang-v10)
 
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2
-  language relevant in the context of specific Actuator
+  language relevant in the context of specific actuator
   functions. Cyber defense components, devices, systems and/or
   instances may (in fact are likely to) implement multiple
-  Actuator profiles. Actuator profiles extend the language by
-  defining Specifiers that identify the Actuator to the required
-  level of precision. Actuator Profiles may also define Command
-  Arguments and Targets that are relevant and/or unique to those
-  Actuator functions.
+  profiles. A profile refines the meaning of language
+  elements (actions, targets, command arguments, results) used to
+  perform the actuator function, and often defines additional
+  elmentsthat are relevant and/or unique to that function.
 
 * **OpenC2 Transfer Specifications** utilize existing protocols
   and standards to implement OpenC2 message transfer in specific
