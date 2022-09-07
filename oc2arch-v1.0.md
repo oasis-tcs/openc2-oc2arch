@@ -458,12 +458,8 @@ summarizes the main four components of a Command.
 * **Arguments** (optional): Provide additional information on how
   the command is to be performed, such as date/time, periodicity,
   duration, etc.
-* **Actuator** (optional): The Actuator executes the Command. The
-  Actuator will be defined within the context of an Actuator
-  Profile. Properties of the Actuator, called *Actuator
-  Specifiers*, further identify the Actuator to some level of
-  precision, such as a specific Actuator, a list of Actuators, or
-  a group of Actuators.
+* **Profile** (optional): Specifies the Actuator Profile that
+  defines the function to be performed by the command.
 
 The Action and Target components are required. A particular
 Target may be further refined by the Target type. The [Language
@@ -476,26 +472,17 @@ details on what is to be executed. They can also be used to
 convey the need for acknowledgment or additional status
 information about the execution of a Command.
 
-An Actuator is an implementation of a cyber defense function that
-executes the Command. An Actuator Profile is a specification that
-identifies the subset of Actions, Targets and other aspects of
-the OpenC2 language that are required or optional in the context
-of a particular Actuator. An Actuator Profile also may extend the
-language by defining additional Targets, Arguments, and Actuator
-Specifiers that are meaningful and possibly unique to the
-Actuator.
-
-The Actuator is an optional component of a Command used to
-clarify which Consumer(s) are the intended recipient(s). It
-typically is not included in situations  where the identities of
-the intended endpoints are unambiguous (e.g., defined by the
-transfer mechanism). OpenC2 also provides for high-level
-effects-based Commands, where an intermediate element receiving
-the Command has discretion to define derivative Commands and
-select appropriate Actuators to achieve the desired effect. The
-Actuator component is usually omitted from an effects-based
-Command.
-
+The Profile field, if present, specifies the profile that defines
+the function to be performed. A Consumer executes the command if
+it supports the specified profile, otherwise the command is
+ignored. The Profile field may be omitted and typically will not
+be included in implementations where the functions of the
+recipients are unambiguous or when a high-level effects-based
+command is desired and tactical decisions on how the effect is
+achieved is left to the recipient. If Profile is omitted and the
+recipient supports multiple profiles, the command will be
+executed in the context of each profile that supports the
+command's combination of action and target.
 
 ## 2.2 Responses
 
