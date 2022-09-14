@@ -181,14 +181,13 @@ OpenC2 is defined across a family of specifications of several types:
   [[OpenC2-Lang-v1.0]](#openc2-lang-v10)
 
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2
-  language relevant in the context of specific Actuator
+  language relevant in the context of specific actuator
   functions. Cyber defense components, devices, systems and/or
   instances may (in fact are likely to) implement multiple
-  Actuator profiles. Actuator profiles extend the language by
-  defining Specifiers that identify the Actuator to the required
-  level of precision. Actuator Profiles may also define Command
-  Arguments and Targets that are relevant and/or unique to those
-  Actuator functions.
+  profiles. A profile refines the meaning of language
+  elements (actions, targets, command arguments, results) used to
+  perform the actuator function, and often defines additional
+  elmentsthat are relevant and/or unique to that function.
 
 * **OpenC2 Transfer Specifications** utilize existing protocols
   and standards to implement OpenC2 message transfer in specific
@@ -279,8 +278,9 @@ these assumptions.
 
 -   **Action**: The task or activity to be performed (e.g., 'deny').
 
--   **Actuator**: The function performed by the Consumer that executes the
-    Command (e.g., "Packet Filtering").
+-   **Actuator**: The Consumer that executes the Command.
+
+-   **Actuator Profile**: The document that defines a category of operations performed by an Actuator (e.g., 'Stateless Packet Filtering').
 
 -   **Argument**: A property of a Command that provides additional information
     on how to perform the Command, such as date/time, periodicity, duration,
@@ -305,7 +305,7 @@ these assumptions.
     Command or returning the requested resources or status to a previously
     received Command.
 
--   **Specifier**: A property or field that identifies a Target or Actuator to
+-   **Specifier**: A property or field that identifies a Target to
     some level of precision.
 
 -   **Target**: The object of the Action, i.e., the Action is performed on the
@@ -462,12 +462,8 @@ summarizes the main four components of a Command.
 * **Arguments** (optional): Provide additional information on how
   the command is to be performed, such as date/time, periodicity,
   duration, etc.
-* **Actuator** (optional): The Actuator executes the Command. The
-  Actuator will be defined within the context of an Actuator
-  Profile. Properties of the Actuator, called *Actuator
-  Specifiers*, further identify the Actuator to some level of
-  precision, such as a specific Actuator, a list of Actuators, or
-  a group of Actuators.
+* **Profile** (optional): Specifies the Actuator Profile that
+  defines the function to be performed by the command.
 
 The Action and Target components are required. A particular
 Target may be further refined by the Target type. The [Language
@@ -480,26 +476,17 @@ details on what is to be executed. They can also be used to
 convey the need for acknowledgment or additional status
 information about the execution of a Command.
 
-An Actuator is an implementation of a cyber defense function that
-executes the Command. An Actuator Profile is a specification that
-identifies the subset of Actions, Targets and other aspects of
-the OpenC2 language that are required or optional in the context
-of a particular Actuator. An Actuator Profile also may extend the
-language by defining additional Targets, Arguments, and Actuator
-Specifiers that are meaningful and possibly unique to the
-Actuator.
-
-The Actuator is an optional component of a Command used to
-clarify which Consumer(s) are the intended recipient(s). It
-typically is not included in situations  where the identities of
-the intended endpoints are unambiguous (e.g., defined by the
-transfer mechanism). OpenC2 also provides for high-level
-effects-based Commands, where an intermediate element receiving
-the Command has discretion to define derivative Commands and
-select appropriate Actuators to achieve the desired effect. The
-Actuator component is usually omitted from an effects-based
-Command.
-
+The Profile field, if present, specifies the profile that defines
+the function to be performed. A Consumer executes the command if
+it supports the specified profile, otherwise the command is
+ignored. The Profile field may be omitted and typically will not
+be included in implementations where the functions of the
+recipients are unambiguous or when a high-level effects-based
+command is desired and tactical decisions on how the effect is
+achieved is left to the recipient. If Profile is omitted and the
+recipient supports multiple profiles, the command will be
+executed in the context of each profile that supports the
+command's combination of action and target.
 
 ## 2.2 Responses
 
@@ -1303,11 +1290,12 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-101: editorial fixes | 
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-102: clarify LS authority on Actions in 2.3.2 |
 | oc2arch-v1.0-wd06.md | 2022-09-14 | Duncan Sparrell | Arch-103: recommend standards-based approach to security services |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | Arch-104: add Producer takeover to B.2.3 |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-105: improve OOBM discussion in B.4.2 | 
-| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-102: clarify LS authority on Actions in 2.3.2 |
-| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-101: editorial fixes | 
+| oc2arch-v1.0-wd06.md | 2022-09-14 | Duncan Sparrell | WD06: Updates to align with "actuator" to "profile" change in Language Specification (forthcoming v2.0) |
 
 -------
 
