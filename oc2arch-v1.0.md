@@ -1270,10 +1270,10 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-101: editorial fixes | 
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-102: clarify LS authority on Actions in 2.3.2 |
-| oc2arch-v1.0-wd06.md | 2022-09-14 | Duncan Sparrell | Arch-103: recommend standards-based approach to security services |
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | Arch-103: recommend standards-based approach to security services |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | Arch-104: add Producer takeover to B.2.3 |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-105: improve OOBM discussion in B.4.2 | 
-| oc2arch-v1.0-wd06.md | 2022-09-14 | Duncan Sparrell | WD06: Updates to align with "actuator" to "profile" change in Language Specification (forthcoming v2.0) |
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | WD06: Updates to align with "actuator" to "profile" change in Language Specification (forthcoming v2.0) |
 
 -------
 
