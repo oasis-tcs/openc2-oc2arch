@@ -340,6 +340,7 @@ these assumptions.
 | MQTT    | Message Queuing Telemetry Transfer |
 | OASIS   | Organization for the Advancement of Structured Information Standards |
 | OODA    | Observe-Orient-Decide-Act |
+| OOBM    | Out-of-Band Management |
 | OpenC2  | Open Command and Control |
 | OpenDXL | Open Data eXchange Layer |
 | PDF     | Portable Document Format |
@@ -355,6 +356,7 @@ these assumptions.
 | URI     | Uniform Resource Identifier |
 | UTC     | Coordinated Universal Time |
 | UUID    | Universally Unique IDentifier |
+| VLAN    | Virtual Local Area Network | 
 | XML     | eXtensible Markup Language |
 
 
@@ -1160,15 +1162,19 @@ as the other traffic, the implementer also needs to consider:
 
 ### B.4.2 Out-Of-Band Cyber Defense C2
 
-Out-of-Band management involves the use of a dedicated channel
-for managing network devices.  This allows the network operator
-to establish trust boundaries in accessing the management
-function to apply it to network resources.  It also can be used
-to ensure management connectivity (including the ability to
-determine the status of any network component) independent of the
-status of in-band network components.  Out-of-Band Management
-(OOBM) is a common best practice with renewed focus based on the
-evolving threat landscape.  
+Out-of-Band management (OOBM) involves the use of a dedicated
+channel for managing network devices. OOBM allows the network
+operator to establish trust boundaries around accessing the
+management function to apply it to network resources. Depending
+on the specific implementation, OOBM also can be used to ensure
+management connectivity (including the ability to determine the
+status of any network component) independent of the status of
+in-band network components. OOBM is a common best practice with
+renewed focus based on the evolving threat landscape. There are a
+range of potential implementations of OOBM, from an entirely
+physically-separated network to approaches that apply logical
+separation (e.g., virtual LANs [VLAN]) on the network backbone to
+separate management traffic from ordinary user traffic.
 
 C2 systems are prime objectives of adversaries and OOBM can
 provide another layer in the defense-in-depth model.  The
@@ -1260,6 +1266,7 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-105: improve OOBM discussion in B.4.2 | 
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-102: clarify LS authority on Actions in 2.3.2 |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-101: editorial fixes | 
 
