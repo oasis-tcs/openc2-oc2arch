@@ -322,6 +322,7 @@ these assumptions.
 | CBOR    | Concise Binary Object Representation |
 | CIDR    | Classless Inter-Domain Routing |
 | CoAP    | Constrained Application Protocol |
+| COSE    | CBOR Object Signing and Encryption |
 | DOI     | Digital Object Identifier |
 | ER      | Endpoint Response |
 | EUI     | Extended Unique Identifier |
@@ -334,6 +335,7 @@ these assumptions.
 | IP      | Internet Protocol |
 | IoT     | Internet of Things |
 | IPR     | Intellectual Property Rights |
+| JOSE    | JSON Object Signing and Encryption |
 | JSON    | JavaScript Object Notation |
 | LS      | Language Specification | 
 | MAC     | Media Access Control |
@@ -872,6 +874,16 @@ M. J. Herring, K. D. Willett, "Active Cyber Defense: A Vision for Real-Time Cybe
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 
+
+###### [RFC7515]
+Jones, M., Bradley, J., and N. Sakimura, "JSON Web Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May 2015, <https://www.rfc-editor.org/info/rfc7515>.
+
+###### [RFC7516]
+ Jones, M. and J. Hildebrand, "JSON Web Encryption (JWE)", RFC 7516, DOI 10.17487/RFC7516, May 2015, <https://www.rfc-editor.org/info/rfc7516>.
+
+###### [RFC8152] 
+Schaad, J., "CBOR Object Signing and Encryption (COSE)", RFC 8152, DOI 10.17487/RFC8152, July 2017, <https://www.rfc-editor.org/info/rfc8152>.
+
 -------
 
 # Appendix B. Safety, Security and Privacy Considerations
@@ -980,7 +992,29 @@ primary examples.
 ## B.3 Security Services
 
 This section reviews the applicability of traditional security
-services to OpenC2 operations.
+services to OpenC2 operations. As OpenC2 specifies a _language_
+(as opposed to a protocol or a system) that is subject to a range
+of implementations, in a variety of environments, using a variety
+of transfer protocols, data encodings, etc., this discussion does
+not specify any particular mechanisms to implement these security
+services. 
+
+Implementations of OpenC2 should apply well-vetted and
+widely-used industry standard mechanisms (e.g., as specified by
+Internet Engineering Task Force [IETF] Requests for Comment
+[RFCs]) compatible with other implementation choices to provide
+security services. For example:
+
+ * JSON-encoded messages could be protected using the techniques
+   described in the JSON Object Signing and Encryption (JOSE)
+   family of RFCs, specifically [[RFC7515](#rfc7515)],
+   [[RFC7516](#rfc7516)], and associated documents.
+
+ * CBOR-encoded messages could be protected using the techniques
+   described in the CBOR Object Signing and Encryption (COSE)
+   family of RFCs, specifically [[RFC8152](#rfc8152)] and
+   associated documents.
+
 
 ### B.3.1 Confidentiality
 
@@ -1269,6 +1303,7 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
+| oc2arch-v1.0-wd06.md | 2022-09-14 | Duncan Sparrell | Arch-103: recommend standards-based approach to security services |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | Arch-104: add Producer takeover to B.2.3 |
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-105: improve OOBM discussion in B.4.2 | 
 | oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-102: clarify LS authority on Actions in 2.3.2 |
