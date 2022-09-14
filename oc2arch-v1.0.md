@@ -346,12 +346,12 @@ these assumptions.
 | PDF     | Portable Document Format |
 | RFC     | Request for Comment |
 | SCTP    | Stream Control Transmission Protocol |
-| SHA     | Security Hash Algorithm |
+| SHA     | Secure Hash Algorithms |
 | SLPF    | StateLess Packet Filtering |
 | STD     | Standard |
 | TC      | Technical Committee |
 | TCP     | Transmission Control Protocol |
-| UDP     | User Datagram Control Protocol |
+| UDP     | User Datagram Protocol |
 | UML     | Unified Modeling Language |
 | URI     | Uniform Resource Identifier |
 | UTC     | Coordinated Universal Time |
@@ -611,8 +611,8 @@ intermediate, combined Consumer / Producer.
 
 ### 2.3.2 Action-Target Model
 
-The OpenC2 Language Specification defines a standard set of
-actions and a baseline collection of targets for those actions.
+The OpenC2 Language Specification defines a *standard* set of
+actions and a *baseline* collection of targets for those actions.
 An action-target pair defines a command, as described in [Section
 2.1](#21-commands).
 
@@ -621,7 +621,9 @@ limited to those defined in the Language Specification in order
 to encourage commonality and interoperability of implementations.
 The function of each action is defined in the Language
 Specification, and the set of actions can only be expanded by
-modifying the Language Specification. 
+modifying the Language Specification. Specifically, the set of
+OpenC2 actions cannot be expanded by defining new actions in an
+Actuator Profile.
 
 In contrast the baseline set of targets in the Language
 Specification is a usable set, but is also explicitly extensible.
@@ -1210,7 +1212,7 @@ non-repudiation for out-of-band access.
 
 <!-- This is an optional subsection to call out contributions from TC members. If a TC wants to thank non-TC members then they should avoid using the term "contribution" and instead thank them for their "expertise" or "assistance". -->
 
-Asssitance with this document from the following individuals are gratefully acknowledged:
+Assistance with this document from the following individuals are gratefully acknowledged:
 
  * Larry Feldman, HII
  * Jerome Czachor, HII
@@ -1264,7 +1266,9 @@ _Italics_ indicates former TC members.
 | oc2arch-v1.0-wd04.md | 2022-05-04 | Duncan Sparrell | WD04: Nearly complete draft |
 | oc2arch-v1.0-wd05.md | 2022-05-12 | Duncan Sparrell | WD05: Minor updates for clarity & readability, presented for CSD approval |
 | oc2arch-v1.0-wd06.md | 2022-07-13 | Duncan Sparrell | WD06: Updated conformance section, added example message exchange, editorial fixes |
-| oc2arch-v1.0-wd07.md | 2022-09-xx | Duncan Sparrell | ARCH-105: improve OOBM discussion in B.4.2 | 
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-105: improve OOBM discussion in B.4.2 | 
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-102: clarify LS authority on Actions in 2.3.2 |
+| oc2arch-v1.0-wd07.md | 2022-09-14 | Duncan Sparrell | ARCH-101: editorial fixes | 
 
 -------
 
