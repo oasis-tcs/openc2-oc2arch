@@ -16,7 +16,14 @@ sections below.
 
 This specification provides overall architectural guidance to the
 OpenC2 implementation community for the use of the OpenC2
-language, actuator profiles, and transfer specifications.
+language, actuator profiles, and transfer specifications. 
+
+This repository also contains the OpenC2 [namespace
+registry](namespace-registry.md), which maintains the record of
+unique names and identifiers of OpenC2 Actuator Profiles.
+Appendix F of the [*Architecture
+Specification*](oc2arch-v1.0-cs01.md) explains the use of
+namespaces in OpenC2.
 
 
 ### :twisted_rightwards_arrows: Repository Organization :twisted_rightwards_arrows:
