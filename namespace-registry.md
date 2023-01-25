@@ -1,88 +1,47 @@
-# OpenC2 Namespace Registry
-## Namespace Concepts
-A [namespace](https://en.wikipedia.org/wiki/Namespace) is a set of names used to identify objects.
-A namespace ensures that all of a given set of objects can be easily identified and unambiguously referenced.
+## OpenC2 Namespace Registry
 
-All OpenC2 type definitions are contained in a specification, and each specification is assigned a
-globally-unique namespace in the form of a URI.  Types in one specification can reference types
-defined in another specification using a namespaced name:
+**Last Update:** 25 January 2023
 
-    name = <namespace identifier> separator <local name>
+The OpenC2 core language is extended using profiles.
+This registry tracks the status of currently defined specifications,
+plus functions for profiles under consideration.
 
-XML includes namespaces but JSON does not. Because OpenC2 consists of multiple specifications,
-it requires a namespacing mechanism usable with JSON data.
-OpenC2 has therefore created a naming approach similar to XML's that can be applied to non-namespaced
-data formats such as JSON.  For brevity it assigns a short Namespace Identifier (NSID) to each referenced
-namespace using an **import** statement, then uses the NSID as a prefix to each referenced type:
+* Each specification is assigned a unique identifier (Namespace) in the form of an IRI.
+* A Namespace can be abbreviated using a Namespace Prefix when referencing types defined within it.
+* Namespaced property sets (e.g., Targets, Args, Results) are identified by ID or Name, depending on serialization, in OpenC2 messages.
+* The property ID/Name (NSID) used in type references and the Namespace Prefix defined in a package's "namespaces" info
+  are distinct and can have different values, but they are normally the same.
 
-**schema**:
-```
-    import: {"ex": "http://www.example.com/datatypes/v1.2"}
+Namespaces are assigned according to [OASIS Naming Directives for XML namespaces](http://docs.oasis-open.org/specGuidelines/ndr/namingDirectives.html#xml-namespaces):
 
-    Person = Record
-        1 name   String
-        2 id     Integer
-        3 email  ex:Email-Address       // type definition imported/resolved from another specification
-```
-**JSON data**:
-```
-    {"name": "John", "id": 12345, "email": "john@acme.com"}
-```
-Namespacing thus involves four different values:
-* **Namespace**: The unique identifier of a referenced specification: "http://www.example.com/datatypes/v1.2"
-* **Type Name**: the name of a type defined in a referenced specification: "Email-Address"
-* **NSID**: a short abbreviation for a Namespace used as a prefix in an imported type: "ex"
-* **Field Name**: may be serialized as a JSON object property whose value is an imported type: "email"
-
-NSID and Field Name are both defined by the importing specification; neither are registered here.
-Type Names (including NSID prefixes) never appear in JSON data, so Namespaces and NSIDs are never
-needed or used in JSON data except within a schema document.
-
-This approach uses a resolver to look up all namespaced type definitions from their defining specifications
-and incorporate them into a single schema. Authors can manually copy and paste definitions
-into a monolithic specification, but namespace resolution automates that process, eliminating redundancy
-and the potential for inconsistency.
-
-A namespace URI is only an identifier. For syntactic reasons it must have a scheme (http) but it
-is not a network-accessible resource. 
-Referenced specifications do not need to be available online and implementations are not required to do
-namespace resolution at runtime, although dynamic namespace resolution may be appropriate for some use cases.
-URLs for online schemas should be derived from the namespace using scheme "https", filename "schema", and
-the applicable file extension: ".jadn" for the abstract schema, and ".json", ".xsd", ".cddl", ".proto", etc.
-for corresponding concrete schemas.
-
-## Registration Process
-OpenC2 TC Documentation Norms suggests
-[naming conventions](https://github.com/oasis-tcs/openc2-tc-ops/blob/master/Documentation-Norms.md#42-assign-work-product-name)
-for TC work products.  Namespace URIs should be based on this convention, omitting the filename and the "docs" domain component,
-and using "http" as the scheme component.
-
-* **Actuator Profile Name**: ap-\<function-shorthand\>
-* **Example Profile URL**: https://docs.oasis-open.org/openc2/ap-av/v1.0/ap-av-v1.0.html
-* **Example Namespace**: http://oasis-open.org/openc2/ap-av/v1.0
-* **Example Schema URL**: https://oasis-open.org/openc2/ap-av/v1.0/schema.jadn
-
-Custom actuator profile namespaces are chosen by the profile author and MUST NOT conflict with namespace URIs registered here.
-Custom profile authors MAY register Namespaces under http://oasis-open.org/openc2/custom but are not required to do so.
-
-## Registry
-**Last Update:** 14 July 2020
-| Specification | Namespace | Source |
-| ------------- | --------- | ------ |
-| OpenC2 Language Spec v1.0 CS01    | http://oasis-open.org/openc2/lang/v1.0        | https://github.com/oasis-tcs/openc2-oc2ls |
-| OpenC2 Language Spec v1.0 CS02    | http://oasis-open.org/openc2/lang/v1.0.1      | https://github.com/oasis-tcs/openc2-oc2ls |
-| OpenC2 Language Profile v1.1      | http://oasis-open.org/openc2/lang/v1.1        | Language SC - Work in progress |
-| OpenC2 Common Types v1.1          | http://oasis-open.org/openc2/types/v1.1       | Language SC - Work in progress |
-| Stateless Packet Filtering AP     | http://oasis-open.org/openc2/ap-slpf/v1.0     | https://github.com/oasis-tcs/openc2-apsc-stateless-packet-filter |
-| Stateful Packet Filtering AP      | http://oasis-open.org/openc2/ap-sfpf/v1.0     | https://github.com/oasis-tcs/openc2-ap-sfpf |
-| Software Bill of Materials AP     | http://oasis-open.org/openc2/ap-sbom/v1.0     | https://github.com/oasis-tcs/openc2-ap-sbom |
-| Intrusion Detection AP            | http://oasis-open.org/openc2/ap-ids/v1.0      | https://github.com/oasis-tcs/openc2-ap-ids Repo Exists |
-| Honeypot functions AP             | http://oasis-open.org/openc2/ap-honeypot/v1.0 | https://github.com/oasis-tcs/openc2-ap-honeypots Repo Exists |
-| Endpoint functions AP             |                                               | Proposed for LS |
-| Software-Defined Nework Control AP|                                               | Proposed for LS |
-| Email Gateway functions AP        |                                               | Proposed for LS |
-| Intrusion Prevention AP           |                                               | Proposed for LS |
-| Data Loss Prevention AP           |                                               | Proposed for LS |
-| Secure Web Gateway AP             |                                               | Proposed for LS |
-| Hello-world API HTTP CAP          | http://oasis-open.org/openc2/custom/haha/v1.0 | Example: Custom AP namespaces may be registered |
-| Hello-world API MQTT CAP          | http://acme.com/openc2-profiles/hama/v1.0     | Example: Custom AP namespaces are chosen by their authors |
+| Prop ID | Property Name | OpenC2 Specification                                                                              | NS Prefix | Namespace                                              | Status                                    |
+|---------|---------------|---------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------|-------------------------------------------|
+|         |               | [OpenC2 Language Spec v1.0 CS01](https://github.com/oasis-tcs/openc2-oc2ls)                       |           | http://docs.oasis-open.org/openc2/ns/lang/v1.0         | CS01 2019/07/11                           |
+|         |               | [OpenC2 Language Spec v1.0 CS02](https://github.com/oasis-tcs/openc2-oc2ls)                       |           | http://docs.oasis-open.org/openc2/ns/lang/v1.0.1       | CS02 2019/11/04                           |
+|         |               | [OpenC2 Language Spec v1.1](https://github.com/oasis-tcs/openc2-oc2ls)                            |           | http://docs.oasis-open.org/openc2/ns/lang/v1.1         | CSD01 2021/08/18                          |
+|         |               | [OpenC2 Language Spec v1.1 Common Types](https://github.com/oasis-tcs/openc2-oc2ls)               | ls:       | http://docs.oasis-open.org/openc2/ns/types/v1.1        | Types section of LS                       |
+|         |               | [OpenC2 JSON Abstract Data Notation v1.0](https://github.com/oasis-tcs/openc2-jadn)               |           | http://docs.oasis-open.org/openc2/ns/jadn/v1.0         | CS01 2021/08/17                           |
+|         |               | <div style="text-align: center">**Standard Actuator Profile**</div>                               |           |                                                        |                                           |
+| 1024    | slpf          | [Stateless Packet Filtering AP](https://github.com/oasis-tcs/openc2-apsc-stateless-packet-filter) | slpf:     | http://docs.oasis-open.org/openc2/ns/ap-slpf/v1.0      | CSPRD01 2019/05/31 superseded by PF       |
+| 1025    | sfpf          | [Stateful Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-sfpf)                       | sfpf:     | http://docs.oasis-open.org/openc2/ns/ap-sfpf/v1.0      | GH WD01, no CSD, superseded by PF         |
+| 1026    | sbom          | [Software Bill of Materials AP](https://github.com/oasis-tcs/openc2-ap-sbom)                      | sbom:     | http://docs.oasis-open.org/openc2/ns/ap-sbom/v1.0      | GH WD01 2021/11/17                        |
+| 1027    | er            | [Endpoint Response AP](https://github.com/oasis-tcs/openc2-ap-er)                                 | er:       | http://docs.oasis-open.org/openc2/ns/ap-er/v1.0        | GH 2021/06/02, rename from EDR            |
+| 1028    | hop           | [Honeypot Control AP](https://github.com/oasis-tcs/openc2-ap-honeypots)                           | hop:      | http://docs.oasis-open.org/openc2/ns/ap-hop/v1.0       | GH 2021/10/13, use cases                  |
+| 1029    | av            | [Anti-virus AP](https://github.com/oasis-tcs/openc2-ap-av)                                        | av:       | http://docs.oasis-open.org/openc2/ns/ap-av/v1.0        | Repo created                              |
+| 1030    | ids           | [Intrusion Detection AP](https://github.com/oasis-tcs/openc2-ap-ids)                              | ids:      | http://docs.oasis-open.org/openc2/ns/ap-ids/v1.0       | Repo created, no template                 |
+| 1031    | log           | [Logging Control AP](https://github.com/oasis-tcs/openc2-ap-lc)                                   | log:      | http://docs.oasis-open.org/openc2/ns/ap-log/v1.0       | Repo created, no template                 |
+| 1032    | swup          | [Software Update AP](https://github.com/oasis-tcs/openc2-ap-sup)                                  | sup:      | http://docs.oasis-open.org/openc2/ns/ap-swup/v1.0      | Repo requested                            |
+| 1034    | pf            | [Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-pf)                                  | pf:       | http://docs.oasis-open.org/openc2/ns/ap-pf/v1.0        | CSD01 2021/07/21 supersedes SLPF and SFPF |
+| 1035    | pac           | [Security Posture Attribute Collection AP](https://github.com/oasis-tcs/openc2-ap-pf)             | pac:      | http://docs.oasis-open.org/openc2/ns/ap-pac/v1.0       | Repo created                              |
+| 1036    | th            | [Threat Hunting AP](https://github.com/oasis-tcs/openc2-ap-hunt)                                  | th:       | http://docs.oasis-open.org/openc2/ns/ap-th/v1.0        | Repo created                              |
+|         |               | <div style="text-align: center">**Extension Actuator Profile**</div>                              |           |                                                        |                                           |
+| 9001    | blinky        | Blinky Lights with HTTP and MQTT API                                                              | led:      | http://docs.oasis-open.org/openc2/ns/ext/ap-led/v1.0   | No repo, documented in plugfest use cases |
+|         |               | <div style="text-align: center">**Proposed Actuator Profile**</div>                               |           |                                                        |                                           |
+|         |               | Endpoint Response (previously EDR, listed above)                                                  |           |                                                        |                                           |
+|         |               | Threat Analytics (split from EDR)                                                                 |           |                                                        |                                           |
+|         |               | Software Defined Network Controller                                                               |           |                                                        |                                           |
+|         |               | Email Gateway                                                                                     |           |                                                        |                                           |
+|         |               | Intrusion Prevention                                                                              |           |                                                        |                                           |
+|         |               | Data Loss Prevention                                                                              |           |                                                        |                                           |
+|         |               | Secure Web Gateway                                                                                |           |                                                        |                                           |
+|         |               | Security Posture Evaluation                                                                       |           |                                                        |                                           |
