@@ -9,8 +9,10 @@ plus functions for profiles under consideration.
 * Each specification is assigned a unique identifier (Namespace) in the form of an IRI.
 * A Namespace can be abbreviated using a Namespace Prefix when referencing types defined within it.
 * Namespaced property sets (e.g., Targets, Args, Results) are identified by ID or Name, depending on serialization, in OpenC2 messages.
-* The property ID/Name (NSID) used in type references and the Namespace Prefix defined in a package's "namespaces" info
+* The Property ID/Name (NSID) used in type references and the Namespace Prefix defined in a package's "namespaces" info
   are distinct and can have different values, but they are normally the same.
+
+A more detailed explanation of OpenC2's use of namespaces can be found in [Appendix F](https://docs.oasis-open.org/openc2/oc2arch/v1.0/cs01/oc2arch-v1.0-cs01.html#appendix-f-openc2-namespace-registry) of the OpenC2 Architecture Specification.
 
 Namespaces are assigned according to [OASIS Naming Directives for XML namespaces](http://docs.oasis-open.org/specGuidelines/ndr/namingDirectives.html#xml-namespaces):
 
