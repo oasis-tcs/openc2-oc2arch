@@ -60,14 +60,14 @@ developers of Actuator Profiles (APs) and Transfer Specifications.
 
 ###  :writing_hand: Contributions  :writing_hand:
 
-As stated in this repository's [CONTRIBUTING](https://github.com/oasis-tcs/oc2arch/blob/main/CONTRIBUTING.md) file, contributors to this repository 
+As stated in this repository's [CONTRIBUTING](CONTRIBUTING.md) file, contributors to this repository 
 must be Members of the OASIS OpenC2 TC for any substantive contributions or change requests.  Anyone wishing to contribute to this GitHub project 
 and [participate](https://www.oasis-open.org/join/participation-instructions) in the TC's technical activity is invited to join as an OASIS TC Member. 
 Public feedback is also accepted, subject to the terms of the [OASIS Feedback License](https://www.oasis-open.org/policies-guidelines/ipr#appendixa). 
 
 ###  :scroll: Licensing  :scroll:
 
-Please see the [LICENSE](https://github.com/oasis-tcs/oc2arch/blob/main/LICENSE.md) file for description of the license terms and OASIS policies applicable 
+Please see the [LICENSE](LICENSE.md) file for description of the license terms and OASIS policies applicable 
 to the TC's work in this GitHub project. Content in this repository is intended to be part of the OpenC2 TC's permanent record of activity, visible 
 and freely available for all to use, subject to applicable OASIS policies, as presented in the repository 
 [LICENSE](https://github.com/oasis-tcs/oc2arch/blob/main/LICENSE.md). 
