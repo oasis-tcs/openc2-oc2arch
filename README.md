@@ -70,7 +70,7 @@ Public feedback is also accepted, subject to the terms of the [OASIS Feedback Li
 Please see the [LICENSE](LICENSE.md) file for description of the license terms and OASIS policies applicable 
 to the TC's work in this GitHub project. Content in this repository is intended to be part of the OpenC2 TC's permanent record of activity, visible 
 and freely available for all to use, subject to applicable OASIS policies, as presented in the repository 
-[LICENSE](https://github.com/oasis-tcs/oc2arch/blob/main/LICENSE.md). 
+[LICENSE](LICENSE.md). 
 
 
 ### :envelope_with_arrow: Contact :envelope_with_arrow:
