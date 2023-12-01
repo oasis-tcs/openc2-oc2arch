@@ -6,7 +6,7 @@ The OpenC2 core language is extended using actuator profiles (APs).
 This registry tracks the status of currently defined AP specifications,
 plus functions for profiles under consideration.
 
-* Each AP is assigned a **short name** when it is identified as a work product; the TC's practice is to use these short names in namespaces and as namespace identifiers (NSIDs)
+* Each AP is [assigned a **short name**](https://github.com/oasis-tcs/openc2-tc-ops/blob/main/Documentation-Norms.md#42-assign-work-product-name) when it is identified as a work product; the TC's practice is to use these short names in namespaces and as namespace identifiers (NSIDs)
 * Each specification is assigned a unique identifier (Namespace) in the form of an IRI.
 * A Namespace can be abbreviated using a Namespace Prefix when referencing types defined within it.
 * Namespaced property sets (e.g., Targets, Args, Results) are identified by ID or Name, depending on serialization, in OpenC2 messages.
@@ -36,7 +36,7 @@ Namespaces are assigned according to [OASIS Naming Directives for XML namespaces
 | 1032    | swup          | [Software Update AP](https://github.com/oasis-tcs/openc2-ap-sup)                                  | sup:      | http://docs.oasis-open.org/openc2/ns/ap/swup/v1.0      | Repo requested                            |
 | 1034    | pf            | [Packet Filtering AP](https://github.com/oasis-tcs/openc2-ap-pf)                                  | pf:       | http://docs.oasis-open.org/openc2/ns/ap/pf/v1.0        | CSD01 2021/07/21 supersedes SLPF and SFPF |
 | 1035    | pac           | [Security Posture Attribute Collection AP](https://github.com/oasis-tcs/openc2-ap-pf)             | pac:      | http://docs.oasis-open.org/openc2/ns/ap/pac/v1.0       | Repo created                              |
-| 1036    | hunt            | [Threat Hunting AP](https://github.com/oasis-tcs/openc2-ap-hunt)                                  | th:       | http://docs.oasis-open.org/openc2/ns/ap/hunt/v1.0        | Repo created                              |
+| 1036    | hunt            | [Threat Hunting AP](https://github.com/oasis-tcs/openc2-ap-hunt)                                  | hunt:   | http://docs.oasis-open.org/openc2/ns/ap/hunt/v1.0        | Repo created                              |
 |         |               | <div style="text-align: center">**Extension Actuator Profile**</div>                              |           |                                                        |                                           |
 | 9001    | blinky        | Blinky Lights with HTTP and MQTT API                                                              | led:      | http://docs.oasis-open.org/openc2/ns/ext/ap-led/v1.0   | No repo, documented in plugfest use cases |
 |         |               | <div style="text-align: center">**Proposed Actuator Profile**</div>                               |           |                                                        |                                           |
