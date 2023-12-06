@@ -836,6 +836,12 @@ Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, 
 M. J. Herring, K. D. Willett, "Active Cyber Defense: A Vision for Real-Time Cyber Defense," Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014.<https://www.semanticscholar.org/paper/Active-Cyber-Defense-%3A-A-Vision-for-Real-Time-Cyber-Herring-Willett/7c128468ae42584f282578b86439dbe9e8c904a8>.<br><br>Willett, Keith D., "Integrated Adaptive Cyberspace Defense: Secure Orchestration", International Command and Control Research and Technology Symposium, June 2015 <https://www.semanticscholar.org/paper/Integrated-Adaptive-Cyberspace-Defense-%3A-Secure-by-Willett/a22881b8a046e7eab11acf647d530c2a3b03b762>.
 
 
+###### [OASIS-Naming]
+_OASIS Naming Directives, Version 1.6_. February 2020, https://docs.oasis-open.org/specGuidelines/ndr/namingDirectives-v1.6.html
+
+###### [OpenC2-NS-Reg]
+_OpenC2 Namespace Registry_, https://github.com/oasis-tcs/openc2-oc2arch/blob/published/namespace-registry.md
+
 ###### [RFC3552]
 Rescorla, E. and B. Korver, "Guidelines for Writing RFC Text on Security Considerations", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003, https://www.rfc-editor.org/info/rfc3552.
 
@@ -1475,7 +1481,7 @@ of names used to identify objects. A namespace ensures that all
 of a given set of objects can be easily identified and
 unambiguously referenced.
 
-All OpenC2 type definitions are contained in a specification, and
+All OpenC2 type definitions are contained in a specification and its associated JADN schema, and
 each specification is assigned a globally-unique namespace in the
 form of a URI.  Types in one specification can reference types
 defined in another specification using a namespaced name:
@@ -1506,13 +1512,13 @@ Person = Record
 ```
 Namespacing thus involves four different values:
 * **Namespace**: The unique identifier of a referenced
-  specification: "http://www.example.com/datatypes/v1.2"
+  specification: "`http://www.example.com/datatypes/v1.2`"
 * **Type Name**: the name of a type defined in a referenced
-  specification: "Email-Address"
+  specification: "`Email-Address`"
 * **NSID**: a short abbreviation for a Namespace used as a prefix
-  with an imported type: "ex"
+  with an imported type: "`ex`"
 * **Field Name**: may be serialized as a JSON object property
-  whose value is an imported type: "email"
+  whose value is an imported type: "`email`"
 
 This approach uses a resolver to look up all namespaced type
 definitions from their defining specifications and incorporates
@@ -1533,19 +1539,55 @@ abstract schema, and ".json", ".xsd", ".cddl", ".proto", etc. for
 corresponding concrete schemas.
 
 ## F.2 Registration Process
-OpenC2 TC work product names and shorthands are coordinated with
-OASIS TC Administration during initial work product definition.
-Namespace URIs are based on the shorthands from this
-coordination, omitting the filename and the "docs" domain
-component, and using "http" as the scheme component.
+
+The OASIS Naming Directives [[OASIS-Naming](#oasis)] include guidance on the
+assignment of XML namespaces (Section 8), which OpenC2 has adapted for use with
+JADN schemas developed for the OpenC2 language and actuator profiles. The
+pattern for an OASIS namespace is:
+
+<center><strong>http://docs.oasis-open.org/[tc-shortname]/ns/xxxx</strong></center>
+<br>
+
+For OpenC2 the `[tc-shortname]` portion is `openc2`.
+
+The **`xxxx`** portion of the pattern is defined according to the needs of the
+TC. OpenC2 needs namespaces for the language specification, actuator profiles,
+and external data types that are needed for integration with OpenC2
+applications. These are addressed by defining  **`xxxx`** as follows:
+
+* Language:  
+  * **`lang`** for the base language specification (e.g., message formats), and 
+  * **`types`** for the collection of common data types used in the language and
+    actuator profile schemas
+* Actuator Profiles:  use the short form name for the AP (e.g.,  **`pf`**, **`hunt`**)
+  as assigned during the initial definition of the work product
+  - for APs this will match the GitHub repository name:
+    - Repository: https://github.com/oasis-tcs/openc2-ap-hunt
+    - Namespace http://docs.oasis-open.org/openc2/ns/ap/hunt/vX.Y
+* Externals: names are developed as needed, and approved through the TC working
+  meetings process. External namspaces are grouped under `**ext**`
+  - example:  `**sco**` for STIX Cyber-security Observables
+  - http://docs.oasis-open.org/openc2/ns/ext/sco/v2.1
+
+The following example illustrates the application of these conventions for the SBOM Retrieval AP:
 
 * **Actuator Profile Name**: ap-\<function-shorthand\> (e.g.,
-  "av" for anti-virus)
+  **`sbom`** for SBOM Retrieval), hence **`ap-sbom`**.
 * **Example Profile URL**:
-  https://docs.oasis-open.org/openc2/ap-av/v1.0/ap-av-v1.0.html
-* **Example Namespace**: http://oasis-open.org/openc2/ap-av/v1.0
-* **Example Schema URL**:
-  https://oasis-open.org/openc2/ap-av/v1.0/schema.jadn
+  https://docs.oasis-open.org/openc2/ap-abom/v2.0/ap-sbom-v2.0.html
+* **Example Namespace**: http://docs.oasis-open.org/openc2/ap/sbom/v2.0
+
+Namespaces are recorded in the [[OpenC2 Namespace Registry](#openc2-ns-reg)]
+along with the short name for the work product or external entity.  Actuator
+Profiles are also assigned a numeric Property ID that is used to refernece them
+within the language schema.
+
+Figure F-1 illustrates the relationships among these concepts.
+
+##### Figure F-1: Namespaces and Related Concepts
+![Figure F-1](images/namespace-schemas.drawio.png)
+
+
 
 Custom actuator profile namespaces are chosen by the profile
 author and should be chosen to avoid conflict with namespace URIs
