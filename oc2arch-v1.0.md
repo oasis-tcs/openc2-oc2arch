@@ -1472,7 +1472,12 @@ transfer specifcation will be found in Appendix E.
 
 -------
 
-# Appendix F. OpenC2 Namespace Registry
+# Appendix F. OpenC2 Namespace Procedures
+
+This appendix describes how the OpenC2 TC manages namespaces for JADN schemas.
+The current OpenC2 namespace registry is stored on GitHub in the repository for
+this specification:
+[namespace-registry.md](https://github.com/oasis-tcs/openc2-oc2arch/blob/published/namespace-registry.md).
 
 
 ## F.1 Namespace Concepts
